@@ -5,6 +5,7 @@
 <configuration>
 	<properties resource="com/codeshot/db/db.properties"></properties>
 	<typeAliases>
+		<typeAlias type="com.codeshot.model.UserDTO" alias="UserDTO"/>
 	</typeAliases>
   <environments default="development">
     <environment id="development">

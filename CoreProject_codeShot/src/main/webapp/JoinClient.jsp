@@ -10,7 +10,7 @@
 	<%
 		request.setAttribute("checkJoin", "Client");
 	%>
-	<form action="JoinService">
+	<form action="JoinService.do">
 		이메일 : <input type="text"  placeholder="Email을 입력하세요" name="email"><br>
 		패스워드 : <input type="password"  placeholder="Password를 입력하세요" name="pw"><br>
 		이름 : <input type="text"  placeholder="이름을 입력하세요" name="name"><br>

@@ -14,7 +14,7 @@ static SqlSessionFactory sqlSessionFactory = null;
 	{
 		try 
 		{
-			String resource = "com/smhrd/db/config.xml";
+			String resource = "com/codechot/db/config.xml";
 			InputStream inputStream = Resources.getResourceAsStream(resource);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		}

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.codeshot.command.Command;
+import com.codeshot.controller.JoinService;
 
 public class FrontController extends HttpServlet 
 {
@@ -32,9 +33,9 @@ public class FrontController extends HttpServlet
 		String moveURL = null;
 		Command service = null;
 		
-		if(result.equals("LoginService.do")) 
+		if(result.equals("JoinService.do")) 
 		{
-			//service = new LoginService();
+			service = new JoinService();
 			moveURL = service.execute(request, response);
 		}
 		
