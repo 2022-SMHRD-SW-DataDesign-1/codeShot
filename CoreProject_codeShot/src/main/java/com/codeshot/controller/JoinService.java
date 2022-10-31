@@ -20,20 +20,20 @@ public class JoinService implements Command
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
-		String checkJoin = (String)session.getAttribute("checkJoin");
+		String isExpert = (String)session.getAttribute("isExpert");
 		String career = request.getParameter("career");
 		
 		System.out.println("email : "+email);
 		System.out.println("pw : "+pw);
 		System.out.println("name : "+name);
 		System.out.println("phone : "+phone);
-		System.out.println("checkJoin : "+checkJoin);
+		System.out.println("isExpert : "+isExpert);
 		System.out.println("career : "+career);
 		
 		
-		if(checkJoin.equals("Client")) 
+		if(isExpert.equals("N")) 
 		{
-			UserDTO dto = new UserDTO(email,pw,name,phone,checkJoin,null);
+			UserDTO dto = new UserDTO(email,pw,name,null,isExpert,phone,null,null);
 			int row = new UserDAO().joinClient(dto);
 			
 			if(row > 0) 
@@ -45,9 +45,9 @@ public class JoinService implements Command
 				System.out.println("Client 회원가입 실패!");
 			}
 		}
-		else if(checkJoin.equals("Expert")) 
+		else if(isExpert.equals("Y")) 
 		{
-			UserDTO dto = new UserDTO(email,pw,name,phone,checkJoin,career);
+			UserDTO dto = new UserDTO(email,pw,name,career,isExpert,phone,null,null);
 			int row = new UserDAO().joinExpert(dto);
 			
 			if(row > 0) 

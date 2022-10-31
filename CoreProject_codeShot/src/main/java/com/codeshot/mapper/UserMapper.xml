@@ -2,14 +2,40 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.codeshot.mapper">
+<mapper namespace="com.codeshot.mapper.UserMapper">
 	<insert id="joinClient" parameterType="UserDTO">
-		insert into ddockuser values(email=#{email},pw=#{pw},name=#{name},phone=#{phone},isExpert='N',career=null) 
+		INSERT INTO tbl_user
+		    (mem_email, 
+		    mem_pw, 
+		    mem_name, 
+		    mem_career,
+		    mem_expert, 
+		    mem_phone, 
+		    mem_joindate, 
+		    mem_type)
+		VALUES
+		    (#{email}, 
+		    #{pw}, 
+		    #{name}, 
+		    null,
+		    'N', 
+		    #{phone}, 
+		    sysdate, 
+		    'U')
 	</insert>
 	<insert id="joinExpert" parameterType="UserDTO">
-		insert into ddockuser values(email=#{email},pw=#{pw},name=#{name},phone=#{phone},isExpert='Y',career=#{career})
+		INSERT INTO tbl_user
+		VALUES
+		    (#{email},
+		    #{pw},
+		    #{name},
+		    #{career},
+		    'Y',
+		    #{phone},
+		    sysdate,
+		    'U')
 	</insert>
 	<select id="login" parameterType="UserDTO" resultType="UserDTO">
-		select * from ddockuser where email=#{email} and pw=#{pw}
+		select * from tbl_user where mem_email=#{email} and mem_pw=#{pw}
 	</select>
 </mapper>

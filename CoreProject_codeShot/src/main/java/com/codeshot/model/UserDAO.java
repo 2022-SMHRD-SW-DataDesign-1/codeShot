@@ -8,7 +8,8 @@ import com.codeshot.db.SqlSessionManager;
 public class UserDAO 
 {
 	
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+
 	
 	public int joinClient(UserDTO dto) 
 	{

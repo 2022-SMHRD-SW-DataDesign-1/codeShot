@@ -19,5 +19,6 @@
     </environment>
   </environments>
   <mappers>
+  	<mapper resource="com/codeshot/mapper/UserMapper.xml"/>
   </mappers>
 </configuration>

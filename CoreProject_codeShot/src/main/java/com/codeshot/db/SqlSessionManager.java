@@ -8,13 +8,13 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class SqlSessionManager 
 {
-static SqlSessionFactory sqlSessionFactory = null;
+	static SqlSessionFactory sqlSessionFactory = null;
 	
 	static 
 	{
 		try 
 		{
-			String resource = "com/codechot/db/config.xml";
+			String resource = "com/codeshot/db/config.xml";
 			InputStream inputStream = Resources.getResourceAsStream(resource);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		}

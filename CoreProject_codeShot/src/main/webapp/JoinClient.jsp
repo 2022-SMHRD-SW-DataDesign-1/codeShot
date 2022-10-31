@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%
-		request.setAttribute("checkJoin", "Client");
+		session.setAttribute("isExpert", "N");
 	%>
 	<form action="JoinService.do">
 		이메일 : <input type="text"  placeholder="Email을 입력하세요" name="email"><br>

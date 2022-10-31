@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.codeshot.command.Command;
 import com.codeshot.controller.JoinService;
+import com.codeshot.controller.LoginService;
 
 public class FrontController extends HttpServlet 
 {
@@ -42,7 +43,7 @@ public class FrontController extends HttpServlet
 		}
 		if(result.equals("LoginService.do")) 
 		{
-			service = new JoinService();
+			service = new LoginService();
 			moveURL = service.execute(request, response);
 		}
 		
