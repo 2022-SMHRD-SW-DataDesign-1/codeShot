@@ -31,5 +31,16 @@ public class UserDAO
 		
 		return row;
 	}
+	
+	public UserDTO login(UserDTO dto) 
+	{
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		UserDTO info = session.selectOne("login", dto);
+		
+		session.close();
+		
+		return info;
+	}
 
 }

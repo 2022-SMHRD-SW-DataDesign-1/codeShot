@@ -33,7 +33,7 @@ public class JoinService implements Command
 		
 		if(checkJoin.equals("Client")) 
 		{
-			UserDTO dto = new UserDTO(email,pw,name,phone,checkJoin);
+			UserDTO dto = new UserDTO(email,pw,name,phone,checkJoin,null);
 			int row = new UserDAO().joinClient(dto);
 			
 			if(row > 0) 

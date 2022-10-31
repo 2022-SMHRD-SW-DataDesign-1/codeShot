@@ -32,8 +32,15 @@ public class FrontController extends HttpServlet
 		
 		String moveURL = null;
 		Command service = null;
+		boolean checkUpdate = false;
 		
 		if(result.equals("JoinService.do")) 
+		{
+			checkUpdate = true;
+			service = new JoinService();
+			moveURL = service.execute(request, response);
+		}
+		if(result.equals("LoginService.do")) 
 		{
 			service = new JoinService();
 			moveURL = service.execute(request, response);
@@ -41,8 +48,15 @@ public class FrontController extends HttpServlet
 		
 		if(moveURL != null) 
 		{
-			RequestDispatcher rd = request.getRequestDispatcher(moveURL);
-			rd.forward(request, response);
+			if(checkUpdate) 
+			{
+				RequestDispatcher rd = request.getRequestDispatcher(moveURL);
+				rd.forward(request, response);
+			}
+			else 
+			{
+				response.sendRedirect(moveURL);
+			}
 		}
 	}
 
