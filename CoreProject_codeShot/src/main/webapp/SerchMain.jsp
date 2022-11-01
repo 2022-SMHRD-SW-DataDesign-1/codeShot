@@ -1,3 +1,5 @@
+<%@page import="com.codeshot.model.PostDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.codeshot.model.PostDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -12,7 +14,7 @@
 	String userInput = request.getParameter("userInput");
 
 	PostDAO dao = new PostDAO();
-	dao.serchPost(userInput);
+	List<PostDTO> postList = dao.serchPost(userInput);
 %>
 <div>
 	<h3>검색</h3>
@@ -43,11 +45,14 @@
 </div>
 <section><%=userInput%>에 대한 결과입니다.
 </section>
-<div>서비스 결과 갯수 출력</div>
+<div><%=postList.size() %>개의 서비스 결과</div>
 <section>
 	<div>
 		<article>
-			<a>제목</a>
+			<a>
+				<div>사진</div>
+				<div>제목</div>		
+			</a>
 		</article>
 	</div>
 </section>
