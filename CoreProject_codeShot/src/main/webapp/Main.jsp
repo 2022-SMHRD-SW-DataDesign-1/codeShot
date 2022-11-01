@@ -23,7 +23,7 @@
 	</div>
 	<div>
 		<h3>회원</h3>
-		<a href="SellDetail.jsp">판매하기</a>
+		<a href="PostDetail.jsp">판매하기</a>
 		<a href="MyPage.jsp">마이페이지</a>
 		<ul>
 			<li><a href="EditInfo.jsp">내정보 수정</a></li>
@@ -33,6 +33,12 @@
 			<li><a href="ReviewList.jsp">리뷰목록</a></li>
 			<li><a href="LogoutService.do">로그아웃</a></li>
 		</ul>
+	</div>
+	<div>
+		<a href="PostMain.jsp?postType=outsourcingPost" id="outsourcingPost">외주</a>
+		<a href="PostMain.jsp?postType=codePost" id="codePost">소스코드</a>
+		<a href="SiteIntroduce.jsp">사이트소개</a>
+		<a href="FAQ.jsp">FAQ</a>
 	</div>
 </body>
 </html>
