@@ -56,6 +56,8 @@ public class FrontController extends HttpServlet
 		{
 			service = new EditInfoService();
 			moveURL = service.execute(request, response);
+			if(moveURL.equals("EditInfo.jsp"))
+				checkUpdate = true;
 		}
 		
 		if(moveURL != null) 
