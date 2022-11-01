@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.codeshot.command.Command;
+import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
 
@@ -50,6 +51,12 @@ public class FrontController extends HttpServlet
 			moveURL = service.execute(request, response);
 		}
 		
+		// 회원정보 수정
+		else if(result.equals("EditInfoService.do")) 
+		{
+			service = new EditInfoService();
+			moveURL = service.execute(request, response);
+		}
 		
 		if(moveURL != null) 
 		{
