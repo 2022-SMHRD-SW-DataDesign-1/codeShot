@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.codeshot.command.Command;
-import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
 
@@ -47,14 +46,7 @@ public class FrontController extends HttpServlet
 		// 로그인
 		else if(result.equals("LoginService.do")) 
 		{
-			checkUpdate = true;
 			service = new LoginService();
-			moveURL = service.execute(request, response);
-		}
-		else if(result.equals("EditInfoService.do")) 
-		{
-			checkUpdate = true;
-			service = new EditInfoService();
 			moveURL = service.execute(request, response);
 		}
 		

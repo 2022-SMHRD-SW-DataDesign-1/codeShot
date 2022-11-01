@@ -6,4 +6,8 @@
 	<select id="showPost" resultType="PostDTO">
 		select * from tbl_post order by post_num desc
 	</select>
+	
+	<select id="serchPost" parameterType="String" resultType="PostDTO">
+		select * from tbl_post where POST_TITLE like %#{userInput}%
+	</select>
 </mapper>
