@@ -10,8 +10,9 @@
 	<h1>DDock</h1>
 	<div>
 		<h3>검색</h3>
-		<form>
-			<input type="text">
+		<form action="SerchMain.jsp" method="get">
+			<input type="text" name="userInput"><br>
+			<input type="submit" value="검색">
 		</form>
 		<h3>비회원</h3>
 		<button>로그인</button>

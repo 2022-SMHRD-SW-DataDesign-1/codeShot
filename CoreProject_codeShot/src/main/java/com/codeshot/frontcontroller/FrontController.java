@@ -35,17 +35,21 @@ public class FrontController extends HttpServlet
 		Command service = null;
 		boolean checkUpdate = false;
 		
+		// 회원가입
 		if(result.equals("JoinService.do")) 
 		{
 			checkUpdate = true;
 			service = new JoinService();
 			moveURL = service.execute(request, response);
 		}
-		if(result.equals("LoginService.do")) 
+		
+		// 로그인
+		else if(result.equals("LoginService.do")) 
 		{
 			service = new LoginService();
 			moveURL = service.execute(request, response);
 		}
+		
 		
 		if(moveURL != null) 
 		{
@@ -59,6 +63,8 @@ public class FrontController extends HttpServlet
 				response.sendRedirect(moveURL);
 			}
 		}
-	}
+		
+		
+	}// service 끝
 
-}
+}// class 끝
