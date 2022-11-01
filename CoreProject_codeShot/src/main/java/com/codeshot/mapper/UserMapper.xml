@@ -30,4 +30,12 @@
 	<select id="login" parameterType="UserDTO" resultType="UserDTO">
 		select * from tbl_user where mem_email=#{email} and mem_pw=#{pw}
 	</select>
+	<update id="updateInfo" parameterType="UserDTO">
+		update tbl_user
+		set mem_pw=#{pw},
+			mem_name=#{name},
+			mem_career=#{career},
+			mem_phone=#{phone}
+		where mem_email=#{email}
+	</update>
 </mapper>
