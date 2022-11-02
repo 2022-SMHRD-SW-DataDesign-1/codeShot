@@ -54,5 +54,16 @@ public class UserDAO
 		
 		return row;
 	}
+	
+	public boolean checkSameEmail(String inputE) 
+	{
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		boolean checkEmail = session.selectOne("checkSameEmail", inputE);
+		
+		session.close();
+		
+		return checkEmail;
+	}
 
 }

@@ -38,4 +38,10 @@
 			mem_phone=#{phone}
 		where mem_email=#{email}
 	</update>
+	<select id="checkSameEmail" parameterType="String" resultType="boolean">
+		select case when count(*)>0 then 1
+					else 0
+					end result 
+		from tbl_user where mem_email=#{inputE}
+	</select>
 </mapper>

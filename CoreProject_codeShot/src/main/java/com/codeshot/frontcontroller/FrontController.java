@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.codeshot.command.Command;
+import com.codeshot.controller.CheckEmailService;
 import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
@@ -58,6 +59,13 @@ public class FrontController extends HttpServlet
 			moveURL = service.execute(request, response);
 			if(moveURL.equals("EditInfo.jsp"))
 				checkUpdate = true;
+		}
+		
+		// 이메일 중복 체크
+		else if(result.equals("CheckEmailService.do")) 
+		{
+			service = new CheckEmailService();
+			moveURL = service.execute(request, response);
 		}
 		
 		if(moveURL != null) 
