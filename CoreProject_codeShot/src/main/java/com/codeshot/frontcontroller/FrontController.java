@@ -13,6 +13,7 @@ import com.codeshot.controller.CheckEmailService;
 import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
+import com.codeshot.controller.LogoutService;
 
 public class FrontController extends HttpServlet 
 {
@@ -65,6 +66,13 @@ public class FrontController extends HttpServlet
 		else if(result.equals("CheckEmailService.do")) 
 		{
 			service = new CheckEmailService();
+			moveURL = service.execute(request, response);
+		}
+		
+		// 로그아웃
+		else if(result.equals("LogoutService.do")) 
+		{
+			service = new LogoutService();
 			moveURL = service.execute(request, response);
 		}
 		

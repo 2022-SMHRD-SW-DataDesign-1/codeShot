@@ -30,13 +30,13 @@
 		<h3>회원</h3>
 		<a href="PostWrite.jsp">판매하기</a>
 		<a href="MyPage.jsp">마이페이지</a>
+		<a href="LogoutService.do">로그아웃</a>
 		<ul>
 			<li><a href="EditInfo.jsp">내정보 수정</a></li>
 			<li><a href="EditPost.jsp">게시글 관리</a></li>
 			<li><a href="ChatMain.jsp">채팅</a></li>
 			<li><a href="WishList.jsp">찜 목록</a></li>
 			<li><a href="ReviewList.jsp">리뷰목록</a></li>
-			<li><a href="LogoutService.do">로그아웃</a></li>
 		</ul>
 	</div>
 	<div>
