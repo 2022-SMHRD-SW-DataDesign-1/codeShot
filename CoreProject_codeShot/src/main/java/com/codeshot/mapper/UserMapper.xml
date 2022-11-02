@@ -44,4 +44,8 @@
 					end result 
 		from tbl_user where mem_email=#{inputE}
 	</select>
+	<delete id="withdrawal" parameterType="String">
+		delete from tbl_user
+		where mem_email=#{email}
+	</delete>
 </mapper>

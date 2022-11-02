@@ -14,6 +14,12 @@
 	System.out.println(checkPW);
 %>
 	<div>
+		<ul>
+			<li><a href="EditInfo.jsp">개인정보 수정</a></li>
+			<li><a href="UserWithdrawal.jsp">회원 탈퇴</a></li>
+		</ul>
+	</div>
+	<div>
 		<form action="EditInfoService.do" method="post">
 		이름 : <input name="name" type="text" value="<%= info.getName() %>"><br>
 		이메일 : <span><%= info.getEmail() %></span><br>

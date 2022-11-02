@@ -65,5 +65,16 @@ public class UserDAO
 		
 		return checkEmail;
 	}
+	
+	public int withdrawal(String email) 
+	{
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		int row = session.delete("withdrawal", email);
+		
+		session.close();
+		
+		return row;
+	}
 
 }

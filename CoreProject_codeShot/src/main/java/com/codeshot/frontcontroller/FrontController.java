@@ -14,6 +14,7 @@ import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
 import com.codeshot.controller.LogoutService;
+import com.codeshot.controller.WithdrawalService;
 
 public class FrontController extends HttpServlet 
 {
@@ -58,7 +59,7 @@ public class FrontController extends HttpServlet
 		{
 			service = new EditInfoService();
 			moveURL = service.execute(request, response);
-			if(moveURL.equals("EditInfo.jsp"))
+			if(moveURL.equals("Main.jsp"))
 				checkUpdate = true;
 		}
 		
@@ -75,17 +76,28 @@ public class FrontController extends HttpServlet
 			service = new LogoutService();
 			moveURL = service.execute(request, response);
 		}
+
+		// 회원 탈퇴
+		else if(result.equals("WithdrawalService.do")) 
+		{
+			service = new WithdrawalService();
+			moveURL = service.execute(request, response);
+			if(moveURL.equals("Main.jsp"))
+				checkUpdate = true;
+			System.out.println(checkUpdate+moveURL);
+		}
 		
 		if(moveURL != null) 
 		{
 			if(checkUpdate) 
 			{
-				RequestDispatcher rd = request.getRequestDispatcher(moveURL);
-				rd.forward(request, response);
+				response.sendRedirect(moveURL);
 			}
 			else 
 			{
-				response.sendRedirect(moveURL);
+				System.out.println("실행");
+				RequestDispatcher rd = request.getRequestDispatcher(moveURL);
+				rd.forward(request, response);
 			}
 		}
 		
