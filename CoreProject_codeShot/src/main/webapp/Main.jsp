@@ -9,11 +9,14 @@
 <body>
 	<h1>DDock</h1>
 	<div>
-		<h3>검색</h3>
-		<form action="SerchMain.jsp" method="get">
-			<input id="search-input-box" type="text" name="userInput"><br>
-			<input type="submit" value="검색">
-		</form>
+	    <h3>검색</h3>
+	    <form action="SerchMain.jsp" method="get">
+	        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput"><br>
+	        <input type="submit" value="검색">
+	    </form>
+	    <ul id="suggest-list"></ul> 
+	</div>
+	<div>
 		<h3>비회원</h3>
 		<button>로그인</button>
 		<a href="JoinSelect.jsp"><button>회원가입</button></a>
@@ -48,9 +51,9 @@
 	
 	<!-- script -->
 	
-	<!-- 2022-11-02 / 김지수 / 검색 부가기능 추가 -->
-	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	<!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
+	<script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	<script src="./SuggestWord.js"></script>
 
-	
 </body>
 </html>
