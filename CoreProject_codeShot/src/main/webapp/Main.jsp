@@ -11,7 +11,7 @@
 	<div>
 		<h3>검색</h3>
 		<form action="SerchMain.jsp" method="get">
-			<input type="text" name="userInput"><br>
+			<input id="search-input-box" type="text" name="userInput"><br>
 			<input type="submit" value="검색">
 		</form>
 		<h3>비회원</h3>
@@ -45,5 +45,12 @@
 		<a href="SiteIntroduce.jsp">사이트소개</a>
 		<a href="FAQ.jsp">FAQ</a>
 	</div>
+	
+	<!-- script -->
+	
+	<!-- 2022-11-02 / 김지수 / 검색 부가기능 추가 -->
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+	
 </body>
 </html>
