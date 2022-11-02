@@ -22,9 +22,9 @@ public class PostDAO
 	}
 	
 	//2022-11-01-김지수/게시글 검색
-	public List<PostDTO> serchPost(String userInput) {
+	public List<PostDTO> searchPost(String userInput) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		List<PostDTO> postList = session.selectList("serchPost", userInput);
+		List<PostDTO> postList = session.selectList("searchPost", userInput);
 		session.close();
 		return postList;
 	}

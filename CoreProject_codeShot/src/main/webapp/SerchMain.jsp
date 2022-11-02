@@ -12,9 +12,10 @@
 <body>
 <%
 	String userInput = request.getParameter("userInput");
+	System.out.println(userInput);
 
 	PostDAO dao = new PostDAO();
-	List<PostDTO> postList = dao.serchPost(userInput);
+	List<PostDTO> postList = dao.searchPost(userInput);
 %>
 <div>
 	<h3>검색</h3>
@@ -43,7 +44,9 @@
 		href="PostMain.jsp?postType=codePost">소스코드</a> <a
 		href="SiteIntroduce.jsp">사이트소개</a> <a href="FAQ.jsp">FAQ</a>
 </div>
-<section><%=userInput%>에 대한 결과입니다.
+<section>
+	<%=userInput%>에 대한 결과입니다.
+	<%System.out.print(postList.size()); %>
 </section>
 <div><%=postList.size() %>개의 서비스 결과</div>
 <section>

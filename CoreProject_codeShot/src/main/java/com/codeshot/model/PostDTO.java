@@ -1,5 +1,7 @@
 package com.codeshot.model;
 
+import java.math.BigDecimal;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
@@ -11,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class PostDTO {
 
 	//게시물번호
-	private int post_num;
+	private BigDecimal post_num;
 	//카테고리구분
 	@NonNull private String post_category;
 	//회원이메일
@@ -25,7 +27,7 @@ public class PostDTO {
 	//주의사항
 	private String post_precautions;
 	//가격
-	private String post_price;
+	private BigDecimal post_price;
 	//첨부파일
 	private String post_file;
 
