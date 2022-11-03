@@ -16,11 +16,6 @@
 	ChatDAO dao = new ChatDAO();
 	List<ChatRoomDTO> chatRoomList = dao.showChatRoom(info.getEmail());
 	int count = 0;
-	String chatRoomTitle = "";
-	if(chatRoomList != null)
-	{
-		chatRoomTitle = chatRoomList.get(0).getRoom_title();
-	}
 %>
 	<div>
 		<ul>
@@ -38,12 +33,12 @@
 	</div>
 	<div>
 		<fieldset id="chatBox">
-			<legend id="chatTitle"><%= chatRoomTitle %></legend>
+			<legend id="chatTitle"></legend>
 		</fieldset>
 		<form action="ChattingService.do" method="post" enctype="multipart/form-data">
 			<input name="inputChat" type="text">
-			<input name="chatFilename" type="file">
-			<input type="submit" value="전송">
+			<input type="submit" value="전송"><br>
+			<input name="chatFilename" type="file"><br>
 		</form>
 	</div>
 	<script src="./assets/jquery/jquery-3.6.1.min.js"></script>
@@ -51,23 +46,32 @@
 		function selectChatRoom(selectRoomNum, clicked_id)
 		{
 			let roomNum = selectRoomNum
+			let chatBox = document.getElementById('chatBox');
+			let roomTitle = document.querySelector("#"+clicked_id+" #roomTitle");
 			console.log(roomNum);
+			console.log('#'+clicked_id+' #roomTitle');
 			
 			$.ajax({
 				url : 'ShowChattingService.do',
 				data : {'roomNum':roomNum},
 				type : 'post',
-				dataType : json,
+				dataType : 'json',
 				success : function(chattingList){
-					let chatTitle = document.getElementById('chatTitle');
-					let chatBox = document.getElementById('chatBox');
 					
-					chatTitle.innerText(document.querySelector('#'+clicked_id+' #roomTitle').textContent);
+					console.log(roomTitle.textContent);
+					
+					// 초기화
+					chatBox.innerHTML = "<legend id='chatTitle'></legend>";
+					
+					console.log(roomTitle.textContent);
+					let chatTitle = document.getElementById('chatTitle');
+					chatTitle.innerText = roomTitle.textContent;
 					
 					for(let i = 0; i < chattingList.length; i++)
 					{
-						chatBox.innerHTML(chattingList[i].chat_content);
+						chatBox.innerHTML += chattingList[i].chat_content+"<br>";
 					}
+					
 				},
 				error : function(){
 					console.log("통신실패");	

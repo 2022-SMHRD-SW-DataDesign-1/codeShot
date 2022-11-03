@@ -1,5 +1,8 @@
 package com.codeshot.model;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -8,10 +11,10 @@ import lombok.Getter;
 public class ChattingDTO 
 {
 	
-	private int chat_num;
+	private BigDecimal chat_num;
 	private String talker;
 	private String chat_content;
-	private String chat_time;
-	private int room_num;
+	private Timestamp chat_time;
+	private BigDecimal room_num;
 	
 }

@@ -1,5 +1,8 @@
 package com.codeshot.model;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -7,10 +10,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public class ChatRoomDTO 
 {
-	private int room_num;
+	private BigDecimal room_num;
 	private String seller_email;
 	private String buyer_email;
 	private String room_title;
 	private String room_description;
-	private String room_opendate;
+	private Timestamp room_opendate;
 }
