@@ -31,7 +31,7 @@ function addList(target){
 		console.log(list.length);
 		
 		for(let i=0; i<list.length; i++){
-			resultHTML += `<li>'${list[i].post_title}'</li>`;
+			resultHTML += `<li>${list[i].post_title}</li>`;
 		}
 		suggestList.innerHTML = resultHTML;
 	} //endsuggestWord end
