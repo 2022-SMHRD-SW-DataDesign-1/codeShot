@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>com.codeshot.frontcontroller.FrontController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SuggestWordService</servlet-name>
+  	<display-name>SuggestWordService</display-name>
+  	<description></description>
+  	<servlet-class>com.codeshot.controller.SuggestWordService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>FrontController</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SuggestWordService</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
 </web-app>
