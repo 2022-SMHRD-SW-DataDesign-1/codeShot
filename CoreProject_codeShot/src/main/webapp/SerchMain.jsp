@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SerchMain</title>
+<title>SearchMain</title>
 </head>
 <body>
 <%
@@ -52,7 +52,13 @@
 		<%=userInput%>에 대한 결과입니다.
 		<%System.out.print(postList.size()); %>
 	</section>
-	<div><%=postList.size() %>개의 서비스 결과</div>
+
+	<%if(postList.size()<1){%>
+		<div>검색 결과가 없습니다.</div>
+	<%} else {%>
+		<div><%=postList.size() %>개의 서비스 결과</div>
+	<%} %>
+	
 	<div>
 		<%for(int i=0; i<postList.size();i++){ %>
 			<div>
@@ -73,5 +79,12 @@
 		<%} %>
 	</div>
 </div>
+
+<!-- script -->
+
+<!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
+<script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="./assets/js/SuggestWord.js"></script>
+
 </body>
 </html>

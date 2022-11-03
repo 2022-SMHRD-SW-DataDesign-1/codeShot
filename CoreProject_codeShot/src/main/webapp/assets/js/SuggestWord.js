@@ -12,28 +12,33 @@ const suggestList = document.getElementById("suggest-list");
 function addList(target){
     let userInput = target.value;
     console.log(userInput);
-
+    
+	if(userInput==""){
+		console.log("공백");
+		userInput ="공백까지서치되는것을막기위한변수대입"
+		suggestList.innerHTML="";
+	}
     // start ajax
     $.ajax({
         url:'SuggestWordService.do',
         data:{'userInput':userInput},
         type:'get',
-        // dataType:'json',
         success : suggestWord,
         error :function(){
             console.log("실패!");
         }
     }); // end ajax end
     
-    let resultHTML ="";
-    
-    function suggestWord(list){
-		console.log(list.length);
-		
-		for(let i=0; i<list.length; i++){
-			resultHTML += `<li>${list[i].post_title}</li>`;
-		}
-		suggestList.innerHTML = resultHTML;
-	} //endsuggestWord end
-
 }; //addList end
+
+    
+function suggestWord(list){
+   let resultHTML ="";
+	console.log("길이"+list.length);
+	
+	for(let i=0; i<list.length; i++){
+		resultHTML += `<li style="list-style: none;"><a href="SerchMain.jsp?userInput=${list[i].post_title}">${list[i].post_title}</a></li>`;
+	}
+	
+	suggestList.innerHTML = resultHTML;
+} //endsuggestWord end
