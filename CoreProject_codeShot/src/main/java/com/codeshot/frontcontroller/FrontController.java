@@ -14,6 +14,7 @@ import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
 import com.codeshot.controller.LogoutService;
+import com.codeshot.controller.SuggestWordService;
 import com.codeshot.controller.WithdrawalService;
 
 public class FrontController extends HttpServlet 
@@ -85,6 +86,12 @@ public class FrontController extends HttpServlet
 			if(moveURL.equals("Main.jsp"))
 				checkUpdate = true;
 			System.out.println(checkUpdate+moveURL);
+		}
+		
+		// 검색 부가 기능
+		else if(result.equals("SuggestWordService.do"))
+		{
+			service = new SuggestWordService();
 		}
 		
 		if(moveURL != null) 
