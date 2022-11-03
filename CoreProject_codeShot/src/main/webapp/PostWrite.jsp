@@ -8,9 +8,9 @@
 </head>
 <!-- 2022-11-01-고정연/게시글 작성 페이지 html -->
 <body> 
-	<form action="PostService.do" method="post" enctype="multipart/form-data">
 		<h1> DDock </h1>
-		<input type="submit">
+		<button> 제출하기 </button>
+	<form action="PostService.do" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td> 제목 </td>
@@ -27,8 +27,8 @@
 			<tr>
 				<td> 하위 카테고리
 					<select name="post_category">
-						<option> WEB </option>
-						<option> APP </option>
+						<option value="web"> WEB </option>
+						<option value="app"> APP </option>
 					</select>
 				</td>
 			</tr>
@@ -55,10 +55,10 @@
 			</tr>
 		</table>
 	</form>
-	<form action="PortfolioService.do">
+	<form action="PortfolioService.do" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
-				<td> 포트폴리오 </td>
+				<td> 포트폴리오 파일 </td>
 				<td> <input type="file" name="pf_file" multiple> </td>
 			</tr>
 		</table>

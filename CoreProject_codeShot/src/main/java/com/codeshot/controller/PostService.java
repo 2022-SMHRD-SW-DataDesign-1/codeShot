@@ -41,7 +41,11 @@ public class PostService implements Command {
 			e.printStackTrace();
 		}
 		
+		String postCategory = multi.getParameter("post_category");
 		String postTitle = multi.getParameter("post_title");
+		String postExplain = multi.getParameter("post_explain");
+		String postStandard = multi.getParameter("post_standard");
+		String postPrecautions = multi.getParameter("post_precautions");
 		BigDecimal postPrice = new BigDecimal(multi.getParameter("post_price"));
 		String codeFile = multi.getFilesystemName("post_file");
 		try {
@@ -49,19 +53,16 @@ public class PostService implements Command {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-
-		String postExplain = multi.getParameter("post_explain");
-		String postPrecautions = multi.getParameter("post_precautions");
-		String postStandard = multi.getParameter("post_standard");
 	
+		System.out.println("post_category : " + postCategory);
 		System.out.println("post_title : " + postTitle);
+		System.out.println("postExplain : " + postExplain);
+		System.out.println("postStandard : " + postStandard);
+		System.out.println("postPrecautions : " + postPrecautions);
 		System.out.println("postPrice : " + postPrice);
 		System.out.println("codeFile : " + codeFile);
-		System.out.println("postExplain : " + postExplain);
-		System.out.println("postPrecautions : " + postPrecautions);
-		System.out.println("postStandard : " + postStandard);
 		
-		PostDTO dto = new PostDTO(postTitle, postExplain, postStandard, postPrecautions, postPrice, codeFile);
+		PostDTO dto = new PostDTO(postCategory, postTitle, postExplain, postStandard, postPrecautions, postPrice, codeFile);
 		
 		
 		return "PostDetail.jsp";
