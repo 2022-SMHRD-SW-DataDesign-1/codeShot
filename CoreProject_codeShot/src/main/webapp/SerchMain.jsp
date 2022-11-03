@@ -21,9 +21,9 @@
 	<div>
 	    <h3>검색</h3>
 	    <form action="SerchMain.jsp" method="get">
-	        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput"><br>
-		    <ul id="suggest-list"></ul> 
+	        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput">
 	        <input type="submit" value="검색">
+		    <ul id="suggest-list"></ul> 
 	    </form>
 	</div>
 	<div>
