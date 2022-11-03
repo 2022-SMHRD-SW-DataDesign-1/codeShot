@@ -1,4 +1,4 @@
-<%@page import="com.codeshot.model.ChatRoomDAO"%>
+<%@page import="com.codeshot.model.ChatDAO"%>
 <%@page import="com.codeshot.model.ChatRoomDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.codeshot.model.UserDTO"%>
@@ -12,8 +12,8 @@
 </head>
 <body>
 <%
-	UserDTO info = (UserDTO)session.getAttribute("info");
-	List<ChatRoomDTO> chatRoomList = new ChatRoomDAO().showChatRoom(info.getEmail());
+UserDTO info = (UserDTO)session.getAttribute("info");
+	List<ChatRoomDTO> chatRoomList = new ChatDAO().showChatRoom(info.getEmail());
 	int roomNum = 0;
 %>
 	<div>

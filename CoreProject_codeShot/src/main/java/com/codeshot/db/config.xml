@@ -8,6 +8,7 @@
 		<typeAlias type="com.codeshot.model.UserDTO" alias="UserDTO"/>
 		<typeAlias type="com.codeshot.model.PostDTO" alias="PostDTO"/>
 		<typeAlias type="com.codeshot.model.ChatRoomDTO" alias="ChatRoomDTO"/>
+		<typeAlias type="com.codeshot.model.ChattingDTO" alias="ChattingDTO"/>
 	</typeAliases>
   <environments default="development">
     <environment id="development">

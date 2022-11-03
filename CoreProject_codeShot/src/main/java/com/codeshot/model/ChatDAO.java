@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.codeshot.db.SqlSessionManager;
 
-public class ChatRoomDAO 
+public class ChatDAO 
 {
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
@@ -21,6 +21,17 @@ public class ChatRoomDAO
 		session.close();
 		
 		return chatRoomList;
+	}
+	
+	public List<ChattingDTO> showChatting(int roomNum) 
+	{
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		List<ChattingDTO> chattingList = session.selectList("showChatting", roomNum);
+		
+		session.close();
+		
+		return chattingList;
 	}
 
 }
