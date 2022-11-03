@@ -9,8 +9,9 @@
 <!-- 2022-11-01-고정연/게시글 작성 페이지 html -->
 <body> 
 		<h1> DDock </h1>
-		<button> 제출하기 </button>
+		
 	<form action="PostService.do" method="post" enctype="multipart/form-data">
+		<input type="submit">
 		<table>
 			<tr>
 				<td> 제목 </td>

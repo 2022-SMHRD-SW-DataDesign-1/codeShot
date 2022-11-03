@@ -28,5 +28,12 @@ public class PostDAO
 		session.close();
 		return postList;
 	}
-
+	
+	//2022-11-03-고정연/게시물 업로드
+	public int uploadPost(PostDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.insert("uploadPost",dto);
+		session.close();
+		return row;
+	}
 }

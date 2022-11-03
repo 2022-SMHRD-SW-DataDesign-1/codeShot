@@ -10,4 +10,8 @@
 	<select id="searchPost" parameterType="String" resultType="PostDTO">
 		select * from tbl_post where POST_TITLE like  '%'||#{userInput}||'%'
 	</select>
+	
+	<insert id="uploadPost" parameterType="PostDTO">
+		insert into tbl_post values(tbl_post_seq.nextval,#{post_category},#{mem_email},#{post_title},#{post_explain},#{post_standard},#{post_precautions},#{post_price},#{post_file})
+	</insert>
 </mapper>
