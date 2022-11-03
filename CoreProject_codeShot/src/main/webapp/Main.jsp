@@ -53,7 +53,7 @@
 	
 	<!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
 	<script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-	<script src="./SuggestWord.js"></script>
+	<script src="./assets/js/SuggestWord.js"></script>
 
 </body>
 </html>
