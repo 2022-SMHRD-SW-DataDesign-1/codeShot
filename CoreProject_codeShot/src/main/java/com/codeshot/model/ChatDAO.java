@@ -33,5 +33,16 @@ public class ChatDAO
 		
 		return chattingList;
 	}
+	
+	public String getChattingTitle(int roomNum) 
+	{
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		String chattingTitle = session.selectOne("getChattingTitle", roomNum);
+		
+		session.close();
+		
+		return chattingTitle;
+	}
 
 }

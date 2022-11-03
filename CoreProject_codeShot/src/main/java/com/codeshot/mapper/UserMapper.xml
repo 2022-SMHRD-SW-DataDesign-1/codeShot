@@ -5,27 +5,27 @@
 <mapper namespace="com.codeshot.mapper.UserMapper">
 	<insert id="joinClient" parameterType="UserDTO">
 		INSERT INTO tbl_user
-		VALUES
-		    (mem_email=#{email}, 
-		    mem_pw=#{pw}, 
-		    mem_name=#{name}, 
-		    mem_career=null,
-		    mem_expert='N', 
-		    mem_phone=#{phone}, 
-		    mem_joindate=sysdate, 
-		    mem_type='U')
+		VALUES(
+			#{email}, 
+			#{pw}, 
+			#{name}, 
+			null,
+			#{isExpert}, 
+			#{phone}, 
+			sysdate, 
+			'U')
 	</insert>
 	<insert id="joinExpert" parameterType="UserDTO">
 		INSERT INTO tbl_user
-		VALUES
-		    (mem_email=#{email}, 
-		    mem_pw=#{pw}, 
-		    mem_name=#{name}, 
-		    mem_career=#{career},
-		    mem_expert='Y', 
-		    mem_phone=#{phone}, 
-		    mem_joindate=sysdate, 
-		    mem_type='U')
+		VALUES(
+		    #{email}, 
+		    #{pw}, 
+		    #{name}, 
+		    #{career},
+		    #{isExpert}, 
+		    #{phone}, 
+		    sysdate, 
+		    'U')
 	</insert>
 	<select id="login" parameterType="UserDTO" resultType="UserDTO">
 		select * from tbl_user where mem_email=#{email} and mem_pw=#{pw}

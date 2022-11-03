@@ -7,6 +7,10 @@
 		select * from tbl_chatroom where seller_email=#{email} or buyer_email=#{email}
 	</select>
 	<select id="showChatting" parameterType="int" resultType="ChattingDTO">
-		
+		select * from tbl_chatting where room_num=#{roomNum}
+	</select>
+	<select id="getChattingTitle" parameterType="String" resultType="String">
+		select room_title from tbl_chatroom
+		where room_num=#{roomNum}
 	</select>
 </mapper>
