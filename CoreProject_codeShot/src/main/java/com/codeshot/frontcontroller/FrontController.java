@@ -14,6 +14,7 @@ import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
 import com.codeshot.controller.LogoutService;
+import com.codeshot.controller.ShowChattingService;
 import com.codeshot.controller.SuggestWordService;
 import com.codeshot.controller.WithdrawalService;
 
@@ -85,13 +86,19 @@ public class FrontController extends HttpServlet
 			moveURL = service.execute(request, response);
 			if(moveURL.equals("Main.jsp"))
 				checkUpdate = true;
-			System.out.println(checkUpdate+moveURL);
 		}
 		
 		// 검색 부가 기능
 		else if(result.equals("SuggestWordService.do"))
 		{
 			service = new SuggestWordService();
+		}
+		
+		// 체팅 불러오기
+		else if(result.equals("ShowChattingService.do")) 
+		{
+			service = new ShowChattingService();
+			moveURL = service.execute(request, response);
 		}
 		
 		if(moveURL != null) 

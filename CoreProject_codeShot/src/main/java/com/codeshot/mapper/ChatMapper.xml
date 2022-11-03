@@ -3,5 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.codeshot.mapper.ChatMapper">
-	
+	<select id="showChatRoom" parameterType="String" resultType="ChatRoomDTO">
+		select * from tbl_chatroom where seller_email=#{email} or buyer_email=#{email}
+	</select>
 </mapper>

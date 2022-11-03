@@ -8,7 +8,8 @@ import lombok.Getter;
 public class ChatRoomDTO 
 {
 	private int room_num;
-	private String mem_email;
+	private String seller_email;
+	private String buyer_email;
 	private String room_title;
 	private String room_description;
 	private String room_opendate;
