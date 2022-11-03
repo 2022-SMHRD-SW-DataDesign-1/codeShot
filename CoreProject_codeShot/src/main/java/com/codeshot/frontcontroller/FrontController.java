@@ -92,6 +92,7 @@ public class FrontController extends HttpServlet
 		else if(result.equals("SuggestWordService.do"))
 		{
 			service = new SuggestWordService();
+			service.execute(request, response);
 		}
 		
 		// 체팅 불러오기
