@@ -19,11 +19,14 @@
 %>
 <div>
 	<div>
-		<h3>검색</h3>
-			<form action="SerchMain.jsp" method="get">
-				<input type="text" name="userInput"><br>
-				<input type="submit" value="검색">
-			</form>
+	    <h3>검색</h3>
+	    <form action="SerchMain.jsp" method="get">
+	        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput"><br>
+	        <input type="submit" value="검색">
+	    </form>
+	    <ul id="suggest-list"></ul> 
+	</div>
+	<div>
 		<h3>비회원</h3>
 		<button>로그인</button>
 		<a href="JoinSelect.jsp"><button>회원가입</button></a>

@@ -19,12 +19,21 @@ function addList(target){
         data:{'userInput':userInput},
         type:'get',
         // dataType:'json',
-        success : function(data){
-            
-
-        },
+        success : suggestWord,
         error :function(){
             console.log("실패!");
         }
-    }); // end ajax
-};
+    }); // end ajax end
+    
+    let resultHTML ="";
+    
+    function suggestWord(list){
+		console.log(list.length);
+		
+		for(let i=0; i<list.length; i++){
+			resultHTML += `<li>'${list[i].post_title}'</li>`;
+		}
+		suggestList.innerHTML = resultHTML;
+	} //endsuggestWord end
+
+}; //addList end
