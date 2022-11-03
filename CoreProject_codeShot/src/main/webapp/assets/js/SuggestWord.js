@@ -18,7 +18,7 @@ function addList(target){
         url:'SuggestWordService.do',
         data:{'userInput':userInput},
         type:'get',
-        dataType:'json',
+        // dataType:'json',
         success : function(data){
             
 

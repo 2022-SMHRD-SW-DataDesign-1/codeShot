@@ -1,5 +1,7 @@
 package com.codeshot.controller;
 
+
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,7 +11,10 @@ public class SuggestWordService implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+		response.setContentType("application/json; charset=UTF-8");
+		
+		
+		
 		return null;
 	}
 
