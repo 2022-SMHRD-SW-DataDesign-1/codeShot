@@ -2,6 +2,7 @@ package com.codeshot.controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.codeshot.command.Command;
+import com.codeshot.model.PostDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -17,7 +19,7 @@ public class PostService implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		ArrayList pfFiles = new ArrayList();
+		System.out.println("[PostService]");
 		
 		// 저장경로
 		String savePath = request.getServletContext().getRealPath("file");
@@ -40,7 +42,7 @@ public class PostService implements Command {
 		}
 		
 		String postTitle = multi.getParameter("post_title");
-		int postPrice = Integer.parseInt(multi.getParameter("post_price"));
+		BigDecimal postPrice = new BigDecimal(multi.getParameter("post_price"));
 		String codeFile = multi.getFilesystemName("post_file");
 		try {
 			codeFile = URLEncoder.encode(codeFile, "UTF-8");
@@ -51,7 +53,7 @@ public class PostService implements Command {
 		String postExplain = multi.getParameter("post_explain");
 		String postPrecautions = multi.getParameter("post_precautions");
 		String postStandard = multi.getParameter("post_standard");
-		
+	
 		System.out.println("post_title : " + postTitle);
 		System.out.println("postPrice : " + postPrice);
 		System.out.println("codeFile : " + codeFile);
@@ -59,7 +61,10 @@ public class PostService implements Command {
 		System.out.println("postPrecautions : " + postPrecautions);
 		System.out.println("postStandard : " + postStandard);
 		
-		return null;
+		PostDTO dto = new PostDTO(postTitle, postExplain, postStandard, postPrecautions, postPrice, codeFile);
+		
+		
+		return "PostDetail.jsp";
 	}
 
 }

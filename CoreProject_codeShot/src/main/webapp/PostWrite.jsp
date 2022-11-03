@@ -10,6 +10,7 @@
 <body> 
 	<form action="PostService.do" method="post" enctype="multipart/form-data">
 		<h1> DDock </h1>
+		<input type="submit">
 		<table>
 			<tr>
 				<td> 제목 </td>
@@ -41,10 +42,6 @@
 				
 			</tr>
 			<tr>
-				<td> 포트폴리오 </td>
-				<td> <input type="file" name="pf_file" multiple> </td>
-			</tr>
-			<tr>
 				<td> 서비스 설명 </td>
 				<td> <textarea name="post_explain" placeholder="내용을 입력해주세요"></textarea> </td>
 			</tr>
@@ -57,7 +54,14 @@
 				<td> <textarea name="post_standard" placeholder="내용을 입력해주세요"></textarea> </td>
 			</tr>
 		</table>
-		<input type="submit">
+	</form>
+	<form action="PortfolioService.do">
+		<table>
+			<tr>
+				<td> 포트폴리오 </td>
+				<td> <input type="file" name="pf_file" multiple> </td>
+			</tr>
+		</table>
 	</form>
 </body>
 </html>
