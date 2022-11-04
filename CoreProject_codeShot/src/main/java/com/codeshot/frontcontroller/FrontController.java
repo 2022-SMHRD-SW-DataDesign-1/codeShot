@@ -14,6 +14,7 @@ import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
 import com.codeshot.controller.LogoutService;
+import com.codeshot.controller.PortfolioService;
 import com.codeshot.controller.PostService;
 import com.codeshot.controller.ShowChattingService;
 import com.codeshot.controller.SuggestWordService;
@@ -107,6 +108,13 @@ public class FrontController extends HttpServlet
 		else if(result.equals("PostService.do"))
 		{
 			service = new PostService();
+			moveURL = service.execute(request, response);
+		}
+		
+		// 포트폴리오 등록
+		else if(result.equals("PortfolioService.do"))
+		{
+			service = new PortfolioService();
 			moveURL = service.execute(request, response);
 		}
 		
