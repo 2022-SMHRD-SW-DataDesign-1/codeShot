@@ -31,7 +31,8 @@ public class PostService implements Command {
 		String savePath = request.getServletContext().getRealPath("file");
 		System.out.println(savePath);
 		
-		int maxSize = 50*1024*1024;
+		// 파일 크기
+		int maxSize = 500*1024*1024;
 		
 		// 인코딩
 		String encoding = "UTF-8";

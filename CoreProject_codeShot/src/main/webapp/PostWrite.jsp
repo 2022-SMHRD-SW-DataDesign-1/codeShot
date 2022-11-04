@@ -55,11 +55,18 @@
 			</tr>
 		</table>
 	</form>
+	
 	<form action="PortfolioService.do" method="post" enctype="multipart/form-data">
+		<input type ="submit">
 		<table>
 			<tr>
 				<td> 포트폴리오 파일 </td>
-				<td> <input type="file" name="pf_file" multiple> </td>
+				<td> <input type="file" name="pf_file0"> <br>
+					 <input type="file" name="pf_file1"> <br>
+					 <input type="file" name="pf_file2"> <br>
+					 <input type="file" name="pf_file3"> <br>
+					 <input type="file" name="pf_file4"> <br>
+					 <input type="file" name="pf_file5"> </td>
 			</tr>
 		</table>
 	</form>
