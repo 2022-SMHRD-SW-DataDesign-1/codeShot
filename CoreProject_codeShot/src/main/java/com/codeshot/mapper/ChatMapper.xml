@@ -13,4 +13,7 @@
 		select room_title from tbl_chatroom
 		where room_num=#{roomNum}
 	</select>
+	<insert id="inputChat" parameterType="ChattingDTO">
+		insert into tbl_chatting values(tbl_chatting_seq.nextval,#{talker},#{chat_content},sysdate,#{room_num})
+	</insert>
 </mapper>

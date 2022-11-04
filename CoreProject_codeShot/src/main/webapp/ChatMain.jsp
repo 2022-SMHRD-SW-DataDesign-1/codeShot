@@ -35,6 +35,7 @@
 		<fieldset id="chatBox">
 			<legend id="chatTitle"></legend>
 		</fieldset>
+		<!-- form이 아니라 ajax로 하기 submit말고 button으로 해서 onclick에 funtion주면 될듯 -->
 		<form action="ChattingService.do" method="post" enctype="multipart/form-data">
 			<input name="inputChat" type="text">
 			<input type="submit" value="전송"><br>
@@ -45,15 +46,16 @@
 	<script type="text/javascript">
 		function selectChatRoom(selectRoomNum, clicked_id)
 		{
-			let roomNum = selectRoomNum
 			let chatBox = document.getElementById('chatBox');
 			let roomTitle = document.querySelector("#"+clicked_id+" #roomTitle");
-			console.log(roomNum);
+			console.log(selectRoomNum);
 			console.log('#'+clicked_id+' #roomTitle');
+			
+			sessionStorage.setItem('roomNum', selectRoomNum);
 			
 			$.ajax({
 				url : 'ShowChattingService.do',
-				data : {'roomNum':roomNum},
+				data : {'roomNum':selectRoomNum},
 				type : 'post',
 				dataType : 'json',
 				success : function(chattingList){

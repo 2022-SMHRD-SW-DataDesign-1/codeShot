@@ -44,5 +44,16 @@ public class ChatDAO
 		
 		return chattingTitle;
 	}
+	
+	public int inputChat(ChattingDTO chat) 
+	{
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		int row = session.insert("inputChat", chat);
+		
+		session.close();
+		
+		return row;
+	}
 
 }
