@@ -3,15 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.codeshot.mapper.PostMapper">
+	
+	<!-- 게시글 전체출력, 조영찬 -->
 	<select id="showPost" resultType="PostDTO">
 		select * from tbl_post order by post_num desc
 	</select>
 	
+	<!-- 게시글 검색, 김지수 -->
 	<select id="searchPost" parameterType="String" resultType="PostDTO">
 		select * from tbl_post where POST_TITLE like  '%'||#{userInput}||'%'
 	</select>
 	
+	<!-- 게시글 작성, 고정연 -->
 	<insert id="uploadPost" parameterType="PostDTO">
 		insert into tbl_post values(tbl_post_seq.nextval,#{post_category},#{mem_email},#{post_title},#{post_explain},#{post_standard},#{post_precautions},#{post_price},#{post_file})
 	</insert>
+	
+	<!-- 찜목록 검색, 김지수 -->
+	<select id="wishList" parameterType="String" resultType="PostDTO">
+		select B.post_num, B.post_category, B.mem_email, B.post_title, B.post_price
+		from tbl_wishlist A, tbl_post B 
+		where (A.post_num = B.post_num) 
+			and (A.mem_email = #{email})
+	</select>
 </mapper>

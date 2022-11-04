@@ -45,6 +45,16 @@ public class PostDTO {
 		this.post_file = post_file;
 	}
 
+	//찜목록
+	public PostDTO(BigDecimal post_num, @NonNull String post_category, @NonNull String mem_email,
+			@NonNull String post_title, BigDecimal post_price) {
+		this.post_num = post_num;
+		this.post_category = post_category;
+		this.mem_email = mem_email;
+		this.post_title = post_title;
+		this.post_price = post_price;
+	}
+
 	
 	
 

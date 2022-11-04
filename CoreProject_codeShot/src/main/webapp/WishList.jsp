@@ -1,4 +1,5 @@
-<%@page import="com.codeshot.model.UserDAO"%>
+<%@page import="com.codeshot.model.PostDTO"%>
+<%@page import="java.util.List"%>
 <%@page import="com.codeshot.model.PostDAO"%>
 <%@page import="com.codeshot.model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,10 +12,18 @@
 </head>
 <body>
 <%	
+	System.out.println("[찜목록 페이지]");
+
+	// 로그인 정보
 	UserDTO info = (UserDTO)session.getAttribute("info");
-	UserDAO dao = new UserDAO();
+	PostDAO dao = new PostDAO();
+	List<PostDTO> wishList = dao.wishList(info.getEmail());
+	System.out.println(wishList.size());
 %>
 <!-- 페이지 상단 -->
+<%if(info == null) {%>
+	<p>로그인 해주세요</p>
+<%} else{ %>
 	<h1>DDock</h1>
 	<div>
 	    <h3>검색</h3>
@@ -80,7 +89,7 @@
 			</div>
 		</div>
 	</div>	
-
+<%} %>
 <!-- script -->	
 	<!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
 	<script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>

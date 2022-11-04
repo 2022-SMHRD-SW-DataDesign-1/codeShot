@@ -36,4 +36,12 @@ public class PostDAO
 		session.close();
 		return row;
 	}
+	
+	//2022-11-04-김지수/회원 찜목록 검색
+	public List<PostDTO> wishList(String email) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<PostDTO> wishList = session.selectList("wishList", email);
+		session.close();
+		return wishList;
+	}
 }
