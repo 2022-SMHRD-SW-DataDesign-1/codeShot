@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.codeshot.command.Command;
+import com.codeshot.controller.ChattingService;
 import com.codeshot.controller.CheckEmailService;
 import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
@@ -115,6 +116,13 @@ public class FrontController extends HttpServlet
 		else if(result.equals("PortfolioService.do"))
 		{
 			service = new PortfolioService();
+			moveURL = service.execute(request, response);
+		}
+		
+		// 채팅 서버에 보내기
+		else if(result.equals("ChattingService.do"))
+		{
+			service = new ChattingService();
 			moveURL = service.execute(request, response);
 		}
 		
