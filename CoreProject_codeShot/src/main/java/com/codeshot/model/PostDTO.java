@@ -31,7 +31,7 @@ public class PostDTO {
 	//첨부파일
 	private String post_file;
 
-	//게시물작성
+	//소스코드게시물작성
 	public PostDTO(@NonNull String post_category, @NonNull String mem_email, @NonNull String post_title,
 			String post_explain, String post_standard, String post_precautions, BigDecimal post_price,
 			String post_file) {
@@ -44,6 +44,19 @@ public class PostDTO {
 		this.post_price = post_price;
 		this.post_file = post_file;
 	}
+
+	public PostDTO(@NonNull String post_category, @NonNull String mem_email, @NonNull String post_title,
+			String post_explain, String post_standard, String post_precautions, BigDecimal post_price) {
+		this.post_category = post_category;
+		this.mem_email = mem_email;
+		this.post_title = post_title;
+		this.post_explain = post_explain;
+		this.post_standard = post_standard;
+		this.post_precautions = post_precautions;
+		this.post_price = post_price;
+	}
+	
+	
 
 
 

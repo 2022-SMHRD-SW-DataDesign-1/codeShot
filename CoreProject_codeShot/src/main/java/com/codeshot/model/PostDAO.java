@@ -29,10 +29,18 @@ public class PostDAO
 		return postList;
 	}
 	
-	//2022-11-03-고정연/게시물 업로드
-	public int uploadPost(PostDTO dto) {
+	//2022-11-03-고정연/소스코드 게시물 업로드
+	public int uploadCodePost(PostDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.insert("uploadPost",dto);
+		int row = session.insert("uploadCodePost",dto);
+		session.close();
+		return row;
+	}
+	
+	//2022-11-07-고정연/외주 게시물 업로드
+	public int uploadOtsPost(PostDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.insert("uploadOtsPost",dto);
 		session.close();
 		return row;
 	}

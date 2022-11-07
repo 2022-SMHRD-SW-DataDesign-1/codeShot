@@ -57,7 +57,9 @@ public class PostService implements Command {
 		BigDecimal postPrice = new BigDecimal(multi.getParameter("post_price"));
 		String postFile = multi.getFilesystemName("post_file");
 		try {
-			postFile = URLEncoder.encode(postFile, "UTF-8");
+			if(postFile != null) {
+				postFile = URLEncoder.encode(postFile, "UTF-8");
+			}
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
@@ -71,9 +73,17 @@ public class PostService implements Command {
 		System.out.println("postPrice : " + postPrice);
 		System.out.println("postFile : " + postFile);
 		
-		PostDTO dto = new PostDTO(postCategory, memEmail, postTitle, postExplain, postStandard, postPrecautions, postPrice, postFile);
 		
-		int row = new PostDAO().uploadPost(dto);
+		int row = 0;
+		
+		if(postFile != null) {
+			PostDTO dto = new PostDTO(postCategory, memEmail, postTitle, postExplain, postStandard, postPrecautions, postPrice, postFile);
+			row = new PostDAO().uploadCodePost(dto);
+		}else {
+			PostDTO dto = new PostDTO(postCategory, memEmail, postTitle, postExplain, postStandard, postPrecautions, postPrice);
+			row = new PostDAO().uploadOtsPost(dto);
+		}
+		
 		
 		if(row>0) {
 			System.out.println("업로드 성공");

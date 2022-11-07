@@ -1,6 +1,7 @@
 package com.codeshot.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,9 @@ public class PortfolioService implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("[PortfolioService]");
+		
+		// 파일 이름 담을 리스트
+		ArrayList pfFiles = new ArrayList();
 		
 		// 저장경로
 		String savePath = request.getServletContext().getRealPath("file");
@@ -36,9 +40,20 @@ public class PortfolioService implements Command {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		//파일 이름 담기
+		Enumeration pf = multi.getFileNames();
+		while(pf.hasMoreElements()) {
+			String pfFileName = (String) pf.nextElement();
+			pfFiles.add(multi.getFilesystemName(pfFileName));
+		}
+		
+		for(int i = 0; i<pfFiles.size();i++) {
+			System.out.println(pfFiles.get(i));
+		};
 				
 		
-		return null;
+		return "PostDetail.jsp";
 	}
 
 }

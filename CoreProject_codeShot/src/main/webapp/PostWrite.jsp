@@ -27,8 +27,10 @@
 			<tr>
 				<td> 하위 카테고리
 					<select name="post_category">
-						<option value="web"> WEB </option>
-						<option value="app"> APP </option>
+						<option value="ots_web"> 외주(WEB) </option>
+						<option value="ots_app"> 외주(APP) </option>
+						<option value="code_web"> 소스코드(WEB) </option>
+						<option value="code_app"> 소스코드(APP) </option>
 					</select>
 				</td>
 			</tr>
@@ -38,8 +40,7 @@
 			</tr>
 			<tr>
 				<td> 소스코드 파일 </td>
-				<td> <input type="file" name="post_file"> </td>
-				
+				<td> <input type="file" name="post_file"> </td>	
 			</tr>
 			<tr>
 				<td> 서비스 설명 </td>
@@ -61,12 +62,7 @@
 		<table>
 			<tr>
 				<td> 포트폴리오 파일 </td>
-				<td> <input type="file" name="pf_file0"> <br>
-					 <input type="file" name="pf_file1"> <br>
-					 <input type="file" name="pf_file2"> <br>
-					 <input type="file" name="pf_file3"> <br>
-					 <input type="file" name="pf_file4"> <br>
-					 <input type="file" name="pf_file5"> </td>
+				<td> <input type="file" name="pf_file" multiple> </td>
 			</tr>
 		</table>
 	</form>

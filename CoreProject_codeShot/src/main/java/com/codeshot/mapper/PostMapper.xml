@@ -14,8 +14,13 @@
 		select * from tbl_post where POST_TITLE like  '%'||#{userInput}||'%'
 	</select>
 	
-	<!-- 게시글 작성, 고정연 -->
-	<insert id="uploadPost" parameterType="PostDTO">
+	<!-- 소스코드 게시글 작성, 고정연 -->
+	<insert id="uploadCodePost" parameterType="PostDTO">
 		insert into tbl_post values(tbl_post_seq.nextval,#{post_category},#{mem_email},#{post_title},#{post_explain},#{post_standard},#{post_precautions},#{post_price},#{post_file})
+	</insert>
+
+	<!-- 외주 게시글 작성, 고정연 -->
+	<insert id="uploadOtsPost" parameterType="PostDTO">
+		insert into tbl_post(post_num,post_category,mem_email,post_title,post_explain,post_standard,post_precautions,post_price) values(tbl_post_seq.nextval,#{post_category},#{mem_email},#{post_title},#{post_explain},#{post_standard},#{post_precautions},#{post_price})
 	</insert>
 </mapper>
