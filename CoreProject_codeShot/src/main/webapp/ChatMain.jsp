@@ -35,18 +35,20 @@
 		<fieldset id="chatBox">
 			<legend id="chatTitle"></legend>
 		</fieldset>
-		<!-- form이 아니라 ajax로 하기 submit말고 button으로 해서 onclick에 funtion주면 될듯 -->
-		<form action="ChattingService.do" method="post" enctype="multipart/form-data">
-			<input name="inputChat" type="text">
-			<input type="submit" value="전송"><br>
-			<input name="chatFilename" type="file"><br>
+		<form id="chatForm" enctype="multipart/form-data">
+			<input id="inputChat" name="inputChat" type="text"><br>
+			<input id="chatFilename" name="chatFilename" type="file"><br>
+			<button type="button" onclick="sendMassage()">채팅 전송</button>
 		</form>
 	</div>
 	<script src="./assets/jquery/jquery-3.6.1.min.js"></script>
 	<script type="text/javascript">
+		let roomNum = <%= chatRoomList.get(chatRoomList.size() - 1).getRoom_num() %>;
+		let chatBox = document.getElementById('chatBox');
+	
 		function selectChatRoom(selectRoomNum, clicked_id)
 		{
-			let chatBox = document.getElementById('chatBox');
+			roomNum = selectRoomNum;
 			let roomTitle = document.querySelector("#"+clicked_id+" #roomTitle");
 			console.log(selectRoomNum);
 			console.log('#'+clicked_id+' #roomTitle');
@@ -76,7 +78,54 @@
 					
 				},
 				error : function(){
-					console.log("통신실패");	
+					console.log("selectChatRoom통신실패");	
+				}
+			})
+		}
+		
+		function sendMassage() 
+		{
+			let form = $('#chatForm')[0];
+			let formData = new FormData(form);
+			let inputVal = document.getElementById("inputChat").value;
+			let inputFileVal = document.getElementById("chatFilename").value;
+			let chat = "";
+			
+			console.log(inputVal);
+			console.log(inputFileVal);
+			
+			if(inputVal != "")
+			{
+				inputVal = '<p>'+inputVal+'</p>';
+				chat += inputVal;
+			}
+			if(inputFileVal != "")
+			{
+				inputFileVal = '<p><a href="./file/chatfile/'+inputFileVal.substr(12)+'" download>'+inputFileVal.substr(12)+'</a></p>';
+				chat += inputFileVal;
+			}
+			
+			formData.append('chatFile',document.getElementById('chatFilename').files[0]);
+			formData.append('chat',chat);
+			formData.append('roomNum',roomNum);
+
+			console.log(chat);
+			
+			$.ajax({
+				url : 'ChattingService.do',
+				processData : false,
+				contentType : false,
+				data : formData,
+				enctype:'multipart/form-data',
+				type : 'post',
+				success : function(){
+					if(chat != "")
+					{
+						chatBox.innerHTML += chat;
+					}
+				},
+				error : function(){
+					console.log("sendMassage통신실패");	
 				}
 			})
 		}

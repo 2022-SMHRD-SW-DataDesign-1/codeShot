@@ -2,7 +2,6 @@ package com.codeshot.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,26 +40,15 @@ public class ChattingService implements Command {
 		{
 			MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, encoding, rename);
 			String email = info.getEmail();
-			String inputChat = "<p>"+multi.getParameter("inputChat")+"</p>";
-			String chatFilename = "<a href='./file/chatfile/"+multi.getParameter("chatFilename")+"download'>"+multi.getParameter("chatFilename")+"</a>";
-			chatFilename = URLEncoder.encode(chatFilename, "UTF-8");
-			BigDecimal roomNum = new BigDecimal((Integer)(session.getAttribute("roomNum")));
+			String chat = multi.getParameter("chat");
+			BigDecimal roomNum = new BigDecimal(multi.getParameter("roomNum"));
 
-			System.out.println("inputChat : "+inputChat);
-			System.out.println("chatFilename : "+chatFilename);
+			System.out.println("email :"+email);
+			System.out.println("inputChat : "+chat);
 			System.out.println("roomNum : "+roomNum);
 			
-			ChattingDTO chat;
-			if(multi.getParameter("chatFilename") != null) 
-			{
-				chat = new ChattingDTO(null, email, inputChat+chatFilename, null, roomNum);
-			}
-			else
-			{
-				chat = new ChattingDTO(null, email, inputChat, null, roomNum);
-			}
-			
-			int row = new ChatDAO().inputChat(chat);
+			ChattingDTO dto = new ChattingDTO(null, email, chat, null, roomNum);
+			int row = new ChatDAO().inputChat(dto);
 			
 			if(row > 0) 
 			{
