@@ -13,10 +13,8 @@ import lombok.RequiredArgsConstructor;
 public class PortfolioDTO {
 	// 포트폴리오 순번
 	private BigDecimal pf_num;
-	// 게시판 번호
-	@NonNull
-	private BigDecimal post_num;
+	// 회원 이메일
+	@NonNull private String mem_email;
 	// 파일 이름
-	@NonNull
-	private String pf_file;
+	@NonNull private String pf_file;
 }

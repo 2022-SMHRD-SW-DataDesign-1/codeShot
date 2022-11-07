@@ -10,7 +10,7 @@
 <body> 
 	<h1> DDock </h1>
 	<form action="PostService.do" method="post" enctype="multipart/form-data">
-		<input type="submit" value="다음">
+		<input type="submit" value="제출하기">
 		<table>
 			<tr>
 				<td> 제목 </td>

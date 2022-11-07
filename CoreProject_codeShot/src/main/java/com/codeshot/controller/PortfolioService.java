@@ -7,8 +7,10 @@ import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.codeshot.command.Command;
+import com.codeshot.model.PostDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -17,6 +19,9 @@ public class PortfolioService implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("[PortfolioService]");
+		
+		HttpSession session = request.getSession();
+		
 		
 		// 파일 이름 담을 리스트
 		ArrayList pfFiles = new ArrayList();
