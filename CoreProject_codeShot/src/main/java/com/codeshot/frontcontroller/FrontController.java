@@ -19,6 +19,7 @@ import com.codeshot.controller.PortfolioService;
 import com.codeshot.controller.PostService;
 import com.codeshot.controller.ShowChattingService;
 import com.codeshot.controller.SuggestWordService;
+import com.codeshot.controller.WishPostAddService;
 import com.codeshot.controller.WithdrawalService;
 
 public class FrontController extends HttpServlet 
@@ -126,6 +127,13 @@ public class FrontController extends HttpServlet
 			moveURL = service.execute(request, response);
 		}
 		
+		// 찜한 게시물 추가
+		else if(result.equals("WishPostAddService.do")) {
+			service = new WishPostAddService();
+			service.execute(request, response);
+		}
+		
+		// 페이지 이동
 		if(moveURL != null) 
 		{
 			if(checkUpdate) 

@@ -27,8 +27,8 @@
 	ReviewDAO r_dao = new ReviewDAO();
 	List<ReviewDTO> starratingList = r_dao.starratingList();
 	
-	System.out.println("게시글: "+wishList.size());
-	System.out.println("별점: "+starratingList.size());
+	System.out.println("게시글 리스트: "+wishList.size());
+	System.out.println("별점 리스트: "+starratingList.size());
 %>
 <!-- 페이지 상단 -->
 <%if(info == null) {%>
@@ -97,9 +97,18 @@
 			<div>
 				<div>
 					<%for(int i = 0; i < wishList.size(); i++) {%>
-						<article>
-							<a href="PostDetail.jsp?post_num=<%=wishList.get(i).getPost_num()%>">
+						<article id="article-list">
 								<div>사진: <%=wishList.get(i).getPost_file() %></div>
+								<div>
+									<button id="wish-btn<%= wishList.get(i).getPost_num() %>" onclick="wishClick('<%=wishList.get(i).getPost_num() %>',this.id)">
+										<span>
+											<svg>
+												<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+											</svg>
+										</span>
+									</button>
+								</div>
+							<a href="PostDetail.jsp?post_num=<%=wishList.get(i).getPost_num()%>">
 								<div>
 									<div>작성자 : <%=wishList.get(i).getMem_email() %></div>
 									<div>제목 : <%=wishList.get(i).getPost_title() %></div>
@@ -129,5 +138,8 @@
 	<!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
 	<script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<script src="./assets/js/SuggestWord.js"></script>
+	
+	<!-- 2022-11-07 / 김지수 / 찜 버튼 기능 추가 -->
+	<script src="./assets/js/WishBtn.js"></script>
 </body>
 </html>
