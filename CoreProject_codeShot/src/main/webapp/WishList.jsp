@@ -63,28 +63,45 @@
 				<div>div 높이 넓이 조정해서 선으로 만들기</div>
 			</section>
 			<div>
-				<div>전체()</div>
-				<div>외주()</div>
-				<div>소스코드()</div>
+				<div>전체(<%=wishList.size() %>)</div>
+				<%
+					int otsCont = 0;
+					int codeCont = 0;
+				
+					for(int i = 0; i < wishList.size(); i++) {
+						if(wishList.get(i).getPost_category().equals("ots_web") || wishList.get(i).getPost_category().equals("ots_app")) {
+							otsCont =+ 1;	
+						} else if(wishList.get(i).getPost_category().equals("code_web") || wishList.get(i).getPost_category().equals("code_app")){
+							codeCont =+ 1;							
+						} else {
+							
+						}
+					}
+					out.print("<div>외주("+otsCont+")</div>");
+					out.print("<div>소스코드("+codeCont+")</div>");
+				%>
 			</div>
 		</nav>
+		
 		<div>
 			<div>
 				<div>
-					<article>
-						<a href="Main.jsp">
-							<div>사진</div>
-							<div>
-								<div>작성자</div>
-								<div>제목</div>
-								<div>가격</div>
+					<%for(int i = 0; i < wishList.size(); i++) {%>
+						<article>
+							<a href="Main.jsp">
+								<div><%=wishList.get(i).getPost_file() %></div>
 								<div>
-									<div>별점</div>
-									<div>평가</div>
+									<div><%=wishList.get(i).getMem_email() %></div>
+									<div><%=wishList.get(i).getPost_title() %></div>
+									<div><%=wishList.get(i).getPost_price() %></div>
+									<div>
+										<div>★</div>
+										<div>평가</div>
+									</div>
 								</div>
-							</div>
-						</a>
-					</article>
+							</a>
+						</article>
+					<%} %>
 				</div>
 			</div>
 		</div>
