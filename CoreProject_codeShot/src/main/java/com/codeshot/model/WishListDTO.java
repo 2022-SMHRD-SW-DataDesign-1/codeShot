@@ -19,16 +19,12 @@ public class WishListDTO {
 	@NonNull private String mem_email;
 	//제목
 	@NonNull private String post_title;
-	//설명
-	private String post_explain;
-	//규격
-	private String post_standard;
-	//주의사항
-	private String post_precautions;
 	//가격
 	private BigDecimal post_price;
-	//첨부파일
+	
 	private String post_file;
+
+	//private int review_starrating;
 	
 
 }

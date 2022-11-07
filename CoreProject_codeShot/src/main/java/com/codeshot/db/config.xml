@@ -10,6 +10,7 @@
 		<typeAlias type="com.codeshot.model.ChatRoomDTO" alias="ChatRoomDTO"/>
 		<typeAlias type="com.codeshot.model.ChattingDTO" alias="ChattingDTO"/>
 		<typeAlias type="com.codeshot.model.WishListDTO" alias="WishListDTO"/>
+		<typeAlias type="com.codeshot.model.ReviewDTO" alias="ReviewDTO"/>
 	</typeAliases>
   <environments default="development">
     <environment id="development">
@@ -27,5 +28,6 @@
   	<mapper resource="com/codeshot/mapper/PostMapper.xml"/>
   	<mapper resource="com/codeshot/mapper/ChatMapper.xml"/>
   	<mapper resource="com/codeshot/mapper/WishListMapper.xml"/>
+  	<mapper resource="com/codeshot/mapper/ReviewDTOMapper.xml"/>
   </mappers>
 </configuration>

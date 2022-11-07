@@ -1,3 +1,7 @@
+<%@page import="com.codeshot.model.ReviewDTO"%>
+<%@page import="com.codeshot.model.ReviewDAO"%>
+<%@page import="com.codeshot.model.WishListDAO"%>
+<%@page import="com.codeshot.model.WishListDTO"%>
 <%@page import="com.codeshot.model.PostDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.codeshot.model.PostDAO"%>
@@ -16,8 +20,13 @@
 
 	// 로그인 정보
 	UserDTO info = (UserDTO)session.getAttribute("info");
-	PostDAO dao = new PostDAO();
-	List<PostDTO> wishList = dao.wishList(info.getEmail());
+	
+	WishListDAO w_dao = new WishListDAO();
+	List<WishListDTO> wishList = w_dao.wishList(info.getEmail());
+	
+	ReviewDAO r_dao = new ReviewDAO();
+	//List<ReviewDTO> starrating = r_dao.starrating();
+	
 	System.out.println(wishList.size());
 %>
 <!-- 페이지 상단 -->
@@ -70,9 +79,9 @@
 				
 					for(int i = 0; i < wishList.size(); i++) {
 						if(wishList.get(i).getPost_category().equals("ots_web") || wishList.get(i).getPost_category().equals("ots_app")) {
-							otsCont =+ 1;	
+							otsCont++;	
 						} else if(wishList.get(i).getPost_category().equals("code_web") || wishList.get(i).getPost_category().equals("code_app")){
-							codeCont =+ 1;							
+							codeCont++;							
 						} else {
 							
 						}
