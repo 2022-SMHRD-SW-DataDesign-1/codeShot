@@ -24,7 +24,12 @@ public class WishListDTO {
 	
 	private String post_file;
 
-	//private int review_starrating;
-	
+	public WishListDTO(BigDecimal post_num, @NonNull String mem_email) {
+		this.post_num = post_num;
+		this.mem_email = mem_email;
+	}
 
+	
+	
+	
 }

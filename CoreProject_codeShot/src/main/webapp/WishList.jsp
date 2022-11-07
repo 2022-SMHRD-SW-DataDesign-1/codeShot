@@ -27,7 +27,7 @@
 	ReviewDAO r_dao = new ReviewDAO();
 	List<ReviewDTO> starratingList = r_dao.starratingList();
 	
-	System.out.println("게시글 리스트: "+wishList.size());
+	System.out.println("찜 게시글 리스트: "+wishList.size());
 	System.out.println("별점 리스트: "+starratingList.size());
 %>
 <!-- 페이지 상단 -->
@@ -95,12 +95,12 @@
 		
 		<div>
 			<div>
-				<div>
+				<div id="article-group">
 					<%for(int i = 0; i < wishList.size(); i++) {%>
-						<article id="article-list">
+						<article id="article-tag<%=wishList.get(i).getPost_num() %>">
 								<div>사진: <%=wishList.get(i).getPost_file() %></div>
 								<div>
-									<button id="wish-btn<%= wishList.get(i).getPost_num() %>" onclick="wishClick('<%=wishList.get(i).getPost_num() %>',this.id)">
+									<button id="wish-btn<%=wishList.get(i).getPost_num() %>" onclick="wishClick('<%=wishList.get(i).getPost_num() %>',this.id)">
 										<span>
 											<svg>
 												<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>

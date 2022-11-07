@@ -17,4 +17,12 @@ public class WishListDAO {
 		session.close();
 		return wishList;
 	}
+
+	//2022-11-07-김지수/찜 게시글 삭제
+	public int deleteWishPost(WishListDTO w_dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.delete("deleteWishPost", w_dto);
+		session.close();
+		return row;
+	}
 }

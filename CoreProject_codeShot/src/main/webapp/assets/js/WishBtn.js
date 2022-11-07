@@ -7,11 +7,14 @@
  let btnColor = document.getElementById("btn-color");
  let btnColorAttr = btnColor.getAttribute("fill");
  let articleList = document.getElementById("article-list");
+ let articleGroup = document.querySelectorAll("#article-group > article");
  let checkColor = true;
  
  // 유저가 찜 버튼을 눌렀을 때 동작하는 이벤트 정의
  function wishClick(num, clicked_id){
 	let postNum = num;
+	
+	console.log(clicked_id); //wish-btn66
 	
 	console.log("checkColor : ", checkColor);
 	
@@ -20,6 +23,8 @@
 	console.log("도형 색깔 : ", btnColorAttr);
 	
 	console.log("게시글 개수 : ", articleList)
+	
+	
 	
 	// 도형 색 변경
 	if(!checkColor){
@@ -33,7 +38,7 @@
 	
 	// sart ajax
 	$.ajax({
-        url:'WishPostDeleteService.do',
+        //url:'WishPostDeleteService.do',
         data:{'postNum':postNum},
         type:'get',
         success : deletePost,
@@ -45,5 +50,11 @@
 }; //end wishClick
 
 function deletePost(){
+	console.log("삭제 성공!");
+	("#"+postNum).remove();
 	
-}
+}//end deletePost
+
+
+
+

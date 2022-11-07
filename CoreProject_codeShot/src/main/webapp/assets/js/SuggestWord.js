@@ -33,7 +33,7 @@ function addList(target){
 
     
 function suggestWord(list){
-   let resultHTML ="";
+    let resultHTML ="";
 	console.log("길이"+list.length);
 	
 	for(let i=0; i<list.length; i++){
