@@ -18,12 +18,4 @@
 	<insert id="uploadPost" parameterType="PostDTO">
 		insert into tbl_post values(tbl_post_seq.nextval,#{post_category},#{mem_email},#{post_title},#{post_explain},#{post_standard},#{post_precautions},#{post_price},#{post_file})
 	</insert>
-	
-	<!-- 찜목록 검색, 김지수 -->
-	<select id="wishList" parameterType="String" resultType="PostDTO">
-		select B.post_num, B.post_category, B.mem_email, B.post_title, B.post_price
-		from tbl_wishlist A, tbl_post B 
-		where (A.post_num = B.post_num) 
-			and (A.mem_email = #{email})
-	</select>
 </mapper>
