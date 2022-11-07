@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class ReviewDTO {
+	@NonNull
 	private int review_num;
 	private String review_content;
 	@NonNull

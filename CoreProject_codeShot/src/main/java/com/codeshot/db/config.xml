@@ -28,6 +28,6 @@
   	<mapper resource="com/codeshot/mapper/PostMapper.xml"/>
   	<mapper resource="com/codeshot/mapper/ChatMapper.xml"/>
   	<mapper resource="com/codeshot/mapper/WishListMapper.xml"/>
-  	<mapper resource="com/codeshot/mapper/ReviewDTOMapper.xml"/>
+  	<mapper resource="com/codeshot/mapper/ReviewMapper.xml"/>
   </mappers>
 </configuration>

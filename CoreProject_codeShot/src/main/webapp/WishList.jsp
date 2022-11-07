@@ -25,9 +25,10 @@
 	List<WishListDTO> wishList = w_dao.wishList(info.getEmail());
 	
 	ReviewDAO r_dao = new ReviewDAO();
-	//List<ReviewDTO> starrating = r_dao.starrating();
+	List<ReviewDTO> starratingList = r_dao.starratingList();
 	
-	System.out.println(wishList.size());
+	System.out.println("게시글: "+wishList.size());
+	System.out.println("별점: "+starratingList.size());
 %>
 <!-- 페이지 상단 -->
 <%if(info == null) {%>
