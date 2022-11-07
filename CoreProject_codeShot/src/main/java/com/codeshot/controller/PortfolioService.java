@@ -1,7 +1,9 @@
 package com.codeshot.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
@@ -10,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.codeshot.command.Command;
+import com.codeshot.model.PortfolioDAO;
+import com.codeshot.model.PortfolioDTO;
 import com.codeshot.model.PostDTO;
+import com.codeshot.model.UserDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -21,7 +26,7 @@ public class PortfolioService implements Command {
 		System.out.println("[PortfolioService]");
 		
 		HttpSession session = request.getSession();
-		
+		UserDTO info = (UserDTO) session.getAttribute("info");
 		
 		// 파일 이름 담을 리스트
 		ArrayList pfFiles = new ArrayList();
@@ -47,18 +52,33 @@ public class PortfolioService implements Command {
 			e.printStackTrace();
 		}
 		
+		// 사용자 이메일
+		String memEmail = info.getEmail();
+		System.out.println("memEmail : "+ memEmail);
+		
 		//파일 이름 담기
 		Enumeration pf = multi.getFileNames();
 		while(pf.hasMoreElements()) {
 			String pfFileName = (String) pf.nextElement();
-			pfFiles.add(multi.getFilesystemName(pfFileName));
+			String pfFile = multi.getFilesystemName(pfFileName);
+			pfFiles.add(pfFile);
 		}
+		
+		int row = 0;
 		
 		for(int i = 0; i<pfFiles.size();i++) {
 			System.out.println(pfFiles.get(i));
+//			PortfolioDTO dto = new PortfolioDTO(memEmail, (String)pfFiles.get(i));
+//			row = new PortfolioDAO().uploadPortfolio(dto);
 		};
 		
-		return "PostDetail.jsp";
+		if(row>0) {
+			System.out.println("업로드 성공");
+		}else {			
+			System.out.println("업로드 실패");
+		}
+		
+		return "PortfolioWrite.jsp";
 	}
 
 }

@@ -3,5 +3,8 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.codeshot.mapper.PortfolioMapper">
-	
+	<!-- 포트폴리오 업로드, 고정연  -->
+	<insert id="uploadPortfolio" parameterType="PortfolioDTO">
+		insert into TBL_PORTFOLIO values(TBL_PORTFOLIO_seq.nextval,#{mem_email},#{pf_file})
+	</insert>
 </mapper>
