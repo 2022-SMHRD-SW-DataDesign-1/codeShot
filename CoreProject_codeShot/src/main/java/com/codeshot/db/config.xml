@@ -9,7 +9,7 @@
 		<typeAlias type="com.codeshot.model.PostDTO" alias="PostDTO"/>
 		<typeAlias type="com.codeshot.model.ChatRoomDTO" alias="ChatRoomDTO"/>
 		<typeAlias type="com.codeshot.model.ChattingDTO" alias="ChattingDTO"/>
-		<typeAlias type="com.codeshot.model.WishListDTO" alias="ChattingDTO"/>
+		<typeAlias type="com.codeshot.model.WishListDTO" alias="WishListDTO"/>
 	</typeAliases>
   <environments default="development">
     <environment id="development">
