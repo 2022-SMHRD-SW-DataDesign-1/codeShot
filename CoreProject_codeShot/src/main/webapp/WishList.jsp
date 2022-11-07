@@ -98,15 +98,23 @@
 				<div>
 					<%for(int i = 0; i < wishList.size(); i++) {%>
 						<article>
-							<a href="Main.jsp">
-								<div><%=wishList.get(i).getPost_file() %></div>
+							<a href="PostDetail.jsp?post_num=<%=wishList.get(i).getPost_num()%>">
+								<div>사진: <%=wishList.get(i).getPost_file() %></div>
 								<div>
-									<div><%=wishList.get(i).getMem_email() %></div>
-									<div><%=wishList.get(i).getPost_title() %></div>
-									<div><%=wishList.get(i).getPost_price() %></div>
+									<div>작성자 : <%=wishList.get(i).getMem_email() %></div>
+									<div>제목 : <%=wishList.get(i).getPost_title() %></div>
+									<div>가격 : <%=wishList.get(i).getPost_price() %></div>
 									<div>
-										<div>★</div>
-										<div>평가</div>
+										<%
+											double avg_strt = 0;
+											for(int j = 0; j < starratingList.size(); j++) {
+												if(wishList.get(i).getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
+													avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
+												}
+												
+											}
+											out.print("<div>★|"+ String.format("%.1f", avg_strt)+"</div>");												
+										%>
 									</div>
 								</div>
 							</a>

@@ -1,5 +1,6 @@
 package com.codeshot.model;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
@@ -12,11 +13,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ReviewDTO {
 	@NonNull
-	private int review_num;
+	private BigDecimal review_num;
 	private String review_content;
 	@NonNull
-	private int review_starrating;
-	private int post_num;
+	private BigDecimal review_starrating;
+	private BigDecimal post_num;
 	private String mem_email;
 	private Timestamp review_date;
 	
