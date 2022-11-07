@@ -20,6 +20,7 @@ import com.codeshot.controller.PostService;
 import com.codeshot.controller.ShowChattingService;
 import com.codeshot.controller.SuggestWordService;
 import com.codeshot.controller.WishPostAddService;
+import com.codeshot.controller.WishPostDeleteServic;
 import com.codeshot.controller.WithdrawalService;
 
 public class FrontController extends HttpServlet 
@@ -133,6 +134,11 @@ public class FrontController extends HttpServlet
 			service.execute(request, response);
 		}
 		
+		// 찜 게시물 삭제
+		else if(result.equals("WishPostDeleteService.do")) {
+			service = new WishPostDeleteServic();
+			service.execute(request, response);
+		}
 		// 페이지 이동
 		if(moveURL != null) 
 		{

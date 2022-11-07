@@ -41,4 +41,4 @@ function suggestWord(list){
 	}
 	
 	suggestList.innerHTML = resultHTML;
-} //endsuggestWord end
+} //end suggestWord end

@@ -33,12 +33,17 @@
 	
 	// sart ajax
 	$.ajax({
-        url:'WishPostAddService.do',
-        data:{'userInput':userInput},
+        url:'WishPostDeleteService.do',
+        data:{'postNum':postNum},
         type:'get',
-        success : suggestWord,
+        success : deletePost,
         error :function(){
             console.log("실패!");
         }
     }); // end ajax end
-};
+    
+}; //end wishClick
+
+function deletePost(){
+	
+}
