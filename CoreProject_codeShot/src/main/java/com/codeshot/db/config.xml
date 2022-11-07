@@ -11,6 +11,7 @@
 		<typeAlias type="com.codeshot.model.ChattingDTO" alias="ChattingDTO"/>
 		<typeAlias type="com.codeshot.model.WishListDTO" alias="WishListDTO"/>
 		<typeAlias type="com.codeshot.model.ReviewDTO" alias="ReviewDTO"/>
+		<typeAlias type="com.codeshot.model.PortfolioDTO" alias="PortfolioDTO"/>
 	</typeAliases>
   <environments default="development">
     <environment id="development">

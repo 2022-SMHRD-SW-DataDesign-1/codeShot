@@ -77,9 +77,11 @@ public class PostService implements Command {
 		int row = 0;
 		
 		if(postFile != null) {
+			// 소스코드 게시물
 			PostDTO dto = new PostDTO(postCategory, memEmail, postTitle, postExplain, postStandard, postPrecautions, postPrice, postFile);
 			row = new PostDAO().uploadCodePost(dto);
 		}else {
+			// 외주 게시물
 			PostDTO dto = new PostDTO(postCategory, memEmail, postTitle, postExplain, postStandard, postPrecautions, postPrice);
 			row = new PostDAO().uploadOtsPost(dto);
 		}
@@ -91,7 +93,7 @@ public class PostService implements Command {
 			System.out.println("업로드 실패");
 		}
 		
-		return "PostDetail.jsp";
+		return "PortfolioWrite.jsp";
 	}
 
 }

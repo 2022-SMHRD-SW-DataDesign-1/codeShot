@@ -1,6 +1,7 @@
 package com.codeshot.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
@@ -51,7 +52,6 @@ public class PortfolioService implements Command {
 		for(int i = 0; i<pfFiles.size();i++) {
 			System.out.println(pfFiles.get(i));
 		};
-				
 		
 		return "PostDetail.jsp";
 	}
