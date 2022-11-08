@@ -5,13 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.codeshot.command.Command;
 
-public class WishPostAddService implements Command {
+public class WishDeleteService implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		
-		
-		
+		// TODO Auto-generated method stub
 		return null;
 	}
 

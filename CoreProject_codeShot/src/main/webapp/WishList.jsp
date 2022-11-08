@@ -73,7 +73,7 @@
 				<div>div 높이 넓이 조정해서 선으로 만들기</div>
 			</section>
 			<div>
-				<div>전체(<%=wishList.size() %>)</div>
+				<div>전체(<span id="all-cont"><%=wishList.size() %></span>)</div>
 				<%
 					int otsCont = 0;
 					int codeCont = 0;
@@ -87,8 +87,8 @@
 							
 						}
 					}
-					out.print("<div>외주("+otsCont+")</div>");
-					out.print("<div>소스코드("+codeCont+")</div>");
+					out.print("<div>외주(<span id='ots-cont'>"+otsCont+"</span>)</div>");
+					out.print("<div>소스코드(<span id='code-cont'>"+codeCont+"</span>)</div>");
 				%>
 			</div>
 		</nav>
@@ -97,10 +97,10 @@
 			<div>
 				<div id="article-group">
 					<%for(int i = 0; i < wishList.size(); i++) {%>
-						<article id="article-tag<%=wishList.get(i).getPost_num() %>">
+						<article id="article-tag<%=wishList.get(i).getPost_num()%>">
 								<div>사진: <%=wishList.get(i).getPost_file() %></div>
 								<div>
-									<button id="wish-btn<%=wishList.get(i).getPost_num() %>" onclick="wishClick('<%=wishList.get(i).getPost_num() %>',this.id)">
+									<button id="wish-btn<%=wishList.get(i).getPost_num()%>" onclick="wishClick('<%=wishList.get(i).getPost_num() %>', this.id, '<%=wishList.get(i).getPost_category()%>')">
 										<span>
 											<svg>
 												<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
@@ -120,7 +120,6 @@
 												if(wishList.get(i).getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
 													avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
 												}
-												
 											}
 											out.print("<div>★|"+ String.format("%.1f", avg_strt)+"</div>");												
 										%>

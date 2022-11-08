@@ -1,3 +1,5 @@
+<%@page import="com.codeshot.model.ReviewDTO"%>
+<%@page import="com.codeshot.model.ReviewDAO"%>
 <%@page import="com.codeshot.model.PostDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.codeshot.model.PostDAO"%>
@@ -16,6 +18,9 @@
 
 	PostDAO dao = new PostDAO();
 	List<PostDTO> postList = dao.searchPost(userInput);
+	
+	ReviewDAO r_dao = new ReviewDAO();
+	List<ReviewDTO> starratingList = r_dao.starratingList();
 %>
 <div>
 	<div>
@@ -59,32 +64,56 @@
 		<div><%=postList.size() %>개의 서비스 결과</div>
 	<%} %>
 	
+	
 	<div>
-		<%for(int i=0; i<postList.size();i++){ %>
-			<div>
-				<div><%=postList.get(i).getPost_file() %></div><!-- 현재는 파일 주소 가져온것, 파일 사진으로 바꾸기 -->
-				<div>
-					<div><%=postList.get(i).getMem_email() %></div>
-					<div><%=postList.get(i).getPost_title() %></div>
-					<div><%=postList.get(i).getPost_price() %></div>
-					<div>
-						<div>별점</div>
-						<div>~개의 평가</div>
-					</div>
-				</div>
+		<div>
+			<div id="article-group">
+				<%for(int i=0; i<postList.size();i++){%>
+					<article id="article-tag<%=postList.get(i).getPost_num()%>">
+							<div>사진: <%=postList.get(i).getPost_file() %></div>
+							<div>
+								<button id="wish-btn<%=postList.get(i).getPost_num()%>" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id, '<%=postList.get(i).getPost_category()%>')">
+									<span>
+										<svg>
+											<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+										</svg>
+									</span>
+								</button>
+							</div>
+						<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
+							<div>
+								<div>작성자 : <%=postList.get(i).getMem_email() %></div>
+								<div>제목 : <%=postList.get(i).getPost_title() %></div>
+								<div>가격 : <%=postList.get(i).getPost_price() %></div>
+								<div>
+									<%
+										double avg_strt = 0;
+										for(int j = 0; j < starratingList.size(); j++) {
+											if(postList.get(i).getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
+												avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
+											}
+										}
+										out.print("<div>★|"+ String.format("%.1f", avg_strt)+"</div>");												
+									%>
+								</div>
+							</div>
+						</a>
+					</article>
+				<%} %>
 			</div>
-			<%if((i+1)%5==0){%>
-				<br>
-			<%} %>
-		<%} %>
+		</div>
 	</div>
+	
+	
 </div>
 
-<!-- script -->
 
+<!-- script -->
 <!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
 <script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="./assets/js/SuggestWord.js"></script>
 
+<!-- 2022-11-07 / 김지수 / 찜 버튼 기능 추가 -->
+<script src="./assets/js/WishBtn.js"></script>
 </body>
 </html>
