@@ -11,6 +11,7 @@ public class PortfolioDAO {
 	//2022-11-07-고정연/포트폴리오 등록
 	public int uploadPortfolio(PortfolioDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
+		System.out.println(dto);
 		int row = session.insert("uploadPortfolio",dto);
 		session.close();
 		return row;

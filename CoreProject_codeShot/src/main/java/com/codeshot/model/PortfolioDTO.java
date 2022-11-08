@@ -6,10 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @Getter
 @AllArgsConstructor
 @RequiredArgsConstructor
+@ToString
 public class PortfolioDTO {
 	// 포트폴리오 순번
 	private BigDecimal pf_num;

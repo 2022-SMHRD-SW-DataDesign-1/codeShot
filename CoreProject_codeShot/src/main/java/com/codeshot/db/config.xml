@@ -30,5 +30,6 @@
   	<mapper resource="com/codeshot/mapper/ChatMapper.xml"/>
   	<mapper resource="com/codeshot/mapper/WishListMapper.xml"/>
   	<mapper resource="com/codeshot/mapper/ReviewMapper.xml"/>
+  	<mapper resource="com/codeshot/mapper/PortfolioMapper.xml"/>
   </mappers>
 </configuration>
