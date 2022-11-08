@@ -30,9 +30,9 @@ public class WishPostDeleteServic implements Command {
 		int row = new WishListDAO().deleteWishPost(w_dto);
 		
 		if (row>0) {
-			System.out.println("삭제 성공");
+			System.out.println("찜 게시물 삭제 성공");
 		} else {
-			System.out.println("삭제 실패");
+			System.out.println("찜 게시물 삭제 실패");
 		}
 		return null;
 	}

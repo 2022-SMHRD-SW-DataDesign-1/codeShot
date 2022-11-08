@@ -1,3 +1,9 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="java.math.BigDecimal"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.codeshot.model.UserDTO"%>
+<%@page import="com.codeshot.model.WishListDTO"%>
+<%@page import="com.codeshot.model.WishListDAO"%>
 <%@page import="com.codeshot.model.ReviewDTO"%>
 <%@page import="com.codeshot.model.ReviewDAO"%>
 <%@page import="com.codeshot.model.PostDTO"%>
@@ -13,14 +19,33 @@
 </head>
 <body>
 <%
+	UserDTO info = (UserDTO)session.getAttribute("info");
+
 	String userInput = request.getParameter("userInput");
 	System.out.println(userInput);
 
 	PostDAO dao = new PostDAO();
 	List<PostDTO> postList = dao.searchPost(userInput);
 	
+	WishListDAO w_dao = new WishListDAO();
+	List<WishListDTO> wishList = w_dao.wishList(info.getEmail());
+	
 	ReviewDAO r_dao = new ReviewDAO();
 	List<ReviewDTO> starratingList = r_dao.starratingList();
+	
+	ArrayList<BigDecimal> whishPostNumList = new ArrayList<>();
+	
+	
+	System.out.print("찜 된 게시글 번호");
+	for(int i = 0; i<wishList.size(); i++){
+		whishPostNumList.add(wishList.get(i).getPost_num());
+		System.out.print(whishPostNumList.get(i)+" ");
+	}
+	System.out.println();
+	
+	System.out.println("찜목록 길이"+whishPostNumList.size());
+	
+	
 %>
 <div>
 	<div>
@@ -55,7 +80,7 @@
 	</div>
 	<section>
 		<%=userInput%>에 대한 결과입니다.
-		<%System.out.print(postList.size()); %>
+		<%System.out.print("post size : "+postList.size()); %>
 	</section>
 
 	<%if(postList.size()<1){%>
@@ -72,10 +97,17 @@
 					<article id="article-tag<%=postList.get(i).getPost_num()%>">
 							<div>사진: <%=postList.get(i).getPost_file() %></div>
 							<div>
-								<button id="wish-btn<%=postList.get(i).getPost_num()%>" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id, '<%=postList.get(i).getPost_category()%>')">
+								<button id="wish-btn<%=postList.get(i).getPost_num()%>" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id)">
 									<span>
 										<svg>
-											<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+											<%for(int j = 0; j < whishPostNumList.size(); j++) {%>
+												<%int compareResult = whishPostNumList.get(j).compareTo(postList.get(i).getPost_num()); %>
+												<%if(compareResult == 0) {%>
+													<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+												<%} else{%>
+													<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="none"/>												
+												<%} %>
+											<%} %>
 										</svg>
 									</span>
 								</button>

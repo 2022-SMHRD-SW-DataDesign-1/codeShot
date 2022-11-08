@@ -26,11 +26,7 @@
 	
 	
 	// 도형 색 변경
-	if(!checkColor){
-		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('fill', 'red');
-		checkColor = true;
-	}
-	else{
+	if(checkColor){
 		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('fill', 'none');
 		checkColor = false;
 		// sart ajax
@@ -65,13 +61,12 @@ function deleteWishPost(postNum, postCategory){
 
 
 // 게시글 목록에서 찜 버튼 눌렀을때 이벤트 정의
-function wishPostClick(num, clicked_id, category){
+function wishPostClick(num, clicked_id){
 	let postNum = num;
-	let postCategory = category;
 	
-	if(!checkColor){
+	if(checkColor){
 		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('fill', 'red');
-		checkColor = true;
+		checkColor = false;
 		
 		$.ajax({
 			url:'WishAddService.do',
@@ -87,7 +82,7 @@ function wishPostClick(num, clicked_id, category){
 	}
 	else{
 		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('fill', 'none');
-		checkColor = false;
+		checkColor = true;
 		
 		$.ajax({
 			url:'WishPostDeleteService.do',

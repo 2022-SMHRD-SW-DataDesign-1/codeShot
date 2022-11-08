@@ -26,7 +26,14 @@ public class WishAddService implements Command {
 		
 		WishListDTO w_dto = new WishListDTO(postNum, mem_email);
 		
-		new WishListDAO().WishAddService(w_dto);
+		int row = new WishListDAO().WishAddService(w_dto);
+		
+		if (row>0) {
+			System.out.println("찜 게시물 추가 성공");
+		} else {
+			System.out.println("찜 게시물 추가 실패");
+		}
+		
 		return null;
 	}
 
