@@ -53,8 +53,8 @@
 								<% 	} %>
 							</li>
 							<li><%= dto.getPost_title() %></li> <!-- 제목 -->
-							<li> <a href="EditDetail.jsp?post_num=<%= dto.getPost_num()%>"> 수정 </a> </li>
-							<li> <a href="PostDeleteService.do?post_num=<%= dto.getPost_num()%>"> 삭제 </a> </li>
+							<button> <a href="EditDetail.jsp?post_num=<%= dto.getPost_num()%>"> 수정 </a> </button>
+							<button> <a href="PostDeleteService.do?post_num=<%= dto.getPost_num()%>"> 삭제 </a> </button>
 						</ol>
 					</a>
 			<%	} %>
