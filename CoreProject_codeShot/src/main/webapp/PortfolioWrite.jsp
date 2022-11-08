@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> DDock </h1>
+	<h1> <a href="Main.jsp">DDock</a> </h1>
 	<form action="PortfolioService.do" method="post" enctype="multipart/form-data">
 		<h2> 포트폴리오 관리</h2>
 		<input type="file" name="pf_file" multiple>

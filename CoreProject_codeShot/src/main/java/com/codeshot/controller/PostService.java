@@ -93,7 +93,7 @@ public class PostService implements Command {
 			System.out.println("업로드 실패");
 		}
 		
-		return "PostDetail.jsp";
+		return "EditPost.jsp";
 	}
 
 }
