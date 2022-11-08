@@ -53,5 +53,28 @@ public class PostDAO
 		session.close();
 		return post;
 	}
-
+	
+	//2022-11-08-고정연/게시물 관리 목록 불러오기
+	public List<PostDTO> showMyPost(String mem_email){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<PostDTO> postList = session.selectList("showMyPost",mem_email);
+		session.close();
+		return postList;
+	}
+	
+	//2022-11-08-고정연/게시물 수정
+	public int updatePost(PostDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.update("updatePost", dto);
+		session.close();
+		return row;
+	}
+	
+	//2022-11-08-고정연/게시물 삭제
+	public int deletePost(int post_num) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.delete("deletePost", post_num);
+		session.close();
+		return row;
+	}
 }

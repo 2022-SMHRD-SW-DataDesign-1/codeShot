@@ -24,8 +24,24 @@
 		insert into tbl_post(post_num,post_category,mem_email,post_title,post_explain,post_standard,post_precautions,post_price) values(tbl_post_seq.nextval,#{post_category},#{mem_email},#{post_title},#{post_explain},#{post_standard},#{post_precautions},#{post_price})
 	</insert>
 	
-	<!-- 게시물 상세 페이지 출력, 고정연  -->
+	<!-- 게시글 상세 페이지 출력, 고정연  -->
 	<select id="showPostDetail" resultType="PostDTO">
 		select * from tbl_post where post_num = #{post_num}
 	</select>
+	
+	<!-- 게시글 관리 목록 출력, 고정연 -->
+	<select id="showMyPost" resultType="PostDTO">
+		select * from tbl_post where mem_email = #{mem_email}
+	</select>
+	
+	<!-- 게시글 수정, 고정연 -->
+	<select id="updatePost" parameterType="PostDTO">
+		update tbl_post set post_category = #{post_category}, post_title = #{post_title}, post_explain = #{post_explain}, post_standard = #{post_standard}, post_precautions = #{post_precautions}, post_price = #{post_price}, post_file = #{post_file}) where post_num = #{post_num}
+	</select>
+	
+	<!-- 게시글 삭제, 고정연 -->
+	<select id="deletePost">
+		delete from tbl_post where post_num = #{post_num}
+	</select>
+	
 </mapper>

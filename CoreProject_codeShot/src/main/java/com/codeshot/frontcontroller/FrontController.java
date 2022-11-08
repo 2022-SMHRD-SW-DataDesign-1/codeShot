@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.codeshot.command.Command;
 import com.codeshot.controller.ChattingService;
 import com.codeshot.controller.CheckEmailService;
+import com.codeshot.controller.EditDetailService;
 import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
 import com.codeshot.controller.LogoutService;
 import com.codeshot.controller.PortfolioService;
+import com.codeshot.controller.PostDeleteService;
 import com.codeshot.controller.PostService;
 import com.codeshot.controller.ShowChattingService;
 import com.codeshot.controller.SuggestWordService;
@@ -139,6 +141,18 @@ public class FrontController extends HttpServlet
 			service = new WishPostDeleteServic();
 			service.execute(request, response);
 		}
+		
+		//게시물 수정
+		else if(result.equals("EditDetailService.do")) {
+			service = new EditDetailService();
+			service.execute(request, response);
+		}		
+		
+		//게시물 삭제
+		else if(result.equals("PostDeleteService.do")) {
+			service = new PostDeleteService();
+			service.execute(request, response);
+		}		
 		
 		
 		// 페이지 이동

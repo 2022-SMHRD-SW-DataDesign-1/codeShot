@@ -48,12 +48,12 @@
 		<ul>
 		<%	for(PostDTO dto : postList) { %>
 			<a href="PostDetail.jsp?post_num=<%=dto.getPost_num()%>">
-			<li>게시물1</li>
-			<ol>
-				<li> 이미지</li>
-				<li><%= dto.getPost_title() %></li> <!-- 제목 -->
-				<li><%= dto.getMem_email() %></li> <!-- 글쓴이 -->
-			</ol>
+				<li>게시물1</li>
+				<ol>
+					<li> 이미지</li>
+					<li><%= dto.getPost_title() %></li> <!-- 제목 -->
+					<li><%= dto.getMem_email() %></li> <!-- 글쓴이 -->
+				</ol>
 			</a>
 		<%	} %>
 		</ul>
