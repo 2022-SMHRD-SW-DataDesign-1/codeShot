@@ -1,5 +1,7 @@
 package com.codeshot.model;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -15,5 +17,13 @@ public class PortfolioDAO {
 		int row = session.insert("uploadPortfolio",dto);
 		session.close();
 		return row;
+	}
+	
+	//2022-11-08-고정연/포트폴리오 출력
+	public List<PortfolioDTO> showPortfolio(String mem_email){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<PortfolioDTO> portfolioList = session.selectList("showPortfolio", mem_email);
+		session.close();
+		return portfolioList;
 	}
 }

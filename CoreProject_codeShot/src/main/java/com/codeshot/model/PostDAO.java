@@ -1,5 +1,6 @@
 package com.codeshot.model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -46,7 +47,7 @@ public class PostDAO
 	}
 	
 	//2022-11-08-고정연/게시물 세부내용 조회
-	public PostDTO showPostDetail(int post_num) {
+	public PostDTO showPostDetail(BigDecimal post_num) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		PostDTO post = session.selectOne("showPostDetail", post_num);
 		session.close();

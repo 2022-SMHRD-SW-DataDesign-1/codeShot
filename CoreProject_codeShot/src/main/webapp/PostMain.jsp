@@ -45,13 +45,14 @@
 		<h3><%= postType %></h3>
 		<ul>
 		<%	for(PostDTO dto : postList) { %>
+			<a href="PostDetail.jsp?post_num=<%=dto.getPost_num()%>">
 			<li>게시물1</li>
 			<ol>
-				<li><a href="PostDetail.jsp">이미지</a></li>
-				<li><%= dto.getPost_category() %></li><!-- 카테고리구분 -->
-				<li><a href="PostDetail.jsp"><%= dto.getPost_title() %></a></li> <!-- 제목 -->
+				<li>이미지</li>
+				<li><%= dto.getPost_title() %></li> <!-- 제목 -->
 				<li><%= dto.getMem_email() %></li> <!-- 글쓴이 -->
 			</ol>
+			</a>
 		<%	} %>
 		</ul>
 	</div>
