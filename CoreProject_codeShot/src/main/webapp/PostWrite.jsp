@@ -8,7 +8,7 @@
 </head>
 <!-- 2022-11-01-고정연/게시글 작성 페이지 html -->
 <body> 
-	<h1> DDock </h1>
+	<h1> <a href="Main.jsp">DDock</a> </h1>
 	<form action="PostService.do" method="post" enctype="multipart/form-data">
 		<input type="submit" value="제출하기">
 		<table>
