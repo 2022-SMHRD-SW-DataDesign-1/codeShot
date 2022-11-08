@@ -1,3 +1,5 @@
+<%@page import="com.codeshot.model.PortfolioDAO"%>
+<%@page import="com.codeshot.model.PortfolioDTO"%>
 <%@page import="com.codeshot.model.PostDAO"%>
 <%@page import="com.codeshot.model.PostDTO"%>
 <%@page import="java.util.List"%>
@@ -48,7 +50,7 @@
 			<a href="PostDetail.jsp?post_num=<%=dto.getPost_num()%>">
 			<li>게시물1</li>
 			<ol>
-				<li>이미지</li>
+				<li> 이미지</li>
 				<li><%= dto.getPost_title() %></li> <!-- 제목 -->
 				<li><%= dto.getMem_email() %></li> <!-- 글쓴이 -->
 			</ol>
