@@ -35,7 +35,9 @@
 	</div>
 	
 	<div>
-		<img src="file/<%= portfolioList.get(0).getPf_file() %>">
+		<% if(portfolioList.size()!=0){ %>
+				<img src="file/<%= portfolioList.get(0).getPf_file() %>">
+		<% 	} %>
 		<ul>
 			<li> 포트폴리오 </li>
 			<li> 서비스 설명 </li>
@@ -44,9 +46,12 @@
 			<li> 리뷰 </li>
 		</ul>
 		<h3> 포트폴리오</h3>
-		<% for(PortfolioDTO dto : portfolioList){ %>
-			<img src="file/<%= dto.getPf_file()%>">
-		<% } %>
+		
+		<% if(portfolioList.size()!=0){
+				for(PortfolioDTO dto : portfolioList){ %>
+					<img src="file/<%= dto.getPf_file()%>">
+				<% } 
+			}%>
 		<h3> 서비스 설명 </h3>
 		<%= post.getPost_explain() %>
 		<h3> 의뢰인 주의사항 </h3>
