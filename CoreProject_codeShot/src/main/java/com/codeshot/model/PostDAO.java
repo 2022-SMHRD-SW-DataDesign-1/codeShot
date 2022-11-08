@@ -45,7 +45,7 @@ public class PostDAO
 		return row;
 	}
 	
-	//2022-11-07-고정연/게시물 세부내용 조회
+	//2022-11-08-고정연/게시물 세부내용 조회
 	public PostDTO showPostDetail(int post_num) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		PostDTO post = session.selectOne("showPostDetail", post_num);

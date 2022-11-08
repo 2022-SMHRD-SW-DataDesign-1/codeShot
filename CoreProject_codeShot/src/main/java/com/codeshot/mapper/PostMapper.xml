@@ -23,4 +23,9 @@
 	<insert id="uploadOtsPost" parameterType="PostDTO">
 		insert into tbl_post(post_num,post_category,mem_email,post_title,post_explain,post_standard,post_precautions,post_price) values(tbl_post_seq.nextval,#{post_category},#{mem_email},#{post_title},#{post_explain},#{post_standard},#{post_precautions},#{post_price})
 	</insert>
+	
+	<!-- 게시물 상세 페이지 출력, 고정연  -->
+	<select id="showPostDetail" resultType="PostDTO">
+		select * from tbl_post where post_num = #{post_num}
+	</select>
 </mapper>
