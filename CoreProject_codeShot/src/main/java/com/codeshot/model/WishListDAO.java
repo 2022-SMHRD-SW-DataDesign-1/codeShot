@@ -25,4 +25,12 @@ public class WishListDAO {
 		session.close();
 		return row;
 	}
+	
+	//2022-11-08-김지수/찜한 게시물 테이블에 추가
+	public int WishAddService(WishListDTO w_dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.insert("WishAddService", w_dto);
+		session.close();
+		return row;
+	}
 }

@@ -20,7 +20,6 @@ import com.codeshot.controller.PostService;
 import com.codeshot.controller.ShowChattingService;
 import com.codeshot.controller.SuggestWordService;
 import com.codeshot.controller.WishAddService;
-import com.codeshot.controller.WishDeleteService;
 import com.codeshot.controller.WishPostDeleteServic;
 import com.codeshot.controller.WithdrawalService;
 
@@ -132,12 +131,6 @@ public class FrontController extends HttpServlet
 		// 게시물을 찜 테이블에 추가
 		else if(result.equals("WishAddService.do")) {
 			service = new WishAddService();
-			service.execute(request, response);
-		}
-		
-		// 게시물을 찜 테이블에서 삭제
-		else if(result.equals("WishDeleteService.do")) {
-			service = new WishDeleteService();
 			service.execute(request, response);
 		}
 		

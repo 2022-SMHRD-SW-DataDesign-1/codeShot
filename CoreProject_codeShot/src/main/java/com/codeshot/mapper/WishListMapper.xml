@@ -17,4 +17,6 @@
 	<delete id="deleteWishPost" parameterType="WishListDTO">
 		delete from tbl_wishlist where (post_num=#{post_num}) and (mem_email=#{mem_email})
 	</delete>
+	
+	<!--  -->
 </mapper>

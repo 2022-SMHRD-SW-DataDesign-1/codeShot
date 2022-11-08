@@ -90,7 +90,7 @@ function wishPostClick(num, clicked_id, category){
 		checkColor = false;
 		
 		$.ajax({
-			url:'WishDeleteService.do',
+			url:'WishPostDeleteService.do',
 			data: {'postNum':postNum},
 			type:'get',
 			success: function(){
