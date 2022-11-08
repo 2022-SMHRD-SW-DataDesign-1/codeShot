@@ -10,6 +10,6 @@
 	
 	<!-- 포트폴리오 출력, 고정연 -->
 	<select id="showPortfolio" resultType="PortfolioDTO">
-		select * from TBL_PORTFOLIO where mem_email = #{mem_mail}
+		select * from TBL_PORTFOLIO where mem_email = #{mem_mail} 
 	</select>
 </mapper>

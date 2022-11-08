@@ -145,13 +145,13 @@ public class FrontController extends HttpServlet
 		//게시물 수정
 		else if(result.equals("EditDetailService.do")) {
 			service = new EditDetailService();
-			service.execute(request, response);
+			moveURL = service.execute(request, response);
 		}		
 		
 		//게시물 삭제
 		else if(result.equals("PostDeleteService.do")) {
 			service = new PostDeleteService();
-			service.execute(request, response);
+			moveURL = service.execute(request, response);
 		}		
 		
 		

@@ -71,7 +71,7 @@ public class PostDAO
 	}
 	
 	//2022-11-08-고정연/게시물 삭제
-	public int deletePost(int post_num) {
+	public int deletePost(BigDecimal post_num) {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int row = session.delete("deletePost", post_num);
 		session.close();
