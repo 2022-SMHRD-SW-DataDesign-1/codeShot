@@ -168,6 +168,11 @@ public class FrontController extends HttpServlet
 			moveURL = service.execute(request, response);
 		}
 		
+		// 결제창으로 이동
+		else if(result.equals("goPayment.do")) {
+			moveURL = "Payment.jsp";
+		}
+		
 		// 페이지 이동
 		if(moveURL != null) 
 		{

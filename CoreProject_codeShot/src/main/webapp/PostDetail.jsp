@@ -21,6 +21,8 @@
 		
 		//글쓴이 이메일, 포트폴리오 가져오기
 		List<PortfolioDTO> portfolioList = new PortfolioDAO().showWriterPortfolio(post.getMem_email());
+		
+		request.setAttribute("postDTO", post);
 	%>
 	<!-- 페이지 상단 -->
 	<div>
@@ -55,10 +57,10 @@
 		<fieldset>
 			<%= post.getPost_price() %>원
 			<br>
-			<button> <a href="Payment.jsp"> 구매하기 </a> </button>
+			<a href="goPayment.do"><button>구매하기</button></a>
 		</fieldset>
 		<fieldset>
-			<button> <a href="CreateChatRoomService.do?sellerEmail=<%=post.getMem_email()%>&postTitle=<%=post.getPost_title()%>"> 문의하기 </a> </button>
+			<a href="CreateChatRoomService.do?sellerEmail=<%=post.getMem_email()%>&postTitle=<%=post.getPost_title()%>"><button>문의하기</button></a>
 		</fieldset>
 	</div>
 	
@@ -88,5 +90,19 @@
 		<%= post.getPost_standard() %>
 		<h3> 리뷰 </h3>
 	</div>
+	<script type="text/javascript">
+		function goPayment() 
+		{
+			let form = document.createElement('form');
+			form.setAttribute('method', 'post');
+			form.setAttribute('action', 'goPayment.jsp');
+			let dto = document.createElement('input');
+			dto.setAttribute('type':'text');
+			dto.setAttribute('name':'postDTO');
+			dto.setAttribute('type':'text');
+			document.body.appendChild(f);
+			form.submit();
+		}
+	</script>
 </body>
 </html>
