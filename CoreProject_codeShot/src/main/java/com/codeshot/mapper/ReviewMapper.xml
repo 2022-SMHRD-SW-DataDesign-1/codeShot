@@ -13,7 +13,7 @@
 	</select>
 	
 	<!-- 2022-11-09/이슬비/리뷰데이터삽입 -->
-	<insert id="insertReview" parameterType="ReviewDTO">
+<!--	<insert id="insertReview" parameterType="ReviewDTO">
 		insert into tbl_review(
 			review_num,
 			review_content,
@@ -29,7 +29,7 @@
 			#{mem_email},
 			sysdate
 		)
-	</insert>
+	</insert>-->
 	
 	<!-- 2022-11-09/이슬비/리뷰전체목록 불러오기 -->
 <!-- 	<select id="reviewList" parameterType="ReviewDTO">
