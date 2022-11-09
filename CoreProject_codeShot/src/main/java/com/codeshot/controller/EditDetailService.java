@@ -1,5 +1,6 @@
 package com.codeshot.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
@@ -21,6 +22,7 @@ public class EditDetailService implements Command {
 		System.out.println("[EditDetailService]");
 		
 		BigDecimal postNum = new BigDecimal(request.getParameter("post_num"));
+		PostDTO post = new PostDAO().showPostDetail(postNum);
 		
 		// 저장경로
 		String savePath = request.getServletContext().getRealPath("file");
@@ -67,8 +69,17 @@ public class EditDetailService implements Command {
 		System.out.println("postPrice : " + postPrice);
 		System.out.println("postFile : " + postFile);
 		
-		PostDTO dto = new PostDTO(postNum,postCategory, postTitle, postExplain, postStandard, postPrecautions, postPrice, postFile);
-		int row = new PostDAO().updatePost(dto);
+		int row = 0;
+		if(postFile != null) {
+			//첨부파일 수정 있음
+			new File(savePath+"/"+post.getPost_file()).delete();
+			PostDTO dto = new PostDTO(postNum,postCategory, postTitle, postExplain, postStandard, postPrecautions, postPrice, postFile);
+			row = new PostDAO().updatePostFileY(dto);
+		}else {
+			//첨부파일 수정 없음
+			PostDTO dto = new PostDTO(postNum, postCategory, postTitle, postExplain, postStandard, postPrecautions, postPrice);
+			row = new PostDAO().updatePostFileN(dto);			
+		}
 		
 		if(row>0) {
 			System.out.println("게시글 수정 성공");

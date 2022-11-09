@@ -62,10 +62,18 @@ public class PostDAO
 		return postList;
 	}
 	
-	//2022-11-08-고정연/게시물 수정
-	public int updatePost(PostDTO dto) {
+	//2022-11-08-고정연/게시물 수정(첨부파일 수정 있음)
+	public int updatePostFileY(PostDTO dto) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.update("updatePost", dto);
+		int row = session.update("updatePostFileY", dto);
+		session.close();
+		return row;
+	}
+	
+	//2022-11-09-고정연/게시물 수정(첨부파일 수정 없음)
+	public int updatePostFileN(PostDTO dto) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int row = session.update("updatePostFileN", dto);
 		session.close();
 		return row;
 	}
