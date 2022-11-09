@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>DDock</title>
 
-<!-- <link rel="stylesheet" type="text/css" href="./assets/css/header.css">
-<link rel="stylesheet" type="text/css" href="./assets/css/util.css"> -->
+<!--  <link rel="stylesheet" type="text/css" href="./assets/css/header.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/util.css">  -->
 </head>
 <body>
 	<!-- Header -->
@@ -85,16 +85,16 @@
 					<li class="codeShot-ots-menu">
 						<a href="PostMain.jsp?postType=outsourcingPost" id="outsourcingPost" class="codeShot-menuBarBottom">외주</a>
 						<ul class="sub-menu codeShot-subMenu">
-							<li class="sodeShot-subMenu-li"><a href="SellWeb.html">웹</a></li>
-							<li class="sodeShot-subMenu-li"><a href="SellApp.html">앱</a></li>
+							<li class="codeShot-subMenu-li"><a href="SellWeb.html">웹</a></li>
+							<li class="codeShot-subMenu-li"><a href="SellApp.html">앱</a></li>
 						</ul>
 					</li>
 					
 					<li class="codeShot-code-menu">
 						<a href="PostMain.jsp?postType=codePost" id="codePost" class="codeShot-menuBarBottom">소스코드</a>
 						<ul class="sub-menu codeShot-subMenu">
-							<li class="sodeShot-subMenu-li"><a href="SellWeb.html">웹</a></li>
-							<li class="sodeShot-subMenu-li"><a href="SellApp.html">앱</a></li>
+							<li class="codeShot-subMenu-li"><a href="SellWeb.html">웹</a></li>
+							<li class="codeShot-subMenu-li"><a href="SellApp.html">앱</a></li>
 						</ul>
 					</li>
 					<li>
