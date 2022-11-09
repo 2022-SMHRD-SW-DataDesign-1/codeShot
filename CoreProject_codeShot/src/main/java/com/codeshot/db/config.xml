@@ -12,7 +12,7 @@
 		<typeAlias type="com.codeshot.model.WishListDTO" alias="WishListDTO"/>
 		<typeAlias type="com.codeshot.model.ReviewDTO" alias="ReviewDTO"/>
 		<typeAlias type="com.codeshot.model.PortfolioDTO" alias="PortfolioDTO"/>
-		<typeAlias type="com.codeshot.model.PrchsDTO" alias="PrchsDTO"/>
+		<!-- <typeAlias type="com.codeshot.model.PrchsDTO" alias="PrchsDTO"/> -->
 	</typeAliases>
   <environments default="development">
     <environment id="development">
@@ -32,6 +32,6 @@
   	<mapper resource="com/codeshot/mapper/WishListMapper.xml"/>
   	<mapper resource="com/codeshot/mapper/ReviewMapper.xml"/>
   	<mapper resource="com/codeshot/mapper/PortfolioMapper.xml"/>
-  	<mapper resource="com/codeshot/mapper/PrchsMapper.xml"/>
+  <!-- 	<mapper resource="com/codeshot/mapper/PrchsMapper.xml"/> -->
   </mappers>
 </configuration>

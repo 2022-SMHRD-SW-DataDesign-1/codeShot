@@ -6,7 +6,7 @@
 <mapper namespace="com.codeshot.mapper.PrchsMapper">
 	
 	<!-- 2022-11-09 이슬비 구매내역 전체 출력 -->
-	<select id="prchsList" parameterType="PrchsDTO">
+	<select id="prchsList" parameterType="PrchsDTO" resultType="PrchsDTO">
 		select * from tbl_prchslist where email = #{email}
 	</select>
 

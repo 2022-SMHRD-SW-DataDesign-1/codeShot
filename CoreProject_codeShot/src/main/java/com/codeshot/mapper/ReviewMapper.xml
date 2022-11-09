@@ -12,35 +12,5 @@
 		group by A.post_num
 	</select>
 	
-	<!-- 2022-11-09/이슬비/리뷰데이터삽입 -->
-<!--	<insert id="insertReview" parameterType="ReviewDTO">
-		insert into tbl_review(
-			review_num,
-			review_content,
-			review_starrating,
-			post_num,
-			mem_email,
-			review_date
-		)values(
-			#{review_num},
-			#{review_content},
-			#{review_starrating,},
-			#{post_num},
-			#{mem_email},
-			sysdate
-		)
-	</insert>-->
-	
-	<!-- 2022-11-09/이슬비/리뷰전체목록 불러오기 -->
-<!-- 	<select id="reviewList" parameterType="ReviewDTO">
-		select * from tbl_review where (mem_email=#{mem_email})
-	</select> -->
-	
-	<!-- 2022-11-09/이슬비/리뷰전체목록 불러오기 -->
-<!-- 	<select id="ReviewList">
-		select * 
-		from tbl_review
-		where ()
-	</select> -->
-	
+
 </mapper>

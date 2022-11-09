@@ -1,3 +1,4 @@
+<%@page import="com.codeshot.controller.CheckEmailService"%>
 <%@page import="com.codeshot.model.PrchsDTO"%>
 <%@page import="com.codeshot.model.PrchsDAO"%>
 <%@page import="com.codeshot.model.ReviewDTO"%>
@@ -16,18 +17,14 @@
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-<%-- <% System.out.println("[리뷰목록(구매내역) 페이지]");
+<% System.out.println("[리뷰목록(구매내역) 페이지]");
 
 	UserDTO info = (UserDTO)session.getAttribute("info");
-	
-	/* ReviewDAO dao = new ReviewDAO();
-	List<ReviewDTO> ReviewList = dao.reviewList(info.getEmail());
-	
-	System.out.println("리뷰리스트 : "+ReviewList.size()); */
-	
+
 	PrchsDAO dao = new PrchsDAO();
 	List<PrchsDTO> prchList = dao.prchsList(info.getEmail());
-	System.out.print(prchList.size());
+	
+	System.out.println("리뷰목록(거래내역) : "+prchList.size());
 	
 	
 %>
@@ -66,8 +63,8 @@
 		<a href="FAQ.jsp">FAQ</a>
 	</div> --%>
 
-<!-- 찜목록 -->
-<%-- 	<div>
+<!-- 리뷰목록 -->
+	<div>
 		<nav>
 			<ul>
 				<li>작성가능한 리뷰</li>
@@ -78,11 +75,13 @@
 	<%for(int i = 0; i < prchList.size(); i++) {%>
 		<div><%=prchList.get(i).getPost_num() %></div>
 		<div><%=prchList.get(i).getMem_email() %></div>
-		<a href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>"></a>
+		<div><%=prchList.get(i).getPrch_date() %></div>
+		<div><%=prchList.get(i).getPrch_price() %></div>
+		<a href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>">리뷰작성하기</a>
 	<%} %>
 	
 
 		
-<%} %> --%>		
+<%} %>		 
 </body>
 </html>

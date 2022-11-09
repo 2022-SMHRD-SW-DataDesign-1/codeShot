@@ -37,16 +37,9 @@ public class ReviewDTO {
 		this.post_num = post_num;
 		this.mem_email = mem_email;
 		this.review_date = review_date;
+		this.post_file = post_file;
 	}
 
-	public ReviewDTO(String review_content, @NonNull BigDecimal review_starrating, BigDecimal post_num,
-			String mem_email) {
-		super();
-		this.review_content = review_content;
-		this.review_starrating = review_starrating;
-		this.post_num = post_num;
-		this.mem_email = mem_email;
-	}
 
 
 

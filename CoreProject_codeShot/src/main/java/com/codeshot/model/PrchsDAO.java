@@ -10,11 +10,11 @@ import com.codeshot.db.SqlSessionManager;
 public class PrchsDAO {
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
-	//2022-11-09-이슬비/구매내역 출력
+	//2022-11-09-이슬비/구매내역 전체 출력
 	public List<PrchsDTO> prchsList(String email) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		List<PrchsDTO> list = session.selectList("prchsList", email);
+		List<PrchsDTO> prchsList = session.selectList("prchsList", email);
 		session.close();
-		return list;
+		return prchsList;
 	}
 }
