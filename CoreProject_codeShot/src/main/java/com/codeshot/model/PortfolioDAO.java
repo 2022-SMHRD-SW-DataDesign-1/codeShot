@@ -36,6 +36,14 @@ public class PortfolioDAO {
 		return portfolio;
 	}
 	
+	//2022-11-09-고정연/게시물 이미지 출력
+	public PortfolioDTO showImage(String mem_email){
+		SqlSession session = sqlSessionFactory.openSession(true);
+		PortfolioDTO portfolio = session.selectOne("showImage",mem_email);
+		session.close();
+		return portfolio;
+	}
+	
 	//2022-11-09-고정연/포트폴리오 삭제
 		public int deletePortfolio(BigDecimal pf_num) {
 			SqlSession session = sqlSessionFactory.openSession(true);

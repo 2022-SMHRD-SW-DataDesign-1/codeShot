@@ -16,7 +16,9 @@
 	String postType = request.getParameter("postType");
 
 	PostDAO dao = new PostDAO();
-	List<PostDTO> postList = dao.showPost(); 
+	List<PostDTO> postList = dao.showPost();
+	PortfolioDTO pf;
+	
 %>
 	<div>
 		<h3>비회원</h3>
@@ -47,16 +49,31 @@
 	<div>
 		<h3><%= postType %></h3>
 		<ul>
-		<%	for(PostDTO dto : postList) { %>
+		<%
+		for(PostDTO dto : postList) { 
+			pf = new PortfolioDAO().showImage(dto.getMem_email());
+		%>
 			<a href="PostDetail.jsp?post_num=<%=dto.getPost_num()%>">
 				<li>게시물1</li>
 				<ol>
-					<li> 이미지</li>
+					<li>
+						<%
+						if(pf != null){
+						%>
+							<img src="./file/<%= pf.getPf_file()%>">
+						<%
+						}else{
+							out.print("이미지");
+						}
+						%>
+					</li>
 					<li><%= dto.getPost_title() %></li> <!-- 제목 -->
 					<li><%= dto.getMem_email() %></li> <!-- 글쓴이 -->
 				</ol>
 			</a>
-		<%	} %>
+		<%
+		}
+		%>
 		</ul>
 	</div>
 <%
