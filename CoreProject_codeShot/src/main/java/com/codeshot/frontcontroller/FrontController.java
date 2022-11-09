@@ -16,6 +16,7 @@ import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
 import com.codeshot.controller.LoginService;
 import com.codeshot.controller.LogoutService;
+import com.codeshot.controller.PortfolioDeleteService;
 import com.codeshot.controller.PortfolioService;
 import com.codeshot.controller.PostDeleteService;
 import com.codeshot.controller.PostService;
@@ -151,6 +152,12 @@ public class FrontController extends HttpServlet
 		//게시물 삭제
 		else if(result.equals("PostDeleteService.do")) {
 			service = new PostDeleteService();
+			moveURL = service.execute(request, response);
+		}		
+
+		//포트폴리오 삭제
+		else if(result.equals("PortfolioDeleteService.do")) {
+			service = new PortfolioDeleteService();
 			moveURL = service.execute(request, response);
 		}		
 		
