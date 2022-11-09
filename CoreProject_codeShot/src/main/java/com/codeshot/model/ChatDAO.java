@@ -55,5 +55,16 @@ public class ChatDAO
 		
 		return row;
 	}
+	
+	public int createChatRoom(ChatRoomDTO dto) 
+	{
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		int row = session.insert("createChatRoom", dto);
+		
+		session.close();
+		
+		return row;
+	}
 
 }

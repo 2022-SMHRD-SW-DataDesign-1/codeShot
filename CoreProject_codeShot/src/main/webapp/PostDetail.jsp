@@ -58,7 +58,7 @@
 			<button> <a href="Payment.jsp"> 구매하기 </a> </button>
 		</fieldset>
 		<fieldset>
-			<button> <a href="CreateChatRoomService.do"> 문의하기 </a> </button>
+			<button> <a href="CreateChatRoomService.do?sellerEmail=<%=post.getMem_email()%>&postTitle=<%=post.getPost_title()%>"> 문의하기 </a> </button>
 		</fieldset>
 	</div>
 	

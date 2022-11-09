@@ -16,4 +16,7 @@
 	<insert id="inputChat" parameterType="ChattingDTO">
 		insert into tbl_chatting values(tbl_chatting_seq.nextval,#{talker},#{chat_content},sysdate,#{room_num})
 	</insert>
+	<insert id="createChatRoom" parameterType="ChatRoomDTO">
+		insert into tbl_chatroom values(tbl_chatroom_seq.nextval,#{seller_email},#{buyer_email},#{room_title},#{room_description},sysdate)
+	</insert>
 </mapper>
