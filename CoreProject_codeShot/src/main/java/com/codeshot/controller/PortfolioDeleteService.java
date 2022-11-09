@@ -35,7 +35,7 @@ public class PortfolioDeleteService implements Command {
 			System.out.println("포트폴리오 삭제 실패");
 		}
 		
-		return "EditPost.jsp";
+		return "PortfolioWrite.jsp";
 		
 	}
 

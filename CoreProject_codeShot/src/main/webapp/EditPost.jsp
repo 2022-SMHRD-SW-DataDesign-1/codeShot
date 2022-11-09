@@ -18,7 +18,7 @@
 		
 		List<PostDTO> postList = new PostDAO().showMyPost(info.getEmail());
 		
-		List<PortfolioDTO> portfolioList = new PortfolioDAO().showPortfolio(info.getEmail());
+		List<PortfolioDTO> portfolioList = new PortfolioDAO().showWriterPortfolio(info.getEmail());
 	%>
 	<!-- 페이지 상단 -->
 	<div>

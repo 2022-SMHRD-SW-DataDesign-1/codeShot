@@ -20,7 +20,7 @@
 		PostDTO post = new PostDAO().showPostDetail(postNum);
 		
 		//글쓴이 이메일, 포트폴리오 가져오기
-		List<PortfolioDTO> portfolioList = new PortfolioDAO().showPortfolio(post.getMem_email());
+		List<PortfolioDTO> portfolioList = new PortfolioDAO().showWriterPortfolio(post.getMem_email());
 	%>
 	<!-- 페이지 상단 -->
 	<div>

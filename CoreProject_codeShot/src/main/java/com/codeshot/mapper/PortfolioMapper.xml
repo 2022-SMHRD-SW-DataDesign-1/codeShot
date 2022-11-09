@@ -9,12 +9,12 @@
 	</insert>
 	
 	<!-- 글쓴이 포트폴리오 출력, 고정연 -->
-	<select id="showPortfolio" resultType="PortfolioDTO">
+	<select id="showWriterPortfolio" resultType="PortfolioDTO">
 		select * from TBL_PORTFOLIO where mem_email = #{mem_mail} 
 	</select>
 
 	<!-- 포트폴리오 번호로 출력, 고정연 -->
-	<select id="showPortfolio" resultType="PortfolioDTO">
+	<select id="showPortfolioOne" resultType="PortfolioDTO">
 		select * from TBL_PORTFOLIO where pf_num = #{pf_num} 
 	</select>
 	
