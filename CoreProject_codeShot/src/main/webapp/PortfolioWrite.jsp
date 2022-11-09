@@ -15,7 +15,7 @@
 		UserDTO info = (UserDTO)session.getAttribute("info");
 		String memEmail = info.getEmail();
 		
-		List<PortfolioDTO> portfolioList = new PortfolioDAO().showPortfolio(memEmail);
+		List<PortfolioDTO> portfolioList = new PortfolioDAO().showWriterPortfolio(memEmail);
 	%>
 	
 	<!-- 페이지 상단 -->
@@ -50,7 +50,10 @@
 	<!-- 포트폴리오 출력 -->
 	<% if(portfolioList.size()!=0){
 			for(PortfolioDTO dto : portfolioList){ %>
+			<ul>
 				<img src="file/<%= dto.getPf_file()%>">
+				<button> <a href="PortfolioDeleteService.do?pf_num=<%= dto.getPf_num()%>"> 삭제 </a> </button>
+			</ul>
 		<% } 
 		}%>
 </body>

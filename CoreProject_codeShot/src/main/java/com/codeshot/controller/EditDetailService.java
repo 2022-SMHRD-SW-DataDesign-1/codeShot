@@ -58,6 +58,7 @@ public class EditDetailService implements Command {
 			e.printStackTrace();
 		}
 		
+		System.out.println("postNum : " + postNum);
 		System.out.println("postCategory : " + postCategory);
 		System.out.println("postTitle : " + postTitle);
 		System.out.println("postExplain : " + postExplain);
