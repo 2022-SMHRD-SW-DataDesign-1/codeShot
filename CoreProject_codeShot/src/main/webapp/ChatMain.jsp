@@ -50,10 +50,14 @@
 	<script src="./assets/jquery/jquery-3.6.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 	<script type="text/javascript">
-		let roomNum = <%=chatRoomList.get(chatRoomList.size() - 1).getRoom_num()%>;
+		let roomNum = 0;
+		if(<%= chatRoomList.size() %> != 0)
+		{
+			roomNum = <%=chatRoomList.get(chatRoomList.size() - 1).getRoom_num()%>;	
+		}
 		let chatBox = document.getElementById('chatBox');
 		let socket = io.connect('http://localhost:5000');
-	
+		
 		function selectChatRoom(selectRoomNum, clicked_id)
 		{
 			roomNum = selectRoomNum;
@@ -101,7 +105,11 @@
 			
 			console.log(inputVal);
 			console.log(inputFileVal);
-			
+			 
+			if(inputVal != "" || inputFileVal != "")
+			{
+				chat += '<p><b>'+'<%= info.getName() %>'+'</b></p>'
+			}
 			if(inputVal != "")
 			{
 				inputVal = '<p>'+inputVal+'</p>';
@@ -119,30 +127,29 @@
 
 			console.log(chat);
 			
-			$.ajax({
-				url : 'ChattingService.do',
-				processData : false,
-				contentType : false,
-				data : formData,
-				enctype:'multipart/form-data',
-				type : 'post',
-				success : function(){
-					if(chat != "")
-					{
-						chatBox.innerHTML += chat;
+			if(chat != "")
+			{
+				$.ajax({
+					url : 'ChattingService.do',
+					processData : false,
+					contentType : false,
+					data : formData,
+					enctype:'multipart/form-data',
+					type : 'post',
+					success : function(){
+						if(chat != "")
+						{
+							socket.emit('sendChat', {'user_name':'<%=info.getName()%>',
+							 						 'chat':chat});
+							console.log('소켓 보내기 성공');
+						}
+					},
+					error : function(){
+						console.log("sendMassage통신실패");	
 					}
-					socket.emit('sendChat', {'user_name':'<%=info.getName()%>',
-					 						 'chat':chat});
-					console.log('소켓 보내기 성공');
-					socket.on('my response', function(msg) {
-						console.log(msg);
-						chatBox.innerHTML += '<p>'+msg.user_name+'</p>'+msg.chat;
-					});
-				},
-				error : function(){
-					console.log("sendMassage통신실패");	
-				}
-			})
+				})
+				
+			}
 			
 		}
 		
@@ -156,6 +163,10 @@
 			socket.on('error', function(){
 				console.log("error")
 			})
+			socket.on('receiveChat', function(msg) {
+				console.log(msg);
+				chatBox.innerHTML += msg.chat;
+			});
 		});
 		
 		
