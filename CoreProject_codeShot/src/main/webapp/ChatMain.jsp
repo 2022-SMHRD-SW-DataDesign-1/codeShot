@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.codeshot.model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,24 +11,30 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	UserDTO info = (UserDTO)session.getAttribute("info");
+	<%
+	UserDTO info = (UserDTO) session.getAttribute("info");
 	ChatDAO dao = new ChatDAO();
 	List<ChatRoomDTO> chatRoomList = dao.showChatRoom(info.getEmail());
 	int count = 0;
-%>
+	%>
 	<div>
 		<ul>
-	<% 	for(ChatRoomDTO chatroom : chatRoomList) {	%>
-			<li  id="chatRoom<%= count %>" onclick="selectChatRoom(<%= chatroom.getRoom_num() %>, this.id)">채팅창 번호 : <%= chatroom.getRoom_num() %>
+			<%
+			for (ChatRoomDTO chatroom : chatRoomList) {
+			%>
+			<li id="chatRoom<%=count%>"
+				onclick="selectChatRoom(<%=chatroom.getRoom_num()%>, this.id)">
+				<span>채팅창 번호 : <%=chatroom.getRoom_num()%></span>
 				<ol>
-					<li>채팅창 제목 : <span id="roomTitle"><%= chatroom.getRoom_title() %></span></li>
-					<li>채팅창 설명 : <%= chatroom.getRoom_description() %></li>
-					<li>채팅창 개설일자 : <%= chatroom.getRoom_opendate() %></li>
+					<li>채팅창 제목 : <span id="roomTitle"><%=chatroom.getRoom_title()%></span></li>
+					<li>채팅창 설명 : <%=chatroom.getRoom_description()%></li>
+					<li>채팅창 개설일자 : <%=chatroom.getRoom_opendate()%></li>
 				</ol>
-			</li>		
-	<% 		count++;
-		} %>
+			</li>
+			<%
+				count++;
+			}
+			%>
 		</ul>
 	</div>
 	<div>
@@ -42,9 +48,11 @@
 		</form>
 	</div>
 	<script src="./assets/jquery/jquery-3.6.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 	<script type="text/javascript">
-		let roomNum = <%= chatRoomList.get(chatRoomList.size() - 1).getRoom_num() %>;
+		let roomNum = <%=chatRoomList.get(chatRoomList.size() - 1).getRoom_num()%>;
 		let chatBox = document.getElementById('chatBox');
+		let socket = io.connect('http://localhost:5000');
 	
 		function selectChatRoom(selectRoomNum, clicked_id)
 		{
@@ -73,7 +81,7 @@
 					
 					for(let i = 0; i < chattingList.length; i++)
 					{
-						chatBox.innerHTML += chattingList[i].chat_content+"<br>";
+						chatBox.innerHTML += chattingList[i].chat_content;
 					}
 					
 				},
@@ -123,12 +131,34 @@
 					{
 						chatBox.innerHTML += chat;
 					}
+					socket.emit('sendChat', {'user_name':'<%=info.getName()%>',
+					 						 'chat':chat});
+					console.log('소켓 보내기 성공');
+					socket.on('my response', function(msg) {
+						console.log(msg);
+						chatBox.innerHTML += '<p>'+msg.user_name+'</p>'+msg.chat;
+					});
 				},
 				error : function(){
 					console.log("sendMassage통신실패");	
 				}
 			})
+			
 		}
+		
+		$(function(){
+			socket.on('connect', function(){
+				console.log("연결");
+			})
+			socket.on('disconnect', function(){
+				console.log("연결실패")
+			})
+			socket.on('error', function(){
+				console.log("error")
+			})
+		});
+		
+		
 	</script>
 </body>
 </html>
