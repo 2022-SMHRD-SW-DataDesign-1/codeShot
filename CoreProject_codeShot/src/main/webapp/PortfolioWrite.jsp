@@ -26,6 +26,7 @@
 		<ul>
 			<li><a href="EditInfo.jsp">내정보 수정</a></li>
 			<li><a href="EditPost.jsp">게시글 관리</a></li>
+			<li><a href="PortfolioWrite.jsp">포트폴리오 관리</a></li>
 			<li><a href="ChatMain.jsp">채팅</a></li>
 			<li><a href="WishList.jsp">찜 목록</a></li>
 			<li><a href="ReviewList.jsp">리뷰목록</a></li>

@@ -51,15 +51,15 @@
 			</tr>
 			<tr>
 				<td> 서비스 설명 </td>
-				<td> <textarea name="post_explain" value="<%= post.getPost_explain() %>" placeholder="내용을 입력해주세요"></textarea> </td>
+				<td> <textarea name="post_explain" placeholder="내용을 입력해주세요"> <%= post.getPost_explain() %> </textarea> </td>
 			</tr>
 			<tr>
 				<td> 의뢰인 주의사항 </td>
-				<td> <textarea name="post_precautions" value="<%= post.getPost_precautions() %>" placeholder="내용을 입력해주세요"></textarea> </td>
+				<td> <textarea name="post_precautions" placeholder="내용을 입력해주세요"> <%= post.getPost_precautions() %> </textarea> </td>
 			</tr>
 			<tr>
 				<td> 사용 툴(버전) </td>
-				<td> <textarea name="post_standard" value="<%= post.getPost_standard() %>" placeholder="내용을 입력해주세요"></textarea> </td>
+				<td> <textarea name="post_standard" placeholder="내용을 입력해주세요"> <%= post.getPost_standard() %> </textarea> </td>
 			</tr>
 		</table>
 	</form>
