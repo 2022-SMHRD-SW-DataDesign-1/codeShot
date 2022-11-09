@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
-<% System.out.println("[리뷰목록(구매내역) 페이지]");
+<%-- <% System.out.println("[리뷰목록(구매내역) 페이지]");
 
 	UserDTO info = (UserDTO)session.getAttribute("info");
 	
@@ -64,10 +64,10 @@
 		<a href="PostMain.jsp?postType=codePost" id="codePost">소스코드</a>
 		<a href="SiteIntroduce.jsp">사이트소개</a>
 		<a href="FAQ.jsp">FAQ</a>
-	</div>
+	</div> --%>
 
 <!-- 찜목록 -->
-	<div>
+<%-- 	<div>
 		<nav>
 			<ul>
 				<li>작성가능한 리뷰</li>
@@ -83,6 +83,6 @@
 	
 
 		
-<%} %>		
+<%} %> --%>		
 </body>
 </html>
