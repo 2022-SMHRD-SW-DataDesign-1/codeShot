@@ -55,10 +55,10 @@
 		<fieldset>
 			<%= post.getPost_price() %>원
 			<br>
-			<button> <a href="#"> 구매하기 </a> </button>
+			<button> <a href="Payment.jsp"> 구매하기 </a> </button>
 		</fieldset>
 		<fieldset>
-			<button> <a href="#"> 문의하기 </a> </button>
+			<button> <a href="CreateChatRoomService.do"> 문의하기 </a> </button>
 		</fieldset>
 	</div>
 	

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.codeshot.command.Command;
 import com.codeshot.controller.ChattingService;
 import com.codeshot.controller.CheckEmailService;
+import com.codeshot.controller.CreateChatRoomService;
 import com.codeshot.controller.EditDetailService;
 import com.codeshot.controller.EditInfoService;
 import com.codeshot.controller.JoinService;
@@ -159,8 +160,13 @@ public class FrontController extends HttpServlet
 		else if(result.equals("PortfolioDeleteService.do")) {
 			service = new PortfolioDeleteService();
 			moveURL = service.execute(request, response);
-		}		
+		}
 		
+		// 채팅방 생성
+		else if(result.equals("CreateChatRoomService.do")) {
+			service = new CreateChatRoomService();
+			moveURL = service.execute(request, response);
+		}
 		
 		// 페이지 이동
 		if(moveURL != null) 
