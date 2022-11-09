@@ -36,7 +36,7 @@
 	
 	<!-- 게시글 수정, 고정연 -->
 	<select id="updatePost" parameterType="PostDTO">
-		update tbl_post set post_category = #{post_category}, post_title = #{post_title}, post_explain = #{post_explain}, post_standard = #{post_standard}, post_precautions = #{post_precautions}, post_price = #{post_price}, post_file = #{post_file}) where post_num = #{post_num}
+		update tbl_post set post_category = #{post_category}, post_title = #{post_title}, post_explain = #{post_explain}, post_standard = #{post_standard}, post_precautions = #{post_precautions}, post_price = #{post_price}, post_file = #{post_file} where post_num = #{post_num}
 	</select>
 	
 	<!-- 게시글 삭제, 고정연 -->
