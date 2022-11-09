@@ -56,7 +56,7 @@
 			roomNum = <%=chatRoomList.get(chatRoomList.size() - 1).getRoom_num()%>;	
 		}
 		let chatBox = document.getElementById('chatBox');
-		let socket = io.connect('http://localhost:5000');
+		let socket = io.connect('http://172.30.1.30:5000');
 		
 		function selectChatRoom(selectRoomNum, clicked_id)
 		{
