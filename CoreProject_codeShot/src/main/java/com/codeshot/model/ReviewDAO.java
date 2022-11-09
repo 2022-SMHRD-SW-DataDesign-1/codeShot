@@ -27,13 +27,13 @@ public class ReviewDAO {
 		return row;
 	}
 	
-	// 022-11-09/이슬비/리뷰목록 전체 불러오기 메소드
-	public List<ReviewDTO> reviewList(String email) {
-		SqlSession session = sqlSessionFactory.openSession(true);
-		List<ReviewDTO> list = session.selectList("reviewList", email);
-		session.close();
-		return list;
-	}
+	// 2022-11-09/이슬비/리뷰목록 전체 불러오기 메소드
+//	public List<ReviewDTO> reviewList(String email) {
+//		SqlSession session = sqlSessionFactory.openSession(true);
+//		List<ReviewDTO> list = session.selectList("reviewList", email);
+//		session.close();
+//		return list;
+//	}
 	
 	
 	

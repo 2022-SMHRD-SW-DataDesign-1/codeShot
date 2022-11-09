@@ -32,9 +32,9 @@
 	</insert>
 	
 	<!-- 2022-11-09/이슬비/리뷰전체목록 불러오기 -->
-	<select id="reviewList" parameterType="ReviewDTO">
+<!-- 	<select id="reviewList" parameterType="ReviewDTO">
 		select * from tbl_review where (mem_email=#{mem_email})
-	</select>
+	</select> -->
 	
 	<!-- 2022-11-09/이슬비/리뷰전체목록 불러오기 -->
 <!-- 	<select id="ReviewList">
