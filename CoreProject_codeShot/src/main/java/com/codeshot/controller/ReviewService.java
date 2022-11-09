@@ -13,9 +13,9 @@ import com.codeshot.model.ReviewDTO;
 import com.codeshot.model.UserDTO;
 
 public class ReviewService implements Command{
-//	
-//	@Override
-//	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 //		
 //		System.out.println("[ReviewService]");
 //		
@@ -45,7 +45,7 @@ public class ReviewService implements Command{
 //		} else {
 //			System.out.println("리뷰작성 실패");
 //		}
-//		
-//		return null;
-//	}
+		
+		return null;
+	}
 }
