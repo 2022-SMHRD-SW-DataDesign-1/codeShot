@@ -24,7 +24,7 @@
 			<%
 			if(portfolioList.size() != 0){
 			%>
-			<img src="file/<%=portfolioList.get(0)%>">
+			<img src="file/<%=portfolioList.get(0).getPf_file()%>">
 			<%
 			}
 			%>
@@ -37,14 +37,6 @@
 			<p>상품 주의사항 : <%=post.getPost_precautions()%></p>
 			<p>가격 : <%=post.getPost_price() %></p>
 		</div>
-	</div>
-	<div>
-		<h3>결제 방법</h3>
-		<button onclick="selectPaymentMethod(this.innerText)">신용카드</button>
-		<button onclick="selectPaymentMethod(this.innerText)">실시간 계좌이체</button>
-		<button onclick="selectPaymentMethod(this.innerText)">무통장 입금</button>
-		<button onclick="selectPaymentMethod(this.innerText)">휴대폰</button>
-		<button onclick="selectPaymentMethod(this.innerText)">네이버 페이</button>
 	</div>
 	<div>
 		<h3>결제 금액 : <%=post.getPost_price()%></h3>
@@ -95,11 +87,6 @@
 			}
 		});
 		
-		function selectPaymentMethod(selectPaymentMethod) 
-		{
-			paymentMethod = selectPaymentMethod;
-			console.log(paymentMethod);
-		}
 	</script>
 </body>
 </html>
