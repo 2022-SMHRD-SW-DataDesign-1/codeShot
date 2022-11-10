@@ -175,18 +175,6 @@ public class FrontController extends HttpServlet
 			moveURL = service.execute(request, response);
 		}
 
-//		// 리뷰수정
-//		else if(result.equals("ReviewUpdateService.do")) {
-//			service = new ReviewUpdateService();
-//			moveURL = service.execute(request, response);
-//		}
-//		
-//		// 리뷰삭제
-//		else if(result.equals("ReviewAddService.do")) {
-//			service = new ReviewAddService();
-//			moveURL = service.execute(request, response);
-//		}
-//		
 		// 페이지 이동
 		if(moveURL != null) 
 		{

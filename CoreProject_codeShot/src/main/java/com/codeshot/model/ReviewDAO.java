@@ -44,16 +44,7 @@ public class ReviewDAO {
 		session.close();
 		return count;
 	}
-	
-	// 2022-11-10/이슬비/리뷰수정
-	public int updateReview(ReviewDTO dto) 
-	{
-		SqlSession session = sqlSessionFactory.openSession(true);
-		int row = session.selectOne("updateReview", dto);
-		session.close();
-		return row;
-	}
-	
+
 	
 	
 	

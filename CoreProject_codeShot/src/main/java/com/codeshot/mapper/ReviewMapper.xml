@@ -43,6 +43,4 @@
 		where post_num=#{post_num} and mem_email=#{mem_email}
 	</select>
 	
-	
-
 </mapper>

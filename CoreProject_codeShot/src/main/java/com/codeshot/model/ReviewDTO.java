@@ -41,10 +41,6 @@ public class ReviewDTO {
 		this.mem_email = mem_email;
 	}
 
-	public ReviewDTO(String review_content, @NonNull BigDecimal review_starrating) {
-		this.review_content = review_content;
-		this.review_starrating = review_starrating;
-	}
 	
 	
 

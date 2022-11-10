@@ -107,8 +107,8 @@
 				%>
 				<div><%=showReview.getReview_content()%></div>
 				<div><%=showReview.getReview_starrating()%></div>
-				<a href="./ReviewUpdate.jsp?review_num=<%=showReview.getReview_num()%>">수정하기</a>
-				<button type="" value="삭제하기"></button>
+				<a href="./ReviewList.jsp">수정하기</a>
+				<a href="./ReviewList.jsp>">삭제하기</a>
 				</fieldset>
 			<%
 			}
