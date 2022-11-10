@@ -1,3 +1,5 @@
+<%@page import="com.codeshot.model.PortfolioDAO"%>
+<%@page import="com.codeshot.model.PortfolioDTO"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.codeshot.model.WishListDTO"%>
@@ -23,9 +25,36 @@
 		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 
+	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	
+	
 <link rel="stylesheet" type="text/css" href="./assets/css/header.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/main.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/body.css">
@@ -84,6 +113,7 @@
 		
 		PostDAO dao = new PostDAO();
 		List<PostDTO> postList = dao.showPost();
+		PortfolioDTO pf;
 		
 		ReviewDAO r_dao = new ReviewDAO();
 		List<ReviewDTO> starratingList = r_dao.starratingList();
@@ -304,7 +334,25 @@
 			
 			<!-- 기능만 -->
 			<%for(int i=0; i<4;i++){%>
-					<article id="article-tag<%=postList.get(i).getPost_num()%>">
+				<%
+					pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
+				%>
+					<article id="article-tag<%=postList.get(i).getPost_num()%>" class="blocks">
+						<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>" class="block hov-img0">
+							<div class="block-img">
+								<div class="block-b">
+									<div class="block-c">
+										<div class="block-img">
+										<%if(pf != null){%>
+											<img src="./file/<%= pf.getPf_file()%>">
+										<%}else if(pf == null){%>
+											<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg">	
+										<%}%>
+
+										</div>
+									</div>
+								</div>
+							</div>
 							<div>사진: <%=postList.get(i).getPost_file() %></div>
 							<div>
 								<button id="wish-btn<%=postList.get(i).getPost_num()%>" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id)">
@@ -322,7 +370,6 @@
 									</span>
 								</button>
 							</div>
-						<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 							<div>
 								<div>작성자 : <%=postList.get(i).getMem_email() %></div>
 								<div>제목 : <%=postList.get(i).getPost_title() %></div>

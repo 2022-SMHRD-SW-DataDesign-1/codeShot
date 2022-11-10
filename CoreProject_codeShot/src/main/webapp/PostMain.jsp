@@ -62,8 +62,10 @@
 						%>
 							<img src="./file/<%= pf.getPf_file()%>">
 						<%
-						}else{
-							out.print("이미지");
+						}else if(pf == null){
+						%>
+							<img alt="" src="./assets/essImg/간단한웹사이트.jpg">
+						<%
 						}
 						%>
 					</li>
