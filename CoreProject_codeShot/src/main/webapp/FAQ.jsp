@@ -13,7 +13,7 @@
   <link rel="stylesheet" media="all" href="//static.zdassets.com/hc/assets/application-1a1175db35230dfa282e711364a74c60.css" id="stylesheet" />
     <!-- Entypo pictograms by Daniel Bruce — www.entypo.com -->
     <link rel="stylesheet" media="all" href="//static.zdassets.com/hc/assets/theming_v1_support-e05586b61178dcde2a13a3d323525a18.css" />
-  <link rel="stylesheet" type="text/css" href="//p25.zdassets.com/hc/theming_assets/9204604/360002309011/style.css?digest=12256508972825">
+  <link rel="stylesheet" type="text/css" href="assets/css/FAQ.css">
 
     <script src="//static.zdassets.com/hc/assets/jquery-09d07e20ce042ef10e301661ad1f316c.js"></script>
     <script>
@@ -39,7 +39,7 @@ ga('send', 'pageview');
     <a href="Main.jsp">
      DDock로고
     </a>
-    <a title="홈" href="/hc/ko">
+    <a title="홈" href="#">
     	<img src="//theme.zdassets.com/theme_assets/9204604/db54bfa5d2ad14572afe57b4b5582b04a38aa9e1.png" class="cs" >   
     </a>  
   </div>
@@ -66,7 +66,7 @@ ga('send', 'pageview');
   
     <li title="DDock 고객센터">
       
-        <a href="/hc/ko">DDock 고객센터</a>
+        <a href="#">DDock 고객센터</a>
       
     </li>
   
@@ -78,7 +78,6 @@ ga('send', 'pageview');
   
 </ol>
 
-    <form role="search" class="search" data-search="" action="/hc/ko/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" autocomplete="off" /><input type="search" name="query" id="query" placeholder="검색" aria-label="검색" /></form>
   </nav>
 
   <div class="category-container">
