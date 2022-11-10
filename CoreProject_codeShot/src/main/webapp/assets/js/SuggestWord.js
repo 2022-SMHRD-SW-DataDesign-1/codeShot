@@ -46,8 +46,8 @@ function suggestWord(list){
 
 /////////////////////////////////////////////////////////////////////
 
-
-/*const inputBox = document.querySelector(".search-txt");
+/*
+const inputBox = document.querySelector(".search-txt");
 const recommendBox = document.querySelector(".codeShot-suggestList");
 const texts = document.querySelectorAll(".codeshot-text");
 
