@@ -42,3 +42,23 @@ function suggestWord(list){
 	
 	suggestList.innerHTML = resultHTML;
 } //end suggestWord end
+
+
+/////////////////////////////////////////////////////////////////////
+
+
+/*const inputBox = document.querySelector(".search-txt");
+const recommendBox = document.querySelector(".codeShot-suggestList");
+const texts = document.querySelectorAll(".codeshot-text");
+
+console.log("검색 추천 js")
+inputBox.addEventListener("keyup", (e) => {
+	if (e.target.value.length > 0) {
+		recommendBox.classList.remove('codeShot-invisible');
+		texts.forEach((textEl) => {
+			textEl.textContent = e.target.value;
+		})
+	} else {
+		recommendBox.classList.add('codeShot-invisible');
+	}
+})*/

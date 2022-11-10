@@ -1,3 +1,4 @@
+<%@page import="com.codeshot.model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,11 +28,22 @@
 	a{
 		text-decoration: none;
 	}
+	
+	#mypage-btn{
+	
+	}
 </style>
 
 
 </head>
 <body>
+	<!-- login 상태 -->
+	<%
+		UserDTO info = (UserDTO)session.getAttribute("info");
+		String isExpert="";
+	%>
+	
+	
 	<!-- Header -->
 	<header class="container-menu-desktop">
 		<section class="top-bar">
@@ -62,35 +74,58 @@
 				
 				<div class="codeShot-logAndJonin">
 					<div class="right-top-bar flex-w h-full">
-						<a href="Login.jsp" class="flex-c-m trans-04 p-lr-25">
-							<b>로그인</b>
-						</a>
-						<a href="JoinSelect.jsp" class="flex-c-m trans-04 p-lr-25">
-							<b>회원가입</b>
-						</a>
-						<a href="PostWrite.jsp"class="flex-c-m trans-04 p-lr-25">
-							<b>판매하기</b>
-						</a>
 						
-						<a href="LogoutService.do" class="flex-c-m trans-04 p-lr-25">
-							<b>로그아웃</b>
-						</a>
-						
-						<ul class="main-menu">
-							<li class="codeShot-ots-menu">
-								<a href="MyPage.jsp" class="flex-c-m trans-04 p-lr-25">		
-									<b>마이페이지</b>
+						<!-- 회원 -->
+						<%if(info != null) {%>
+							
+							<%if((isExpert = info.getIsExpert()).equals("Y")) {%>
+								<a href="PostWrite.jsp"class="flex-c-m trans-04 p-lr-25">
+									<b>판매하기</b>
 								</a>
-								<ul class="sub-menu codeShot-subMenu">
-									<li class="codeShot-subMenu-li"><a href="EditInfo.jsp">내정보 수정</a></li>
-									<li class="codeShot-subMenu-li"><a href="EditPost.jsp">게시글 관리</a></li>
-									<li class="codeShot-subMenu-li"><a href="PortfolioWrite.jsp">포트폴리오 관리</a></li>
-									<li class="codeShot-subMenu-li"><a href="ChatMain.jsp">채팅</a></li>
-									<li class="codeShot-subMenu-li"><a href="WishList.jsp">찜 목록</a></li>
-									<li class="codeShot-subMenu-li"><a href="ReviewList.jsp">리뷰목록</a></li>
+								<ul id="mypage-btn" class="main-menu">
+									<li class="codeShot-ots-menu">
+										<a href="MyPage.jsp" class="flex-c-m trans-04 p-lr-25">		
+											<b>마이페이지</b>
+										</a>
+										<ul class="sub-menu codeShot-subMenu">
+											<li class="codeShot-subMenu-li"><a href="EditInfo.jsp">내정보 수정</a></li>
+											<li class="codeShot-subMenu-li"><a href="EditPost.jsp">게시글 관리</a></li>
+											<li class="codeShot-subMenu-li"><a href="PortfolioWrite.jsp">포트폴리오 관리</a></li>
+											<li class="codeShot-subMenu-li"><a href="ChatMain.jsp">채팅</a></li>
+											<li class="codeShot-subMenu-li"><a href="WishList.jsp">찜 목록</a></li>
+											<li class="codeShot-subMenu-li"><a href="ReviewList.jsp">리뷰목록</a></li>
+											<li class="codeShot-subMenu-li"><a href="LogoutService.do">로그아웃</a></li>
+										</ul>
+									</li>
 								</ul>
-							</li>
-						</ul>
+							<%} else if((isExpert = info.getIsExpert()).equals("N")){%>
+								<ul id="mypage-btn" class="main-menu">
+									<li class="codeShot-ots-menu">
+										<a href="MyPage.jsp" class="flex-c-m trans-04 p-lr-25">		
+											<b>마이페이지</b>
+										</a>
+										<ul class="sub-menu codeShot-subMenu">
+											<li class="codeShot-subMenu-li"><a href="EditInfo.jsp">내정보 수정</a></li>
+											<li class="codeShot-subMenu-li"><a href="EditPost.jsp">게시글 관리</a></li>
+											<li class="codeShot-subMenu-li"><a href="PortfolioWrite.jsp">포트폴리오 관리</a></li>
+											<li class="codeShot-subMenu-li"><a href="ChatMain.jsp">채팅</a></li>
+											<li class="codeShot-subMenu-li"><a href="WishList.jsp">찜 목록</a></li>
+											<li class="codeShot-subMenu-li"><a href="ReviewList.jsp">리뷰목록</a></li>
+											<li class="codeShot-subMenu-li"><a href="LogoutService.do">로그아웃</a></li>
+										</ul>
+									</li>
+								</ul>
+							<%} %>
+
+						<!-- 비회원 -->
+						<%} else if(info == null) {%>
+							<a href="Login.jsp" class="flex-c-m trans-04 p-lr-25">
+								<b>로그인</b>
+							</a>
+							<a href="JoinSelect.jsp" class="flex-c-m trans-04 p-lr-25">
+								<b>회원가입</b>
+							</a>
+						<%}%>
 						
 					</div>
 				</div>
@@ -173,6 +208,7 @@
 	<!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
 	<script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<script src="./assets/js/SuggestWord.js"></script>
+	<script src="./suggestWord.js"></script>
 
 </body>
 </html>
