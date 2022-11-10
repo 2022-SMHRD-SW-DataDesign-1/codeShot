@@ -121,6 +121,11 @@ ul {
   
 }
 
+.cs {
+ 	height:16px;
+    padding-left:6px; 
+}
+
 @media (min-width: 1160px) {
   .header {
     padding: 0;
