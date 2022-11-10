@@ -4,10 +4,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DDock</title>
 
-<!--  <link rel="stylesheet" type="text/css" href="./assets/css/header.css">
-<link rel="stylesheet" type="text/css" href="./assets/css/util.css">  -->
+
+<!-- header css -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="./assets/css/header.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/util.css">
+
+
+<!-- a태그 밑줄 없애기 위한 style 적용 -->
+<style type="text/css">
+	a:hover{
+		text-decoration: none;
+	}
+	a{
+		text-decoration: none;
+	}
+</style>
+
+
 </head>
 <body>
 	<!-- Header -->
@@ -43,16 +65,42 @@
 						<a href="Login.jsp" class="flex-c-m trans-04 p-lr-25">
 							<b>로그인</b>
 						</a>
-						<a href="JoinSelect.jsp" class="flex-c-m trans-04 p-lr-25"><b>회원가입</b></a>
+						<a href="JoinSelect.jsp" class="flex-c-m trans-04 p-lr-25">
+							<b>회원가입</b>
+						</a>
+						<a href="PostWrite.jsp"class="flex-c-m trans-04 p-lr-25">
+							<b>판매하기</b>
+						</a>
+						
+						<a href="LogoutService.do" class="flex-c-m trans-04 p-lr-25">
+							<b>로그아웃</b>
+						</a>
+						
+						<ul class="main-menu">
+							<li class="codeShot-ots-menu">
+								<a href="MyPage.jsp" class="flex-c-m trans-04 p-lr-25">		
+									<b>마이페이지</b>
+								</a>
+								<ul class="sub-menu codeShot-subMenu">
+									<li class="codeShot-subMenu-li"><a href="EditInfo.jsp">내정보 수정</a></li>
+									<li class="codeShot-subMenu-li"><a href="EditPost.jsp">게시글 관리</a></li>
+									<li class="codeShot-subMenu-li"><a href="PortfolioWrite.jsp">포트폴리오 관리</a></li>
+									<li class="codeShot-subMenu-li"><a href="ChatMain.jsp">채팅</a></li>
+									<li class="codeShot-subMenu-li"><a href="WishList.jsp">찜 목록</a></li>
+									<li class="codeShot-subMenu-li"><a href="ReviewList.jsp">리뷰목록</a></li>
+								</ul>
+							</li>
+						</ul>
+						
 					</div>
 				</div>
-				
+
 				<!-- 외뢰인 -->
 				
 				
 				<!-- 전문가 -->
 				
-				<div>
+<!-- 				<div>
 					<h3>회원</h3>
 					<a href="PostWrite.jsp">판매하기</a>
 					<a href="MyPage.jsp">마이페이지</a>
@@ -65,7 +113,7 @@
 						<li><a href="WishList.jsp">찜 목록</a></li>
 						<li><a href="ReviewList.jsp">리뷰목록</a></li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</section>
 		
@@ -114,7 +162,12 @@
 		
 	</header>
 	
+	<main>비회원</main>
+	<main>의뢰자 회원</main>
+	<main>전문가 회원</main>
 	
+	
+	<footer></footer>
 	<!-- script -->
 		
 	<!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
