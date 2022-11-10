@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class PrchsDTO {
 	private BigDecimal prch_num;
 	private BigDecimal post_num;
-	private StringBuffer mem_email;
+	private String mem_email;
 	private BigDecimal prch_price;
 	private Timestamp prch_date;
 	

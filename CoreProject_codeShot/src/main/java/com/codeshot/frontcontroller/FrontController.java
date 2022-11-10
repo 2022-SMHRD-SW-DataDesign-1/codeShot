@@ -21,6 +21,7 @@ import com.codeshot.controller.PortfolioDeleteService;
 import com.codeshot.controller.PortfolioService;
 import com.codeshot.controller.PostDeleteService;
 import com.codeshot.controller.PostService;
+import com.codeshot.controller.ReviewAddService;
 import com.codeshot.controller.ShowChattingService;
 import com.codeshot.controller.SuggestWordService;
 import com.codeshot.controller.WishAddService;
@@ -168,6 +169,24 @@ public class FrontController extends HttpServlet
 			moveURL = service.execute(request, response);
 		}
 		
+		// 리뷰작성
+		else if(result.equals("ReviewAddService.do")) {
+			service = new ReviewAddService();
+			moveURL = service.execute(request, response);
+		}
+
+//		// 리뷰수정
+//		else if(result.equals("ReviewUpdateService.do")) {
+//			service = new ReviewUpdateService();
+//			moveURL = service.execute(request, response);
+//		}
+//		
+//		// 리뷰삭제
+//		else if(result.equals("ReviewAddService.do")) {
+//			service = new ReviewAddService();
+//			moveURL = service.execute(request, response);
+//		}
+//		
 		// 페이지 이동
 		if(moveURL != null) 
 		{

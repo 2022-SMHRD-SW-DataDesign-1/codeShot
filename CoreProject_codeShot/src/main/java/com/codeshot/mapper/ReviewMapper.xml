@@ -12,5 +12,37 @@
 		group by A.post_num
 	</select>
 	
+	<!-- 2022-11-10/이슬비/리뷰데이터 삽입 -->
+	<insert id="insertReview" parameterType="ReviewDTO">
+		insert into tbl_review(
+			review_num,
+			review_content,
+			review_starrating,
+			post_num,
+			mem_email,
+			review_date
+		)values(
+			TBL_REVIEW_SEQ.NEXTVAL,
+			#{review_content},
+			#{review_starrating},
+			#{post_num},
+			#{mem_email},
+			sysdate 
+		)
+	</insert>
+	
+	<select id="showReview" parameterType="ReviewDTO" resultType="ReviewDTO">
+		select *
+		from tbl_review
+		where mem_email = #{mem_email} and post_num=#{post_num}
+	</select>
+	
+	<select id="checkReview" parameterType="ReviewDTO" resultType="int">
+		select count(*)
+		from tbl_review
+		where post_num=#{post_num} and mem_email=#{mem_email}
+	</select>
+	
+	
 
 </mapper>

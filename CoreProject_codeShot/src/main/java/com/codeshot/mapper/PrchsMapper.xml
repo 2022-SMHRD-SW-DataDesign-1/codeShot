@@ -1,15 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- namespace 이름으로 구별 -->
 <mapper namespace="com.codeshot.mapper.PrchsMapper">
-	
-	<!-- 2022-11-09 이슬비 구매내역 전체 출력 -->
-	<select id="prchsList" parameterType="PrchsDTO" resultType="PrchsDTO">
-		select * from tbl_prchslist where email = #{email}
+
+<!-- 2022-11-09 이슬비 구매내역 전체 출력 -->
+	<select id="showPrchsList" parameterType="String" resultType="PrchsDTO">
+		select * from tbl_prchslist where mem_email = #{email}
 	</select>
-
-
-
+	
 </mapper>

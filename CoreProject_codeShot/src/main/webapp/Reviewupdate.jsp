@@ -1,4 +1,5 @@
-<%@page import="java.math.BigDecimal"%>
+<%@page import="com.codeshot.model.ReviewDAO"%>
+<%@page import="com.codeshot.model.ReviewDTO"%>
 <%@page import="com.codeshot.model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,29 +8,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 <%
- 	System.out.println("[리뷰 작성 페이지]");
-
-	UserDTO info = (UserDTO)session.getAttribute("info");
+	UserDTO info = (UserDTO) session.getAttribute("info");	
 	
-	BigDecimal post_num = new BigDecimal(request.getParameter("post_num"));
+	ReviewDAO r_dao = new ReviewDAO();
+	ReviewDTO showReview;
 	
-	
-	System.out.print("게시글 번호:"+post_num); 
-
 %>
-
-<!-- 리뷰작성 -->
- 
-	<h1>후기</h1>	 
-	
+<h1>후기</h1>	 
 	<!-- frontcontroller 작성하기 -->
-
-	<form  action="ReviewAddService.do" class="reviewform" method="post">
-	    <input type="hidden" name="post_num" id="rate" value="<%=post_num%>"/>
+	<form  action="ReviewUpdateService.do" class="reviewform" method="post">
+	    <input type="hidden" name="post_num" id="rate" value=""/>
 	    <p class="title_star">별점과 리뷰를 남겨주세요.</p>
 	
 	    <div class="review_rating">
@@ -49,14 +40,14 @@
 	        </div>
 	    </div>
 	    <div class="review_contents">
-	        <div class="warning_msg">5자 이상으로 작성해 주세요.</div>
-	        <textarea rows="10" class="review_textarea" name="review_content"></textarea>
+	        <div class="warning_msg"></div>
+	        <textarea rows="10" class="review_textarea" value="" name="review_content"></textarea>
 	    </div>   
 	    <div class="cmd">
-	        <input type="submit" name="save" id="save" value="등록">
+	        <input type="submit" name="save" id="save" value="수정하기">
+	        
 	    </div>
 	</form>
-
-  
+	
 </body>
 </html>
