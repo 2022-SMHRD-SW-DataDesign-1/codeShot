@@ -284,128 +284,21 @@
 
 	<%if(info != null) {%>
 		
-		<!-- 전문가 -->
-		<%if((isExpert = info.getIsExpert()).equals("Y")) {%>
-			<main>전문가 회원</main>
+		<!-- 전문가 --><!-- 고객 -->
+		<%
+			wishList = w_dao.wishList(info.getEmail());
+			System.out.print("찜 된 게시글 번호");
+			for(int i = 0; i<wishList.size(); i++){
+				whishPostNumList.add(wishList.get(i).getPost_num());
+				System.out.print(whishPostNumList.get(i)+" ");
+			}
+			System.out.println();
 			
-			
-			
-		<!-- 고객 -->
-		<%} else if((isExpert = info.getIsExpert()).equals("N")) {%>
-		
-			<%
-				wishList = w_dao.wishList(info.getEmail());
-				System.out.print("찜 된 게시글 번호");
-				for(int i = 0; i<wishList.size(); i++){
-					whishPostNumList.add(wishList.get(i).getPost_num());
-					System.out.print(whishPostNumList.get(i)+" ");
-				}
-				System.out.println();
-				
-				System.out.println("찜목록 길이"+whishPostNumList.size());
-			 %>
-			 
-			<main>
-				<!-- banner -->
-				<section class="banner">
-					<div class="wrap-slick1">
-						<div class="slick1">
-							<img alt="banner" src="./assets/cssImg/banner.jpg">
-						</div>
-					</div>
-				</section>
-
-				
-			
-			
-				<section class="section-view">
-					<h1 class="codeShot-main-post-title">다른 회원들이 본 서비스</h1>
-					<div class="blocks">
-					<%for(int i=0; i<10;i++){%>
-						<%
-							pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
-						%>
-						<article id="article-tag<%=postList.get(i).getPost_num()%>">
-							<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>" class="block hov-img0">
-								
-								<!-- 게시물 사진 -->
-								<div class="block-img">
-									<div class="block-b">
-										<div class="block-c">
-											<div class="block-img">
-												<%if(pf != null){%>
-													<img src="./file/<%= pf.getPf_file()%>" class="block-img-radius">
-												<%}else if(pf == null){%>
-													<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height=200px class="block-img-radius">	
-												<%}%>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<!-- 찜 버튼 -->
-								<div>
-									<button id="wish-btn<%=postList.get(i).getPost_num()%>" class="block-heart flex-r p-t-3" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id)">
-										<span class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											
-											<%int compareResult=0; %>
-											
-											<%-- <%for(int j = 0; j < whishPostNumList.size(); j++) {%>
-												<%compareResult = whishPostNumList.get(j).compareTo(postList.get(i).getPost_num()); %>
-											<%} %> --%>
-											
-											<%-- <%if(compareResult == 0) {%> --%>
-												<!-- <circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/> -->
-												<img id="btn-color" class="icon-heart2 dis-block trans-04 ab-t-l" src="./assets/cssImg/heart-fill.svg"/>
-											<%-- <%} else if(compareResult != 0){%> --%>
-												<!-- <circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="none"/>	 -->										
-												<img id="btn-color" class="icon-heart1 dis-block trans-04" src="./assets/cssImg/heart.svg"/>
-											<%-- <%} %> --%>
-											
-										</span>
-									</button>
-								</div>
-								
-								<!-- 작성자 -->
-								<div class="block-txt">
-									
-									<!-- 제목, 작성자, 가격 -->
-									<div class="block-txt-name">
-										<span class="block-txt-nametxt"><%=postList.get(i).getMem_email() %></span>
-									</div>
-									<h3 class="block-txt-title"><%=postList.get(i).getPost_title() %></h3>
-									<div class="block-txt-price">
-										<span class="block-txt-pricetxt"><%=postList.get(i).getPost_price() %></span>
-									</div>
-									
-									<!-- 평점 -->
-									<div class="review">
-										<span class="review-icon">
-											<img class="icon-star" alt="별" src="./assets/cssImg/star-fill.svg">
-										</span>
-										<%
-											double avg_strt = 0;
-											for(int j = 0; j < starratingList.size(); j++) {
-												if(postList.get(i).getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
-													avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
-												}
-											}
-										%>
-										<span class="score"><%=String.format("%.1f", avg_strt) %></span>
-									</div>
-								</div>
-							</a>
-						</article>
-						<%} %>
-					</div>
-				</section>
-			</main>
-		<%} %><!-- 고객 end -->
-		
-	<!-- 비회원 -->			
-	<%} else if(info == null) {%>
+			System.out.println("찜목록 길이"+whishPostNumList.size());
+		 %>
+		 
 		<main>
-		<!-- banner -->
+			<!-- banner -->
 			<section class="banner">
 				<div class="wrap-slick1">
 					<div class="slick1">
@@ -413,7 +306,187 @@
 					</div>
 				</div>
 			</section>
+
+			<section class="section-view">
+				<h1 class="codeShot-main-post-title">다른 회원들이 본 서비스</h1>
+				<div class="blocks">
+				<%for(int i=0; i<10;i++){%>
+					<%
+						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
+					%>
+					<article id="article-tag<%=postList.get(i).getPost_num()%>">
+						<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>" class="block hov-img0">
+							
+							<!-- 게시물 사진 -->
+							<div class="block-img">
+								<div class="block-b">
+									<div class="block-c">
+										<div class="block-img">
+											<%if(pf != null){%>
+												<img src="./file/<%= pf.getPf_file()%>" class="block-img-radius">
+											<%}else if(pf == null){%>
+												<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height=200px class="block-img-radius">	
+											<%}%>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- 찜 버튼 -->
+							<div>
+								<button id="wish-btn<%=postList.get(i).getPost_num()%>" class="block-heart flex-r p-t-3" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id)">
+									<span class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+										
+										<%int compareResult=0; %>
+										
+										<%-- <%for(int j = 0; j < whishPostNumList.size(); j++) {%>
+											<%compareResult = whishPostNumList.get(j).compareTo(postList.get(i).getPost_num()); %>
+										<%} %> --%>
+										
+										<%-- <%if(compareResult == 0) {%> --%>
+											<!-- <circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/> -->
+											<img id="btn-color" class="icon-heart2 dis-block trans-04 ab-t-l" src="./assets/cssImg/heart-fill.svg"/>
+										<%-- <%} else if(compareResult != 0){%> --%>
+											<!-- <circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="none"/>	 -->										
+											<img id="btn-color" class="icon-heart1 dis-block trans-04" src="./assets/cssImg/heart.svg"/>
+										<%-- <%} %> --%>
+										
+									</span>
+								</button>
+							</div>
+							
+							<!-- 작성자 -->
+							<div class="block-txt">
+								
+								<!-- 제목, 작성자, 가격 -->
+								<div class="block-txt-name">
+									<span class="block-txt-nametxt"><%=postList.get(i).getMem_email() %></span>
+								</div>
+								<h3 class="block-txt-title"><%=postList.get(i).getPost_title() %></h3>
+								<div class="block-txt-price">
+									<span class="block-txt-pricetxt"><%=postList.get(i).getPost_price() %></span>
+								</div>
+								
+								<!-- 평점 -->
+								<div class="review">
+									<span class="review-icon">
+										<img class="icon-star" alt="별" src="./assets/cssImg/star-fill.svg">
+									</span>
+									<%
+										double avg_strt = 0;
+										for(int j = 0; j < starratingList.size(); j++) {
+											if(postList.get(i).getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
+												avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
+											}
+										}
+									%>
+									<span class="score"><%=String.format("%.1f", avg_strt) %></span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<%} %>
+				</div>
+			</section>
 		</main>
+		<!-- 전문가고객 end -->
+		
+	<!-- 비회원 -->			
+	<%} else if(info == null) {%>
+
+		<main>
+			<!-- banner -->
+			<section class="banner">
+				<div class="wrap-slick1">
+					<div class="slick1">
+						<img alt="banner" src="./assets/cssImg/banner.jpg">
+					</div>
+				</div>
+			</section>
+
+			<section class="section-view">
+				<h1 class="codeShot-main-post-title">다른 회원들이 본 서비스</h1>
+				<div class="blocks">
+				<%for(int i=0; i<10;i++){%>
+					<%
+						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
+					%>
+					<article id="article-tag<%=postList.get(i).getPost_num()%>">
+						<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>" class="block hov-img0">
+							
+							<!-- 게시물 사진 -->
+							<div class="block-img">
+								<div class="block-b">
+									<div class="block-c">
+										<div class="block-img">
+											<%if(pf != null){%>
+												<img src="./file/<%= pf.getPf_file()%>" class="block-img-radius">
+											<%}else if(pf == null){%>
+												<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height=200px class="block-img-radius">	
+											<%}%>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- 찜 버튼 -->
+							<div>
+								<button id="wish-btn<%=postList.get(i).getPost_num()%>" class="block-heart flex-r p-t-3" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id)">
+									<span class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+										
+										<%int compareResult=0; %>
+										
+										<%-- <%for(int j = 0; j < whishPostNumList.size(); j++) {%>
+											<%compareResult = whishPostNumList.get(j).compareTo(postList.get(i).getPost_num()); %>
+										<%} %> --%>
+										
+										<%-- <%if(compareResult == 0) {%> --%>
+											<!-- <circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/> -->
+											<img id="btn-color" class="icon-heart2 dis-block trans-04 ab-t-l" src="./assets/cssImg/heart-fill.svg"/>
+										<%-- <%} else if(compareResult != 0){%> --%>
+											<!-- <circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="none"/>	 -->										
+											<img id="btn-color" class="icon-heart1 dis-block trans-04" src="./assets/cssImg/heart.svg"/>
+										<%-- <%} %> --%>
+										
+									</span>
+								</button>
+							</div>
+							
+							<!-- 작성자 -->
+							<div class="block-txt">
+								
+								<!-- 제목, 작성자, 가격 -->
+								<div class="block-txt-name">
+									<span class="block-txt-nametxt"><%=postList.get(i).getMem_email() %></span>
+								</div>
+								<h3 class="block-txt-title"><%=postList.get(i).getPost_title() %></h3>
+								<div class="block-txt-price">
+									<span class="block-txt-pricetxt"><%=postList.get(i).getPost_price() %></span>
+								</div>
+								
+								<!-- 평점 -->
+								<div class="review">
+									<span class="review-icon">
+										<img class="icon-star" alt="별" src="./assets/cssImg/star-fill.svg">
+									</span>
+									<%
+										double avg_strt = 0;
+										for(int j = 0; j < starratingList.size(); j++) {
+											if(postList.get(i).getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
+												avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
+											}
+										}
+									%>
+									<span class="score"><%=String.format("%.1f", avg_strt) %></span>
+								</div>
+							</div>
+						</a>
+					</article>
+					<%} %>
+				</div>
+			</section>
+		</main>
+		<!-- 전문가고객 end -->
 	<%} %>
 	
 	
