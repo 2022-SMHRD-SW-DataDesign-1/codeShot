@@ -4,47 +4,119 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link rel="shortcut icon" type="image/x-icon" href="./assets/cssImg/title-icon.png">
+<title>DDock</title>
+
+<link rel="stylesheet" type="text/css" href="./assets/css/join-client.css">
+
 </head>
+
 <body>
 	<%
 		session.setAttribute("isExpert", "N");
 	%>
-	<form action="JoinService.do">
+	
+
+	<main class="main">
+	    
+	    <!-- 로고 -->
+	    <a class="link" href="Main.jsp" target="_blank"><img class="logo" src="./assets/cssImg/logo.png" alt=""></a>
+	    
+	    <section class="home">
+	     	<form action="JoinService.do">
+		        
+		        <!-- 이메일 -->
+		        <div class="text1">
+		         	<div class="email">이메일</div>
+		         	<div class="email-box">
+		            	<input type="text" class="input" name="email" placeholder="이메일을 입력해주세요">
+		            	<input type="button" value="email중복체크" onclick="checkEmail()">
+		        	</div>
+		        
+		        	<div class="email-error">
+		            	<div class="error-box">
+		            		<span id="resultCheckEmail" class="error"></span>
+		            	</div>
+		        	</div>
+		        </div>
+		        
+		        <!-- 비밀번호 -->
+		        <div class="text2">
+		        	<div class="pw">비밀번호</div>
+		        	<div class="pw-box">
+		            	<input type="password" class="input" name="pw" placeholder="비밀번호를 입력해주세요(6자리이상)">
+		        	</div>
+		        </div>
+		        
+		        <!-- 이름 -->
+		        <div class="text1">
+		        	<div class="email">이름</div>
+		        	<div class="email-box">
+		        		<input type="text" class="input" name="name" placeholder="이름을 입력해주세요">
+		        	</div>
+		        </div>
+		        
+		        <!-- 휴대전화 -->
+		        <div class="text1">
+		        	<div class="email">휴대전화</div>
+		        	<div class="email-box">
+		        		<input type="text" class="input" name="phone" placeholder="휴대전화 번호를 입력해주세요">
+		        	</div>
+		        </div>
+		          
+		        <button class="btn-box" type="submit">
+		        	<span class="btn">버튼만 누르면 가입완료</span>
+		        </button>  
+	     	</form>
+	    </section>
+  </main>
+	
+	
+	
+<!-- 	<form action="JoinService.do">
 		이메일 : <input type="text"  placeholder="Email을 입력하세요" name="email" id="joinInputEmail">
 		<input type="button" value="email중복체크" onclick="checkEmail()"><span id="resultCheckEmail"></span><br>
 		패스워드 : <input type="password"  placeholder="Password를 입력하세요" name="pw"><br>
 		이름 : <input type="text"  placeholder="이름을 입력하세요" name="name"><br>
 		전화번호 : <input type="text"  placeholder="전화번호를 입력하세요" name="phone"><br>
 		<input type="submit" value="회원가입">	
-	</form>
+	</form> -->
+
+		
+	
+	
+	
+	
+	
+	
+	<!-- script -->
 	<script src="./assets/jquery/jquery-3.6.1.min.js"></script>
 	<script type="text/javascript">
-	function checkEmail()
-	{
-		let inputE = $("#joinInputEmail").val();
-		console.log(inputE);
-		
-		$.ajax({
-			url : 'CheckEmailService.do', 		  // 요청 서버 url
-			data : {'joinInputEmail':inputE}, // 요청할 때 같이 보내줄 데이터
-			type : 'get',					  // 요청 타입(method)
-			success : function(data){		  // 통신성공 (function(넘겨준데이터)))
-				console.log(data);
-				if(data == "true")
-				{
-					$("#resultCheckEmail").text("중복된 이메일 입니다.");
+		function checkEmail()
+		{
+			let inputE = $("#joinInputEmail").val();
+			console.log(inputE);
+			
+			$.ajax({
+				url : 'CheckEmailService.do', 		  // 요청 서버 url
+				data : {'joinInputEmail':inputE}, // 요청할 때 같이 보내줄 데이터
+				type : 'get',					  // 요청 타입(method)
+				success : function(data){		  // 통신성공 (function(넘겨준데이터)))
+					console.log(data);
+					if(data == "true")
+					{
+						$("#resultCheckEmail").text("중복된 이메일 입니다.");
+					}
+					else
+					{
+						$("#resultCheckEmail").text("사용 가능한 이메일 입니다.");
+					}
+				},
+				error : function(){ 			  // 통신실패
+					console.log("통신실패");	
 				}
-				else
-				{
-					$("#resultCheckEmail").text("사용 가능한 이메일 입니다.");
-				}
-			},
-			error : function(){ 			  // 통신실패
-				console.log("통신실패");	
-			}
-		})
-	}
+			})
+		}
 	</script>
 </body>
 </html>
