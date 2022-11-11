@@ -293,7 +293,7 @@
 			
 				<section class="section-view">
 					<div class="blocks">
-					<%for(int i=0; i<4;i++){%>
+					<%for(int i=0; i<5;i++){%>
 						<%
 							pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
 						%>
@@ -308,7 +308,7 @@
 												<%if(pf != null){%>
 													<img src="./file/<%= pf.getPf_file()%>" class="block-img">
 												<%}else if(pf == null){%>
-													<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg">	
+													<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height=200px>	
 												<%}%>
 											</div>
 										</div>
