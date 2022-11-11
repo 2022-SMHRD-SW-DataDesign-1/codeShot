@@ -27,7 +27,7 @@
 	
 	// 도형 색 변경
 	if(checkColor){
-		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('fill', 'none');
+		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('src', './assets/cssImg/heart.svg');
 		checkColor = false;
 		// sart ajax
 		$.ajax({
@@ -65,7 +65,7 @@ function wishPostClick(num, clicked_id){
 	let postNum = num;
 	
 	if(checkColor){
-		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('fill', 'red');
+		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('src', './assets/cssImg/heart-fill.svg');
 		checkColor = false;
 		
 		$.ajax({
@@ -81,7 +81,7 @@ function wishPostClick(num, clicked_id){
 		}); // end ajax
 	}
 	else{
-		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('fill', 'none');
+		document.querySelector("#"+clicked_id+" #btn-color").setAttribute('src', './assets/cssImg/heart.svg');
 		checkColor = true;
 		
 		$.ajax({

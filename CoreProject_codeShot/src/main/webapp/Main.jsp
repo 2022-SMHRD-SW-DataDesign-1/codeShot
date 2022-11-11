@@ -319,19 +319,21 @@
 								<div>
 									<button id="wish-btn<%=postList.get(i).getPost_num()%>" class="block-heart flex-r p-t-3" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id)">
 										<span class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<svg>
-												<%int compareResult=0; %>
-												
-												<%for(int j = 0; j < whishPostNumList.size(); j++) {%>
-													<%compareResult = whishPostNumList.get(j).compareTo(postList.get(i).getPost_num()); %>
-												<%} %>
-												
-												<%if(compareResult == 0) {%>
-													<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-												<%} else if(compareResult != 0){%>
-													<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="none"/>											
-												<%} %>
-											</svg>
+											
+											<%int compareResult=0; %>
+											
+											<%-- <%for(int j = 0; j < whishPostNumList.size(); j++) {%>
+												<%compareResult = whishPostNumList.get(j).compareTo(postList.get(i).getPost_num()); %>
+											<%} %> --%>
+											
+											<%-- <%if(compareResult == 0) {%> --%>
+												<!-- <circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/> -->
+												<img id="btn-color" class="icon-heart2 dis-block trans-04 ab-t-l" src="./assets/cssImg/heart-fill.svg"/>
+											<%-- <%} else if(compareResult != 0){%> --%>
+												<!-- <circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="none"/>	 -->										
+												<img id="btn-color" class="icon-heart1 dis-block trans-04" src="./assets/cssImg/heart.svg"/>
+											<%-- <%} %> --%>
+											
 										</span>
 									</button>
 								</div>
@@ -409,6 +411,26 @@
 	
 	<!-- 추천어 검색 기능 시간되면 하기-디자인 적용이.... -->
 	<!-- <script src="./assets/js/SuggestWord.js"></script> -->
+	
+	<!-- 찜 버튼 -->
+	<script src="assets/js/sweetalert.min.js"></script>
+	<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				// swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				// $(this).off('click');
+			});
+		});
+	</script>
+	
+	<script src="assets/js/WishBtn.js"></script>
 
 </body>
 </html>
