@@ -3,6 +3,7 @@
 /* footer */
 main{
   padding-top: 150px;
+  margin-bottom: 13%;
 }
 
 
@@ -10,6 +11,7 @@ main{
   width: 80%;
   margin: 8%;
   margin-top: 5%;
+  text-align: center;
 }
 
 .view-text {
@@ -23,12 +25,14 @@ main{
 .blocks{
   margin-top: 24px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 0fr);
   flex-direction: column;
   position: relative;
   text-decoration: none;
-  gap: 30px;
+  gap: 20px;
   row-gap: 200px;
+  display: inline-grid;
+  margin-right : -65px;
 }
 
 .block-txt{
@@ -54,11 +58,11 @@ main{
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  font-weight: normal;
-  margin: 8px 0px 16px;
-  font-size: 19px;
-  line-height: 21px;
-  height: 42px;
+  font-weight: bold;
+  margin: 8px 0px 3px 0px;
+  font-size: 15px;
+  height: 40px;
+  text-align: start;
 }
 
 .block-txt-price{
@@ -70,7 +74,7 @@ main{
 
 .block-txt-pricetxt{
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   height: 23px;
 }
 
@@ -90,12 +94,12 @@ main{
 }
 
 .icon-star{
-  padding: 19%;
+  padding: 23%;
 }
 
 .score{
   color: rgb(154, 155, 167);
-  font-size: 13px;
+  font-size: 9px;
 }
 
 .review-count{
@@ -1954,18 +1958,10 @@ input.num-product::-webkit-inner-spin-button {
   display: flex;
   position: relative;
   flex-direction: column;
-  width: 300px;
+  width: 240px;
   height: 200px;
 }
 
-.block-img{
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  border: 1px ;
-  object-fit: cover;
-}
 
 .block-b{
   position: relative;
@@ -1994,9 +1990,9 @@ input.num-product::-webkit-inner-spin-button {
 .block-heart {
   width: 30px;
   height: 30px;
-  left: 85%;
+  left: 83%;
   position: absolute;
-  top: 8px;
+  top: 9px;
 }
 
 .btn-addwish-b2 .icon-heart2 {

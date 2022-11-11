@@ -101,6 +101,33 @@
 	.search-box{
 		margin-left: 0px;
 	}
+	
+	.block-txt-title {
+		word-break: break-all;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		font-weight: bold;
+		margin: 8px 0px 3px 0px;
+		font-size: 15px;
+		height: 40px;
+		text-align: start;
+	}
+	
+	.block-img{
+		  display: block;
+		  width: 100%;
+		  height: 100%;
+		  border-radius: 5px;
+		  border: 1px ;
+		  object-fit: cover;
+	}
+	.block-img-radius{
+		 border-radius: 5px;
+	}
+			
 
 </style>
 
@@ -293,7 +320,7 @@
 			
 				<section class="section-view">
 					<div class="blocks">
-					<%for(int i=0; i<5;i++){%>
+					<%for(int i=0; i<10;i++){%>
 						<%
 							pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
 						%>
@@ -306,9 +333,9 @@
 										<div class="block-c">
 											<div class="block-img">
 												<%if(pf != null){%>
-													<img src="./file/<%= pf.getPf_file()%>" class="block-img">
+													<img src="./file/<%= pf.getPf_file()%>" class="block-img-radius">
 												<%}else if(pf == null){%>
-													<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height=200px>	
+													<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height=200px class="block-img-radius">	
 												<%}%>
 											</div>
 										</div>
@@ -353,7 +380,7 @@
 									<!-- 평점 -->
 									<div class="review">
 										<span class="review-icon">
-											<img alt="별" src="./assets/cssImg/star-fill.svg">
+											<img class="icon-star" alt="별" src="./assets/cssImg/star-fill.svg">
 										</span>
 										<%
 											double avg_strt = 0;
