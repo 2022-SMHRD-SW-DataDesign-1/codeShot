@@ -12,8 +12,11 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/chatmain.css">
 <style type="text/css">
 	.logoimage{
-		width: 290px;
+		width: 200px;
 		height: 100%;
+	}
+	.logo-area{
+		margin-bottom: 30px;
 	}
 </style>
 </head>
@@ -26,7 +29,7 @@
 	int count = 0;
 	%>
 	<div class="logo-area">
-		<img src="./assets/cssimg/logo.jpg" class="logoimage">
+		<a href="Main.jsp"><img src="./assets/cssImg/logo.png" class="logoimage"></a>
 	</div>
 	<div class="chatmain">
         <div class="chatroom-area">

@@ -1,0 +1,149 @@
+@charset "UTF-8";
+body{
+    display: flex;
+    justify-content: center;
+}
+.outsourcing-container{
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.payment-title{
+    width: 90%;
+    height: 8%;
+    padding-bottom: 0;
+}
+.pay-area{
+    width: 90%;
+    height: 100%;
+    display: flex;
+}
+.order-area{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.order-history{
+    width: 100%;
+    height: 40%;
+    border : 2.5px solid #DFDFDF;
+    border-radius: 1em;
+    padding-bottom: 30px;
+}
+.post-discreption{
+    width: 100%;
+    height: 60%;
+    overflow: auto;
+    margin-top: 10px;
+    border : 2.5px solid #DFDFDF;
+    border-radius: 1em;
+}
+.paybtn-area{
+    width: 40%;
+    height: 45%;
+    margin-left: 20px;
+    border : 2.5px solid #DFDFDF;
+    border-radius: 1em;
+}
+h3{
+    margin-left: 30px;
+    font-size: 18px;
+}
+.order-img{
+    align-items: center;
+    margin-left: 30px;
+}
+.post-image{
+    width: 200px;
+    height: 200px;
+}
+.order-disc{
+    display: flex;
+}
+.order-detail{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.post-name{
+    margin-top: 0px;
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.post-detail{
+    margin-left: 30px;
+}
+.paybtn-area-detail{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    height: 100%;
+}
+.price-area{
+    height: 20%;
+    font-size: 28px;
+    font-weight: bold;
+}
+.price{
+    float: right;
+}
+.btn-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    padding-top: 50px;
+}
+.paybtn{
+    width: 60%;
+    height: 70px;
+    margin-top: 20px;
+    border: 0;
+    background-color: rgb(189, 244, 236);
+    font-size: 23px;
+    font-weight: bold;
+    border-radius: 0.5em;
+}
+.detail-head{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+.detial-content{
+    padding-top: 0px;
+    margin-top: 0px;
+}
+.code-select{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+.edit-request{
+    display: flex;
+    flex-direction: column;
+}
+.edit-request-head-text{
+    font-size: 18px;
+    font-weight: bold;
+}
+textarea{
+    width: 100%;
+    height: 200px;
+    border: 2.5px solid #DFDFDF;
+    border-radius: 0.5em;
+    resize: none;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+}
+.edit-request-content{
+    width: 92.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}

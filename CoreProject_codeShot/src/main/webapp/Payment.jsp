@@ -12,6 +12,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="./assets/css/payment.css">
+<style type="text/css">
+	body{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+	.logoimage{
+		width: 200px;
+		height: 100%;
+	}
+	.logo-area{
+		margin-bottom: 30px;
+	}
+</style>
 </head>
 <body>
 	<%
@@ -20,31 +35,77 @@
 	PostDTO post = new PostDAO().showPostDetail(postNum);
 	List<PortfolioDTO> portfolioList = new PortfolioDAO().showWriterPortfolio(post.getMem_email());
 	%>
-	<div>
-		<div>
-			<p>이미지</p>
-			<%
-			if(portfolioList.size() != 0){
-			%>
-			<img src="file/<%=portfolioList.get(0).getPf_file()%>">
-			<%
-			}
-			%>
-			<p><%=post.getPost_title()%></p><!-- 게시물 제목 -->
-			<P><%=post.getMem_email()%></P><!-- 게시자 이메일 -->
-		</div>
-		<div>
-			<p>상품 설명 : <%=post.getPost_explain()%></p>
-			<p>상품 규격 : <%=post.getPost_standard()%></p>
-			<p>상품 주의사항 : <%=post.getPost_precautions()%></p>
-			<p>가격 : <%=post.getPost_price() %></p>
-		</div>
-	</div>
-	<div>
-		<h3>결제 금액 : <%=post.getPost_price()%></h3>
-		<input type="checkbox" id="paymentCheck" value="주문내용을 확인하였으며,결제에 동의합니다.(필수)">
-		<button id="paymentBtn">결제하기</button>
-	</div>
+	<div class="logo-area">
+		<a href="Main.jsp"><img src="./assets/cssImg/logo.png" class="logoimage"></a>
+	</div>	
+	<div class="outsourcing-container">
+        <div class="payment-title">
+            <h1>결제하기</h1>
+        </div>
+        <div class="pay-area">
+            <div class="order-area">
+                <div class="order-history">
+                    <h3>주문 내역</h3>
+                    <div class="order-disc">
+                        <div class="order-img">
+                        	<%
+							if(portfolioList.size() != 0){
+							%>
+							<img src="file/<%=portfolioList.get(0).getPf_file()%>" class="post-image">
+							<%
+							}
+							%>
+                        </div>
+                        <div class="order-detail">
+                            <p class="post-name"><%=post.getPost_title()%></p>
+                            <p class="seller-email"><%=post.getMem_email()%></p>
+                        </div>
+                    </div>
+                    <div class="order-disc code-select">
+                        <p class="edit-request-head-text">수정요청 선택</p>
+                        <div class="edit-request">
+                            <label><input type="radio" name="edit-request">네</label>
+                            <label><input type="radio" name="edit-request">아니요</label>
+                        </div>
+                        <div class="edit-request-content">
+                            <p class="edit-request-head-text">수정 가능한 내용</p>
+                            <div class="edit-request-text">
+                                <textarea placeholder="여기에 수정내용을 입력해주세요."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-discreption">
+                    <div class="post-detail">
+                        <div>
+                            <p class="detail-head">설명</p>
+                            <p class="detail-content"><%=post.getPost_explain()%></p>
+                        </div>
+                        <div>
+                            <p class="detail-head">규격</p>
+                            <p class="detail-content"><%=post.getPost_standard()%></p>
+                        </div>
+                        <div>
+                            <p class="detail-head">주의사항</p>
+                            <p class="detail-content"><%=post.getPost_precautions()%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="paybtn-area">
+                <div class="paybtn-area-detail">
+                    <div class="price-area">
+                        <span>결제금액</span>
+                        <span class="price"><%=post.getPost_price()%>원</span>
+                    </div>
+                    <div class="btn-area">
+                        <label><input type="checkbox" id="paymentCheck">주문 내용을 확인하였으며, 결제에 동의합니다.(필수)</label>
+                        <button id="paymentBtn" class="paybtn">결제하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 	<script src="./assets/jquery/jquery-3.6.1.min.js"></script>
@@ -52,6 +113,11 @@
 	<script type="text/javascript">
 
 		let paymentBtn = document.getElementById("paymentBtn");
+		
+		if('<%=post.getPost_category()%>'.includes('ots'))
+		{
+			document.querySelector('.code-select').style.display = 'none';
+		}
 		
 		paymentBtn.addEventListener("click",function(){
 			let paymentCheck = document.getElementById("paymentCheck").checked;
