@@ -9,8 +9,16 @@ ul{
     list-style: none;
     flex-direction: column;
 }
+body{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.logo-area{
+	margin-right: 74.8%;
+}
 .chatmain{
-    width: 100%;
+    width: 90%;
     height: 800px;
     display: flex;
 }

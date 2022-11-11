@@ -1,3 +1,4 @@
+<%@page import="com.codeshot.model.UserDTO"%>
 <%@page import="com.codeshot.model.PostDAO"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="com.codeshot.model.PortfolioDAO"%>
@@ -14,6 +15,7 @@
 </head>
 <body>
 	<%
+	UserDTO info = (UserDTO)session.getAttribute("info");
 	BigDecimal postNum = new BigDecimal(request.getParameter("postNum"));
 	PostDTO post = new PostDAO().showPostDetail(postNum);
 	List<PortfolioDTO> portfolioList = new PortfolioDAO().showWriterPortfolio(post.getMem_email());
@@ -48,7 +50,7 @@
 	<script src="./assets/jquery/jquery-3.6.1.min.js"></script>
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 	<script type="text/javascript">
-		let paymentMethod = "네이버 페이";
+
 		let paymentBtn = document.getElementById("paymentBtn");
 		
 		paymentBtn.addEventListener("click",function(){
@@ -61,11 +63,11 @@
 			          pg: "html5_inicis",
 			          pay_method: "card",
 			          merchant_uid: "ORD20180131-0000011",
-			          name: "노르웨이 회전 의자",
-			          amount: 100,
-			          buyer_email: "gildong@gmail.com",
-			          buyer_name: "홍길동",
-			          buyer_tel: "010-4242-4242",
+			          name: "<%=post.getPost_category()%>",
+			          amount: "<%=post.getPost_price()%>",
+			          buyer_email: "<%=info.getEmail()%>",
+			          buyer_name: "<%=info.getName()%>",
+			          buyer_tel: "<%=info.getPhone()%>",
 			          buyer_addr: "서울특별시 강남구 신사동",
 			          buyer_postcode: "01181"
 			      }, function (rsp) { // callback
@@ -77,7 +79,7 @@
 		    	      var msg = '결제에 실패하였습니다.';
 		    	      msg += '에러내용 : ' + rsp.error_msg;
 		    	      alert(msg);
-		    	      location.href = "ReviewList.jsp"
+		    	      location.href = "MyPage.jsp"
 		    	    }
 			      });
 			}

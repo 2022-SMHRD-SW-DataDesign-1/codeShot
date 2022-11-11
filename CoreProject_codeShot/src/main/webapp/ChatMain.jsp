@@ -10,14 +10,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="./assets/css/chatmain.css">
+<style type="text/css">
+	.logoimage{
+		width: 290px;
+		height: 100%;
+	}
+</style>
 </head>
 <body>
 	<%
 	UserDTO info = (UserDTO) session.getAttribute("info");
+	
 	ChatDAO dao = new ChatDAO();
 	List<ChatRoomDTO> chatRoomList = dao.showChatRoom(info.getEmail());
 	int count = 0;
 	%>
+	<div class="logo-area">
+		<img src="./assets/cssimg/logo.jpg" class="logoimage">
+	</div>
 	<div class="chatmain">
         <div class="chatroom-area">
             <ul class="chatroom-list">
