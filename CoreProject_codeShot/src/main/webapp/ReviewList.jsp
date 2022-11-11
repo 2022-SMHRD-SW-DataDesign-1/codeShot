@@ -58,7 +58,7 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/MyPageList.css">
-
+<link rel="stylesheet" type="text/css" href="./assets/css/ReviewList.css">
 
 <!-- a태그 밑줄 없애기 위한 style 적용 -->
 <style type="text/css">
@@ -513,6 +513,11 @@
 					</div>
 				</div>
 			</div>
+			<div class="content-wrapper">
+				<div class="MyTitle">작성가능한 리뷰</div>
+				<div class="MyContent">
+				</div>
+			</div>
 		</div>
 	</main>
 	<!-- 고객 -->
@@ -701,6 +706,43 @@
 					</div>
 				</div>
 			</div>
+			<div class="content-wrapper">
+				<div class="MyTitle">작성가능한 리뷰</div>
+				<div class="MyBox">
+					<div class="MyContent">
+						<div class="container">
+						  <div class="row">
+						  <%
+							for (int i = 0; i < prchList.size(); i++) {
+								if (r_dao.checkReview(new ReviewDTO(prchList.get(i).getPost_num(), prchList.get(i).getMem_email())) == 0) {
+							%>
+						    <div class="col">
+						     	<div><%=prchList.get(i).getPost_num()%></div>
+						    </div>
+						    <div class="col">
+						      <div><%=prchList.get(i).getMem_email()%></div>
+								<div><%=prchList.get(i).getPrch_price()%></div>
+								<div><%=prchList.get(i).getPrch_date()%></div>
+						    </div>
+						    <div class="col">
+						      <a href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>">리뷰작성하기</a>
+						    </div>
+						  </div>
+						  		<%
+								}
+							}
+							%>
+						</div>
+							
+								
+								
+								
+						
+							<img class="" alt="" src="">
+					  
+					</div>
+				</div>
+			</div>
 		</div>
 	</main>
 
@@ -719,19 +761,6 @@
 				</ul>
 			</nav>
 		</div>
-		<%
-		for (int i = 0; i < prchList.size(); i++) {
-			if (r_dao.checkReview(new ReviewDTO(prchList.get(i).getPost_num(), prchList.get(i).getMem_email())) == 0) {
-		%>
-			<div><%=prchList.get(i).getPost_num()%></div>
-			<div><%=prchList.get(i).getMem_email()%></div>
-			<div><%=prchList.get(i).getPrch_price()%></div>
-			<div><%=prchList.get(i).getPrch_date()%></div>
-			<a href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>">리뷰작성하기</a>
-			<%
-			}
-		}
-		%>
 	
 		<!-- 리뷰 작성한 게시글 목록+ 리뷰내용 -->
 		<h1>리뷰 작성한 게시글 목록</h1>

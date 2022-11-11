@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.content-wrapper{
+	margin-left: 35px;
+}
+
+.MyTitle{
+	font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #303441;
+}
+
+.MyBox{
+	background: #fff;
+    border: 1px solid #e6e6e6;
+    margin-top: 15px;
+}
+
+.MyContent{
+	height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
