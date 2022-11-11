@@ -151,7 +151,7 @@
 	
 %>
 <!-- Header -->
-	<header class="container-menu-desktop">
+	<%-- <header class="container-menu-desktop">
 		<section class="top-bar">
 			<div class="content-topbar flex-sb-m h-full container codeShot-topbar">
 				<div class="left-top-bar">
@@ -273,7 +273,7 @@
 	</header>
 	
 	
-	
+	 --%>
 	
 	
 	
@@ -281,7 +281,7 @@
 <!-- Main -->	
 	
 <!-- 게시물 출력 부분 -->
-<%-- 	<div>
+	<div>
 		<h3><%= postType %></h3>
 		<ul>
 		<%
@@ -326,13 +326,13 @@
 			<li><a href="PostMain.jsp?postType=<%=postType%>_web">Web</a></li>
 			<li><a href="PostMain.jsp?postType=<%=postType%>_app">App</a></li>
 		</ul>
-	</div> --%>
+	</div>
 	
 	
 	<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
 	<!-- footer -->
 
-	<footer class="footer">
+<!-- 	<footer class="footer">
 		<div class="footer-inner">
 			<ol style="width:40%">
 				<b>DDock</b> | 광주광역시 동구 예술길 31-15, 7층 |
@@ -343,7 +343,7 @@
     		<ol><a href=#><b>개인정보처리방침</b></a></ol>
 		</div>
 	</footer>
-	
+	 -->
 	
 	
 	
