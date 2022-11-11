@@ -293,7 +293,7 @@
 			
 				<section class="section-view">
 					<div class="blocks">
-					<%for(int i=0; i<4;i++){%>
+					<%for(int i=0; i<5;i++){%>
 						<%
 							pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
 						%>
