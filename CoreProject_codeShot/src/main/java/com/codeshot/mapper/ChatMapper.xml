@@ -19,4 +19,7 @@
 	<insert id="createChatRoom" parameterType="ChatRoomDTO">
 		insert into tbl_chatroom values(tbl_chatroom_seq.nextval,#{seller_email},#{buyer_email},#{room_title},#{room_description},sysdate)
 	</insert>
+	<select id="getSellerInfo" parameterType="String" resultType="UserDTO">
+		select * from tbl_user where mem_email=#{sellerEmail}
+	</select>
 </mapper>

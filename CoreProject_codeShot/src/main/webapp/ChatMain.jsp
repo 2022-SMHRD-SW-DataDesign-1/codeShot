@@ -24,7 +24,7 @@
 	            <%
 				for (ChatRoomDTO chatroom : chatRoomList) {
 				%>
-                <li id="chatRoom<%=count%>" class="chatroom" onclick="selectChatRoom(<%=chatroom.getRoom_num()%>, this.id)">
+                <li id="chatRoom<%=count%>" class="chatroom" onclick="selectChatRoom(<%=chatroom.getRoom_num()%>, this.id, <%=chatroom.getSeller_email()%>)">
                     <span id="roomTitle"><%=chatroom.getRoom_title()%></span><br>
                     <%=chatroom.getRoom_description()%>
                 </li>
@@ -52,9 +52,6 @@
                     <div class="sellerinfo-area">
                         <span class="sellerinfo">판매자 정보</span>
                     </div>
-                    <div class="postinfo-area">
-                        <span class="postinfo">게시물 정보</span>
-                    </div>
                 </div>
             </div>
             <div class="inputchat-area">
@@ -79,7 +76,7 @@
 		let chatBox = document.getElementById('chatBox');
 		let socket = io.connect('http://172.30.1.30:5000');
 		
-		function selectChatRoom(selectRoomNum, clicked_id)
+		function selectChatRoom(selectRoomNum, clicked_id, seller_email)
 		{
 			roomNum = selectRoomNum;
 			let roomTitle = document.querySelector("#"+clicked_id+" #roomTitle");
@@ -89,20 +86,36 @@
 			sessionStorage.setItem('roomNum', selectRoomNum);
 			
 			$.ajax({
+				url : 'getSellerInfo.do',
+				data : {'sellerEmail':seller_email},
+				type : 'post',
+				dataType : 'json',
+				success : function(sellerInfo){
+					
+				}
+				error : function(){
+					console.log("selectChatRoom통신실패");	
+				}
+			});
+			
+			$.ajax({
 				url : 'ShowChattingService.do',
 				data : {'roomNum':selectRoomNum},
 				type : 'post',
 				dataType : 'json',
 				success : function(chattingList){
 					
-					console.log(roomTitle.textContent);
-					
 					// 초기화
 					chatBox.innerHTML = "";
 					
 					for(let i = 0; i < chattingList.length; i++)
 					{
-						chatBox.innerHTML += chattingList[i].chat_content;
+						let showChatContent = chattingList[i].chat_content;
+						if('<%=info.getEmail()%>' != chattingList[i].talker)
+						{
+							showChatContent = chattingList[i].chat_content.replaceAll("my","opponent")
+						}
+						chatBox.innerHTML += showChatContent;
 					}
 					
 				},
@@ -127,14 +140,12 @@
 			if(inputVal != "")
 			{
 				chat += '<div class="chat-my">'+
-		        		'<p class="chat-time">'+date.toLocaleTimeString('ko-kr')+'</p>'+
 		        		'<div class="chat-my-content"><p>'+inputVal+'</p></div>'+
 		    			'</div>';
 			}
 			if(inputFileVal != "")
 			{
 				chat += '<div class="chat-my">'+
-		        		'<p class="chat-time">'+date.toLocaleTimeString('ko-kr')+'</p>'+
 		        		'<div class="chat-my-content"><p><a href="./file/chatfile/'+inputFileVal.substr(12)+'" download>'+inputFileVal.substr(12)+'</a></p></div>'+
 		    			'</div>';
 			}
@@ -162,24 +173,10 @@
 								chatBox.innerHTML += chat;
 							}
 							
-							let sendchat = "";
-							if(inputVal != "")
-							{
-								sendchat += '<div class="chat-opponent">'+
-				                    		'<div class="chat-opponent-content"><p>'+inputVal+'</p></div>'+
-				                    		'<p class="chat-time">'+date.toLocaleTimeString('ko-kr')+'</p>'+
-				                			'</div>';
-							}
-							if(inputFileVal != "")
-							{
-								sendchat += '<div class="chat-opponent">'+
-							        		'<div class="chat-opponent-content"><p><a href="./file/chatfile/'+inputFileVal.substr(12)+'" download>'+inputFileVal.substr(12)+'</a></p></div>'+
-							        		'<p class="chat-time">'+date.toLocaleTimeString('ko-kr')+'</p>'+
-							    			'</div>';
-							}
+							chat = chat.replaceAll("my","opponent")
 							
 							socket.emit('sendChat', {'user_name':'<%=info.getName()%>',
-							 						 'chat':sendchat});
+							 						 'chat':chat});
 							console.log('소켓 보내기 성공');
 						}
 					},
@@ -225,6 +222,5 @@
             e.addEventListener("click", selectChatroom);
         });
 	</script>
-	
 </body>
 </html>

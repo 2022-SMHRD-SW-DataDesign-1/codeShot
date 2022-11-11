@@ -66,5 +66,15 @@ public class ChatDAO
 		
 		return row;
 	}
+	
+	public UserDTO getSellerInfo(String sellerEmail) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		
+		UserDTO sellerInfo = session.selectOne("getSellerInfo", sellerEmail);
+		
+		session.close();
+		
+		return sellerInfo;
+	}
 
 }

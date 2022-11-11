@@ -27,6 +27,7 @@ import com.codeshot.controller.SuggestWordService;
 import com.codeshot.controller.WishAddService;
 import com.codeshot.controller.WishPostDeleteServic;
 import com.codeshot.controller.WithdrawalService;
+import com.codeshot.controller.getSellerInfoService;
 
 public class FrontController extends HttpServlet 
 {
@@ -172,6 +173,12 @@ public class FrontController extends HttpServlet
 		// 리뷰작성
 		else if(result.equals("ReviewAddService.do")) {
 			service = new ReviewAddService();
+			moveURL = service.execute(request, response);
+		}
+		
+		// 판매자 정보 가져오기
+		else if(result.equals("getSellerInfoService.do")) {
+			service = new getSellerInfoService();
 			moveURL = service.execute(request, response);
 		}
 
