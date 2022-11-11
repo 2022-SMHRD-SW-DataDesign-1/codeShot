@@ -47,17 +47,6 @@ div {
   border-radius: inherit
 }
 
-#side_menu_wrapper .menu-list-wrapper .main-menu-wrapper>li.collapse-title a[aria-expanded='true'] i {
-  transform: rotate(-90deg);
-  color: #f26656
-}
-
-#side_menu_wrapper .menu-list-wrapper .main-menu-wrapper>li.collapse-title a i {
-  transform: rotate(90deg);
-  transition: all 0.4s ease;
-  color: #ccc
-}
-
 #side_menu_wrapper .menu-list-wrapper .panel-body {
   margin: 5px 0;
   padding: 10px 30px;
@@ -81,11 +70,4 @@ div {
 
 #side_menu_wrapper .menu-list-wrapper .panel-body a:hover {
   font-weight: 500
-}
-
-#side_menu_wrapper .menu-list-wrapper .panel-body .active a,
-#side_menu_wrapper .menu-list-wrapper .panel-body .active a:hover,
-#side_menu_wrapper .menu-list-wrapper .panel-body .active a:focus {
-  color: #222;
-  text-decoration: underline
 }

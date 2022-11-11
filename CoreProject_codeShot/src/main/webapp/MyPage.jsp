@@ -333,36 +333,31 @@
 									<div data-v-17364d77="" class="panel-body">
 										<div data-v-17364d77="" class="new-label-wrapper">
 											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 전체 (<span
-													data-v-17364d77="" class="NGB">0</span>)
+												<span data-v-17364d77=""> 전체 
 											</span>
 											</a>
 										</div>
 										<div data-v-17364d77="" class="new-label-wrapper">
 											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 대기중 (<span
-													data-v-17364d77="" class="NGB">0</span>)
+												<span data-v-17364d77=""> 대기중 
 											</span>
 											</a>
 										</div>
 										<div data-v-17364d77="" class="new-label-wrapper">
 											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 채택 (<span
-													data-v-17364d77="" class="NGB">0</span>)
+												<span data-v-17364d77=""> 채택 
 											</span>
 											</a>
 										</div>
 										<div data-v-17364d77="" class="new-label-wrapper">
 											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 마감 (<span
-													data-v-17364d77="" class="NGB">0</span>)
+												<span data-v-17364d77=""> 마감 
 											</span>
 											</a>
 										</div>
 										<div data-v-17364d77="" class="new-label-wrapper">
 											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 철회 (<span
-													data-v-17364d77="" class="NGB">0</span>)
+												<span data-v-17364d77=""> 철회 
 											</span>
 											</a>
 										</div>
