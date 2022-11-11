@@ -54,7 +54,7 @@ body {
 .home {
   padding: 20px;
   width: 100%;
-  height: 95%;
+  height: 78%;
   border-radius: 15px;
   background: rgb(255, 255, 255);
   display: flex; /* flex or none */
@@ -117,6 +117,9 @@ position: relative;
   margin-bottom: 3px;
 }
 
+
+
+
 .input{
   width: 100%;
   border-style: none;
@@ -176,7 +179,7 @@ position: relative;
   max-width: 100%;
   width: 83%;
   height: 70px;
-  background-color:  rgb(189, 244, 236);;
+  background-color: rgb(204, 232, 226);
   border-style:none ;
   margin-left: 50px;
 }
@@ -187,4 +190,9 @@ position: relative;
   color: #353539;
 }
 
+.btn-box:hover {
+	background-color: rgb(189, 244, 236);
+	font-weight: 900;
+	color: black;
+}
   
