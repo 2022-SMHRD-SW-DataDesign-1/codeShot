@@ -162,7 +162,7 @@
 				<div class="left-top-bar">
 					<!-- 로고 이미지 -->
 					<a href="index.html" class="logo">
-						<img src="./assets/cssImg/logo.jpg" alt="IMG-LOGO" width="290px" height="100%">
+						<img src="./assets/cssImg/logo.png" alt="IMG-LOGO" width="290px" height="100%">
 					</a>
 				</div>
 				
