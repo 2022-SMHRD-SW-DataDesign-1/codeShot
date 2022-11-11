@@ -24,7 +24,7 @@
 	            <%
 				for (ChatRoomDTO chatroom : chatRoomList) {
 				%>
-                <li id="chatRoom<%=count%>" class="chatroom" onclick="selectChatRoom(<%=chatroom.getRoom_num()%>, this.id, <%=chatroom.getSeller_email()%>)">
+                <li id="chatRoom<%=count%>" class="chatroom" onclick="selectChatRoom(<%=chatroom.getRoom_num()%>, this.id, '<%=chatroom.getSeller_email()%>')">
                     <span id="roomTitle"><%=chatroom.getRoom_title()%></span><br>
                     <%=chatroom.getRoom_description()%>
                 </li>
@@ -80,21 +80,25 @@
 		{
 			roomNum = selectRoomNum;
 			let roomTitle = document.querySelector("#"+clicked_id+" #roomTitle");
+			let sellerInfoBox = document.querySelector(".sellerinfo")
 			console.log(selectRoomNum);
 			console.log('#'+clicked_id+' #roomTitle');
 			
 			sessionStorage.setItem('roomNum', selectRoomNum);
 			
 			$.ajax({
-				url : 'getSellerInfo.do',
+				url : 'getSellerInfoService.do',
 				data : {'sellerEmail':seller_email},
 				type : 'post',
 				dataType : 'json',
 				success : function(sellerInfo){
-					
-				}
+					sellerInfoBox.innerHTML = "";
+					sellerInfoBox.innerHTML += '<p class="seller-name">' + sellerInfo.name + '</p>';
+					sellerInfoBox.innerHTML += '<p class="seller-phone">' + sellerInfo.phone + '</p>';
+					sellerInfoBox.innerHTML += '<p class="seller-career">' + sellerInfo.career + '</p>';
+				},
 				error : function(){
-					console.log("selectChatRoom통신실패");	
+					console.log("sellectInfo통신실패");	
 				}
 			});
 			
