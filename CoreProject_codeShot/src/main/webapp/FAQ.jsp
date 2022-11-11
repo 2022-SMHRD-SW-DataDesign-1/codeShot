@@ -37,7 +37,7 @@ ga('send', 'pageview');
 <header class="header" style="background-color:#bdf4ec">
   <div class="logo">
     <a href="Main.jsp">
-     DDock로고
+		<img src="./assets/cssImg/logo.jpg" alt="IMG-LOGO" width="100px" height="50px">
     </a>
     <a title="홈" href="#">
     	<img src="//theme.zdassets.com/theme_assets/9204604/db54bfa5d2ad14572afe57b4b5582b04a38aa9e1.png" class="cs" >   
