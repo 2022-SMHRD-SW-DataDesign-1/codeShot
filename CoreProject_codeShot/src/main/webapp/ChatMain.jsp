@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="./assets/css/chatmain.css">
 </head>
 <body>
 	<%
@@ -17,36 +18,56 @@
 	List<ChatRoomDTO> chatRoomList = dao.showChatRoom(info.getEmail());
 	int count = 0;
 	%>
-	<div>
-		<ul>
-			<%
-			for (ChatRoomDTO chatroom : chatRoomList) {
-			%>
-			<li id="chatRoom<%=count%>"
-				onclick="selectChatRoom(<%=chatroom.getRoom_num()%>, this.id)">
-				<span>채팅창 번호 : <%=chatroom.getRoom_num()%></span>
-				<ol>
-					<li>채팅창 제목 : <span id="roomTitle"><%=chatroom.getRoom_title()%></span></li>
-					<li>채팅창 설명 : <%=chatroom.getRoom_description()%></li>
-					<li>채팅창 개설일자 : <%=chatroom.getRoom_opendate()%></li>
-				</ol>
-			</li>
-			<%
-				count++;
-			}
-			%>
-		</ul>
-	</div>
-	<div>
-		<fieldset id="chatBox">
-			<legend id="chatTitle"></legend>
-		</fieldset>
-		<form id="chatForm" enctype="multipart/form-data">
-			<input id="inputChat" name="inputChat" type="text"><br>
-			<input id="chatFilename" name="chatFilename" type="file"><br>
-			<button type="button" onclick="sendMassage()">채팅 전송</button>
-		</form>
-	</div>
+	<div class="chatmain">
+        <div class="chatroom-area">
+            <ul class="chatroom-list">
+	            <%
+				for (ChatRoomDTO chatroom : chatRoomList) {
+				%>
+                <li id="chatRoom<%=count%>" class="chatroom" onclick="selectChatRoom(<%=chatroom.getRoom_num()%>, this.id)">
+                    <span id="roomTitle"><%=chatroom.getRoom_title()%></span><br>
+                    <%=chatroom.getRoom_description()%>
+                </li>
+	            <%
+					count++;
+				}
+				%>
+            </ul>
+        </div>
+        <div class="chat-area">
+            <div class="chatting-area-box">
+                <div class="chatting-area">
+                    <div id="chatBox" class="chatting-list">
+                        <div class="chat-my">
+                            <p class="chat-time">시간</p>
+                            <div class="chat-my-content"><p>안녕하세요</p></div>
+                        </div>
+                        <div class="chat-opponent">
+                            <div class="chat-opponent-content"><p>안녕하세요-상대</p></div>
+                            <p class="chat-time">시간</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-area">
+                    <div class="sellerinfo-area">
+                        <span class="sellerinfo">판매자 정보</span>
+                    </div>
+                    <div class="postinfo-area">
+                        <span class="postinfo">게시물 정보</span>
+                    </div>
+                </div>
+            </div>
+            <div class="inputchat-area">
+            	<form id="chatForm" class="chat-form" enctype="multipart/form-data">
+	                <input id="inputChat" class="inputchat" type="text" placeholder="여기에 채팅을 입력해주세요!">
+	                <div class="send-area">
+	                    <input id="chatFilename" name="chatFilename" class="send-file" type="file">
+	                    <button type="button" onclick="sendMassage()" class="send-msg">전송</button>
+	                </div>
+	        	</form>
+            </div>
+        </div>
+    </div>
 	<script src="./assets/jquery/jquery-3.6.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 	<script type="text/javascript">
@@ -77,11 +98,7 @@
 					console.log(roomTitle.textContent);
 					
 					// 초기화
-					chatBox.innerHTML = "<legend id='chatTitle'></legend>";
-					
-					console.log(roomTitle.textContent);
-					let chatTitle = document.getElementById('chatTitle');
-					chatTitle.innerText = roomTitle.textContent;
+					chatBox.innerHTML = "";
 					
 					for(let i = 0; i < chattingList.length; i++)
 					{
@@ -102,23 +119,24 @@
 			let inputVal = document.getElementById("inputChat").value;
 			let inputFileVal = document.getElementById("chatFilename").value;
 			let chat = "";
+			const date = new Date();
 			
 			console.log(inputVal);
 			console.log(inputFileVal);
 			 
-			if(inputVal != "" || inputFileVal != "")
-			{
-				chat += '<p><b>'+'<%= info.getName() %>'+'</b></p>'
-			}
 			if(inputVal != "")
 			{
-				inputVal = '<p>'+inputVal+'</p>';
-				chat += inputVal;
+				chat += '<div class="chat-my">'+
+		        		'<p class="chat-time">'+date.toLocaleTimeString('ko-kr')+'</p>'+
+		        		'<div class="chat-my-content"><p>'+inputVal+'</p></div>'+
+		    			'</div>';
 			}
 			if(inputFileVal != "")
 			{
-				inputFileVal = '<p><a href="./file/chatfile/'+inputFileVal.substr(12)+'" download>'+inputFileVal.substr(12)+'</a></p>';
-				chat += inputFileVal;
+				chat += '<div class="chat-my">'+
+		        		'<p class="chat-time">'+date.toLocaleTimeString('ko-kr')+'</p>'+
+		        		'<div class="chat-my-content"><p><a href="./file/chatfile/'+inputFileVal.substr(12)+'" download>'+inputFileVal.substr(12)+'</a></p></div>'+
+		    			'</div>';
 			}
 			
 			formData.append('chatFile',document.getElementById('chatFilename').files[0]);
@@ -139,8 +157,29 @@
 					success : function(){
 						if(chat != "")
 						{
+							if(chat != "")
+							{
+								chatBox.innerHTML += chat;
+							}
+							
+							let sendchat = "";
+							if(inputVal != "")
+							{
+								sendchat += '<div class="chat-opponent">'+
+				                    		'<div class="chat-opponent-content"><p>'+inputVal+'</p></div>'+
+				                    		'<p class="chat-time">'+date.toLocaleTimeString('ko-kr')+'</p>'+
+				                			'</div>';
+							}
+							if(inputFileVal != "")
+							{
+								sendchat += '<div class="chat-opponent">'+
+							        		'<div class="chat-opponent-content"><p><a href="./file/chatfile/'+inputFileVal.substr(12)+'" download>'+inputFileVal.substr(12)+'</a></p></div>'+
+							        		'<p class="chat-time">'+date.toLocaleTimeString('ko-kr')+'</p>'+
+							    			'</div>';
+							}
+							
 							socket.emit('sendChat', {'user_name':'<%=info.getName()%>',
-							 						 'chat':chat});
+							 						 'chat':sendchat});
 							console.log('소켓 보내기 성공');
 						}
 					},
@@ -165,11 +204,27 @@
 			})
 			socket.on('receiveChat', function(msg) {
 				console.log(msg);
-				chatBox.innerHTML += msg.chat;
+				if('<%=info.getName()%>' != msg.user_name)
+				{
+					chatBox.innerHTML += msg.chat;
+				}
 			});
 		});
 		
+		let allChatroom = document.querySelectorAll(".chatroom");
 		
+        function selectChatroom(event)
+        {
+            allChatroom.forEach((e) => {
+                e.classList.remove("select");
+            });
+            event.target.classList.add("select");
+        }
+        
+        allChatroom.forEach((e) => {
+            e.addEventListener("click", selectChatroom);
+        });
 	</script>
+	
 </body>
 </html>

@@ -1,0 +1,172 @@
+@charset "UTF-8";
+/*
+체팅창 크기 조절 스타일
+*/
+ul{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    flex-direction: column;
+}
+.chatmain{
+    width: 100%;
+    height: 800px;
+    display: flex;
+}
+.chatroom-area{
+    width: 20%;
+    height: 100%;
+    background-color: #F5F6FA;
+    border: 0.1px solid #EBECF1;
+    border-right: 0;
+}
+.chat-area{
+    width: 80%;
+    height: 100%;
+    flex-direction: column;
+}
+.chatting-area-box{
+    width: 100%;
+    height: 85%; 
+    display: inline-flex;
+}
+.chatting-area{
+    overflow: auto;
+    width: 75%;
+    height: 100%;
+    border: 0.1px solid #EBECF1;
+    border-bottom: 0;
+    border-right: 0;
+}
+.info-area{
+    width: 25%;
+    height: 100%;
+}
+.sellerinfo-area{
+    width: 100%;
+    height: 50%;
+    border: 0.1px solid #EBECF1;
+    text-align: center;
+}
+.postinfo-area{
+    width: 100%;
+    height: 49.5%;
+    border: 0.1px solid #EBECF1;
+    border-top: 0;
+    border-bottom: 0;
+    text-align: center;
+}
+.inputchat-area{
+    width: 100%;
+    height: 15%;
+    border: 0.1px solid #EBECF1;
+}
+
+.chatroom.select{
+    background-color: rgb(204, 232, 226);
+}
+.chatroom{
+    margin: 5px 5px 0px 5px;
+    border: 0.1px solid #EBECF1;
+    padding: 15px;
+    background-color: #F5F6FA;
+    border-radius: 1em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/*
+체팅 박스 스타일
+*/
+.chatting-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-opponent-content{
+    display: inline-flex;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    background-color: #F5F6FA;
+    border-radius: 1em;
+    border-top-left-radius: 0;
+    text-align: left;
+}
+.chat-my-content{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    background-color: rgb(189, 244, 236);
+    border-radius: 1em;
+    border-top-right-radius: 0;
+    text-align: left;
+}
+.inputchat-area{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+}
+.inputchat{
+    margin: 10px;
+    border-radius: 5px;
+    height: 100%;
+    outline: none;
+    border: 0;
+    background-color: #F5F6FA;
+    font-size: 16px;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+.send-area{
+    height: 100%;
+    margin: 10px;
+    display: inline;
+    align-items: flex-end;
+    padding-bottom: 0;
+}
+.send-msg{
+    width: 6%;
+    height: 100%;
+    background-color: rgb(189, 244, 236);
+    border-radius: 0.5em;
+    border: 0 whitesmoke;
+    font-size: 18px;
+    color: #3F403C;
+    font-weight: bold;
+    float: right;
+}
+.send-file{
+    height: 100%;
+    vertical-align: middle;
+}
+
+.chat-my{
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+}
+.chat-opponent{
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
+.chat-time{
+    font-size: 10px;
+}
+.sellerinfo{
+    vertical-align: middle;
+}
+.chat-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+}

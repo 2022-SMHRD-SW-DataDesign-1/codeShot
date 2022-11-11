@@ -73,11 +73,11 @@
 		    	    if (rsp.success) {
 		    	      var msg = '결제가 완료되었습니다.';
 		    	      alert(msg);
-		    	      location.href = "결제 완료 후 이동할 페이지 url"
 		    	    } else {
 		    	      var msg = '결제에 실패하였습니다.';
 		    	      msg += '에러내용 : ' + rsp.error_msg;
 		    	      alert(msg);
+		    	      location.href = "ReviewList.jsp"
 		    	    }
 			      });
 			}
