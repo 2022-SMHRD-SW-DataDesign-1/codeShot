@@ -134,7 +134,7 @@
 				<div class="left-top-bar">
 					<!-- 로고 이미지 -->
 					<a href="index.html" class="logo">
-						<img src="./assets/cssImg/logo.png" alt="IMG-LOGO" width="250px" height="100%">
+						<img src="./assets/cssImg/logo.jpg" alt="IMG-LOGO" width="290px" height="100%">
 					</a>
 				</div>
 				
@@ -278,7 +278,7 @@
 			 %>
 			 
 			<main>
-			<!-- banner -->
+				<!-- banner -->
 				<section class="banner">
 					<div class="wrap-slick1">
 						<div class="slick1">
@@ -287,109 +287,89 @@
 					</div>
 				</section>
 
+				
+			
+			
 				<section class="section-view">
-					<h1 class="view-text">사람들이 많이찾는 서비스</h1>
 					<div class="blocks">
-						<a class="block hov-img0" href="product-detail.html">
-							<div class="block-img">
-								<div class="block-b">
-									<div class="block-c">
-										<div class="block-img">
-											<img class="block-img" title="홈페이지 제작해드립니다" src="images/화면 캡처 2022-10-27 173318.png" alt="홈페이지 제작해드립니다">
+					<%for(int i=0; i<4;i++){%>
+						<%
+							pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
+						%>
+						<article id="article-tag<%=postList.get(i).getPost_num()%>">
+							<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>" class="block hov-img0">
+								
+								<!-- 게시물 사진 -->
+								<div class="block-img">
+									<div class="block-b">
+										<div class="block-c">
+											<div class="block-img">
+												<%if(pf != null){%>
+													<img src="./file/<%= pf.getPf_file()%>" class="block-img">
+												<%}else if(pf == null){%>
+													<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg">	
+												<%}%>
+											</div>
 										</div>
 									</div>
 								</div>
-								<button class="block-heart flex-r p-t-3">
-									<span class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-										<img class="icon-heart1 dis-block trans-04" src="images/icons/heart.svg"/>
-										<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/heart-fill.svg"/>
-									</span>
-								</button>	
-							</div>
-							<div class="block-txt">
-								<div class="block-txt-name">
-									<span class="block-txt-nametxt">스마트인재개발원</span>
+								
+								<!-- 찜 버튼 -->
+								<div>
+									<button id="wish-btn<%=postList.get(i).getPost_num()%>" class="block-heart flex-r p-t-3" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id)">
+										<span class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+											<svg>
+												<%int compareResult=0; %>
+												
+												<%for(int j = 0; j < whishPostNumList.size(); j++) {%>
+													<%compareResult = whishPostNumList.get(j).compareTo(postList.get(i).getPost_num()); %>
+												<%} %>
+												
+												<%if(compareResult == 0) {%>
+													<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
+												<%} else if(compareResult != 0){%>
+													<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="none"/>											
+												<%} %>
+											</svg>
+										</span>
+									</button>
 								</div>
-								<h3 class="block-txt-title">홈페이지 제작해드립니다</h3>	
-								<div class="block-txt-price">
-									<span class="block-txt-pricetxt">
-										10,000원~ 
-									</span>
-								</div>
-								<div class="review">
-									<span class="review-icon">
-										<img class="icon-star" src="images/icons/star-fill.svg">
-									</span>
-									<span class="score">5.0</span>
-									<div class="review-count">
-										5개의 평가
+								
+								<!-- 작성자 -->
+								<div class="block-txt">
+									
+									<!-- 제목, 작성자, 가격 -->
+									<div class="block-txt-name">
+										<span class="block-txt-nametxt"><%=postList.get(i).getMem_email() %></span>
 									</div>
-								</div>		
-							</div>	
-						</a>
+									<h3 class="block-txt-title"><%=postList.get(i).getPost_title() %></h3>
+									<div class="block-txt-price">
+										<span class="block-txt-pricetxt"><%=postList.get(i).getPost_price() %></span>
+									</div>
+									
+									<!-- 평점 -->
+									<div class="review">
+										<span class="review-icon">
+											<img alt="별" src="./assets/cssImg/star-fill.svg">
+										</span>
+										<%
+											double avg_strt = 0;
+											for(int j = 0; j < starratingList.size(); j++) {
+												if(postList.get(i).getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
+													avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
+												}
+											}
+										%>
+										<span class="score"><%=String.format("%.1f", avg_strt) %></span>
+									</div>
+								</div>
+							</a>
+						</article>
+						<%} %>
 					</div>
 				</section>
 			</main>
-			
-			
-			<!-- 기능만 -->
-			<%for(int i=0; i<4;i++){%>
-				<%
-					pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
-				%>
-					<article id="article-tag<%=postList.get(i).getPost_num()%>" class="blocks">
-						<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>" class="block hov-img0">
-							<div class="block-img">
-								<div class="block-b">
-									<div class="block-c">
-										<div class="block-img">
-										<%if(pf != null){%>
-											<img src="./file/<%= pf.getPf_file()%>">
-										<%}else if(pf == null){%>
-											<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg">	
-										<%}%>
-
-										</div>
-									</div>
-								</div>
-							</div>
-							<div>사진: <%=postList.get(i).getPost_file() %></div>
-							<div>
-								<button id="wish-btn<%=postList.get(i).getPost_num()%>" onclick="wishPostClick('<%=postList.get(i).getPost_num() %>', this.id)">
-									<span>
-										<svg>
-											<%for(int j = 0; j < whishPostNumList.size(); j++) {%>
-												<%int compareResult = whishPostNumList.get(j).compareTo(postList.get(i).getPost_num()); %>
-												<%if(compareResult == 0) {%>
-													<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"/>
-												<%} else{%>
-													<circle id="btn-color" cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="none"/>												
-												<%} %>
-											<%} %>
-										</svg>
-									</span>
-								</button>
-							</div>
-							<div>
-								<div>작성자 : <%=postList.get(i).getMem_email() %></div>
-								<div>제목 : <%=postList.get(i).getPost_title() %></div>
-								<div>가격 : <%=postList.get(i).getPost_price() %></div>
-								<div>
-									<%
-										double avg_strt = 0;
-										for(int j = 0; j < starratingList.size(); j++) {
-											if(postList.get(i).getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
-												avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
-											}
-										}
-										out.print("<div>★|"+ String.format("%.1f", avg_strt)+"</div>");												
-									%>
-								</div>
-							</div>
-						</a>
-					</article>
-				<%} %>
-		<%} %>
+		<%} %><!-- 고객 end -->
 		
 	<!-- 비회원 -->			
 	<%} else if(info == null) {%>
