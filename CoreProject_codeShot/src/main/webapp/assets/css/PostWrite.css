@@ -1,1 +1,66 @@
 @charset "UTF-8";
+
+* {
+	margin-left: 100px;
+}
+
+header {
+	margin-left: 150px;
+	margin-top: 20px;
+}
+
+main {
+	margin-top: 30px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+input[type="text"], select, textarea {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	background: rgba(212, 212, 255, 0.035);
+	border: none;
+	border-radius: 0;
+	color: inherit;
+	display: inline-table;
+	outline: 0;
+	padding: 0;
+	text-decoration: none;
+	width: 100%;
+}
+
+input[type="text"]:invalid, select:invalid, textarea:invalid {
+	box-shadow: none;
+}
+
+input[type="text"], select {
+	height: 2.75em;
+}
+
+body, input, select, textarea {
+	color: #666666;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 12pt;
+	font-weight: 300;
+	letter-spacing: 0.025em;
+	line-height: 1.65;
+}
+
+textarea {
+	padding: 0.75em 1em;
+}
+
+.post-write-table {
+	background-color: white;
+	height: 100vh;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	width: 1170px;
+	margin-left: 200px;
+	border-radius: 30px;
+}
+
+input[type="submit"] {
+	justify-content: flex-end;
+}
