@@ -2,26 +2,69 @@
 
 .content-wrapper{
 	margin-left: 35px;
+	  width: 100%
 }
 
-.MyTitle{
+.myTitle{
 	font-size: 19px;
     font-weight: bold;
     margin-bottom: 16px;
     color: #303441;
 }
 
-.MyBox{
+.myBox{
 	background: #fff;
     border: 1px solid #e6e6e6;
     margin-top: 15px;
 }
 
-.MyContent{
-	height: 500px;
-    display: flex;
-    justify-content: center;
+.myContent{
+	height: auto;
+	width: 100%;
+    justify-content: inherit;
     align-items: center;
-    text-align: center;
+}
+
+.rows{
+	display: flex;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/* col */
+.middle{
+	width: 500px;
+	line-height: 30px;
+	padding: 40px;
+}
+
+.end{
+	width: 20%;
+	padding: 60px;
+}
+
+.post_img{
+	width: 200px;
+	height: 140px;
+	border-radius: 4px;
+	margin: 17px;
+	margin-right: 0px;
+}
+
+.my_btn{
+    border-radius: 6px;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(204, 232, 226);
+    border-style: none;
+    font-weight: 500;
+    font-size: 18px; 
+    line-height: 50px;
     
 }
+
+
+span:hover {
+	background-color: rgb(204, 232, 226);
+	color: rgb(116, 197, 192);
+	}
+
