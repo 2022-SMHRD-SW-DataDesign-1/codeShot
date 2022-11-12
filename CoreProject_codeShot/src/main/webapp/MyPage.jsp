@@ -1,3 +1,6 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.codeshot.model.PrchsDTO"%>
+<%@page import="com.codeshot.model.PrchsDAO"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.codeshot.model.WishListDTO"%>
@@ -26,6 +29,7 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/header.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/transaction-history.css">
 
 <style type="text/css">
 	* {
@@ -66,7 +70,10 @@
 	.search-box{
 		margin-left: 0px;
 	}
-
+	
+	#side_menu_wrapper .guide-line {
+	  background-color: rgb(189, 244, 236) !important;
+	}
 </style>
 </head>
 <body>
@@ -86,6 +93,9 @@
 	List<WishListDTO> wishList = null;
 
 	ArrayList<BigDecimal> whishPostNumList = new ArrayList<>();
+	
+	PrchsDAO p_dao = new PrchsDAO();
+	List<PrchsDTO> prchsList = p_dao.showPrchsList(info.getEmail());
 	%>
 
 	<!-- Header -->
@@ -95,7 +105,7 @@
 				class="content-topbar flex-sb-m h-full container codeShot-topbar">
 				<div class="left-top-bar">
 					<!-- 로고 이미지 -->
-					<a href="index.html" class="logo"> <img
+					<a href="Main.jsp" class="logo"> <img
 						src="./assets/cssImg/logo.png" alt="IMG-LOGO" width="290px"
 						height="100%">
 					</a>
@@ -466,6 +476,49 @@
 					</div>
 				</div>
 			</div>
+			<div class="prchs-area">
+		        <div class="prchs-area-head">
+		            거래내역
+		        </div>
+		        <hr>
+		        <%
+		        System.out.println("여기 실행되요!!!!!");
+		        String category = "";
+		        for(int i = 0; i < prchsList.size(); i++)
+		        {
+		        	System.out.println("여기 실행되요!");
+		        	PostDTO postInfo = dao.showPostDetail(prchsList.get(i).getPost_num());
+		        	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		        	category = postInfo.getPost_category();
+		        	
+		        	if(category.contains("ots"))
+		        		category = category.replace("ots_", "외주/");
+		        	else if(category.contains("code"))
+		        		category = category.replace("code_", "소스코드/");
+		        	if(category.contains("web"))
+		        		category = category.replace("web", "Web");
+		        	else if(category.contains("app"))
+		        		category = category.replace("app", "App");
+		        %>
+		        <div class="prchs-area-content">
+		            <div class="prchs-area-content-img">
+		                <img src="./images/logo.png" class="prchs-post-img">
+		            </div>
+		            <div class="prchs-area-content-detail">
+		                <div class="prchs-area-content-detail-title"><%=postInfo.getPost_title()%></div>
+		                <div class="prchs-area-content-detail-category"><%=category%></div>
+		                <div class="prchs-area-content-detail-seller"><%=postInfo.getMem_email()%></div>
+		                <div class="prchs-area-content-detail-date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
+		            </div>
+		            <div class="prchs-area-content-price">
+		                <%=prchsList.get(i).getPrch_price()%>원
+		            </div>
+		        </div>
+		        <hr>
+		        <%
+				}
+		        %>
+		    </div>
 		</div>
 	</main>
 	<!-- 고객 -->
@@ -654,8 +707,50 @@
 					</div>
 				</div>
 			</div>
+			<div class="prchs-area">
+		        <div class="prchs-area-head">
+		            거래내역
+		        </div>
+		        <hr>
+		        <%
+		        System.out.println("여기 실행되요!!!!!");
+		        String category = "";
+		        for(int i = 0; i < prchsList.size(); i++)
+		        {
+		        	System.out.println("여기 실행되요!");
+		        	PostDTO postInfo = dao.showPostDetail(prchsList.get(i).getPost_num());
+		        	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		        	category = postInfo.getPost_category();
+		        	
+		        	if(category.contains("ots"))
+		        		category = category.replace("ots_", "외주/");
+		        	else if(category.contains("code"))
+		        		category = category.replace("code_", "소스코드/");
+		        	if(category.contains("web"))
+		        		category = category.replace("web", "Web");
+		        	else if(category.contains("app"))
+		        		category = category.replace("app", "App");
+		        %>
+		        <div class="prchs-area-content">
+		            <div class="prchs-area-content-img">
+		                <img src="./images/logo.png" class="prchs-post-img">
+		            </div>
+		            <div class="prchs-area-content-detail">
+		                <div class="prchs-area-content-detail-title"><%=postInfo.getPost_title()%></div>
+		                <div class="prchs-area-content-detail-category"><%=category%></div>
+		                <div class="prchs-area-content-detail-seller"><%=postInfo.getMem_email()%></div>
+		                <div class="prchs-area-content-detail-date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
+		            </div>
+		            <div class="prchs-area-content-price">
+		                <%=prchsList.get(i).getPrch_price()%>원
+		            </div>
+		        </div>
+		        <hr>
+		        <%
+				}
+		        %>
+		    </div>
 		</div>
-		
 	</main>
 
 	<%
