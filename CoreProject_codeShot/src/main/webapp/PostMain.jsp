@@ -128,7 +128,9 @@
 	.block-img-radius{
 		 border-radius: 5px;
 	}
-			
+ 	#side_menu_wrapper .guide-line {
+	  background-color: rgb(189, 244, 236) !important;
+	}
 </style>
 
 </head>
@@ -276,6 +278,7 @@
 	</header>
 	
 <!-- ----------------------------------------------------------------------------------------------------------------------- -->	
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->	
 <!-- ----------------------------------------------------------------------------------------------------------------------- -->
 	
 	
@@ -293,25 +296,34 @@
 %>
 
 
-
 <%
-	if(info != null) {
+	String postCategory = "";
+
+	if(postType.contains("ots")){
+		postType="ots";
+		postCategory = "외주";
+	}
+	else if(postType.contains("code")){
+		postType="code";
+		postCategory = "소스코드";
+	}
+	
 %>
 
-	<main>
-		<div>
-			<ul>
 
-				<li><a href="PostMain.jsp?postType=<%=postType%>_web">Web</a></li>
-				<li><a href="PostMain.jsp?postType=<%=postType%>_app">App</a></li>
-			</ul>
-		</div>
-			
-		
-	<!-- 게시물 출력 부분 -->
-		<div>
-			<h3><%= postType %></h3>
 
+	<!-- CSS 적용 전 -->
+
+<main>
+	<!-- ///////////////////////////////////////////////////////////////////////   -->		
+	<!-- 사이드바 -->
+<%-- 			<!-- CSS 적용 전 -->
+			<div>
+				<ul>				
+					<li><a href="PostMain.jsp?postType=<%=postType%>_web">Web</a></li>
+					<li><a href="PostMain.jsp?postType=<%=postType%>_app">App</a></li>
+				</ul>
+			</div>
 
 			<ul>
 			<%
@@ -343,9 +355,76 @@
 				}
 			}
 			%>
-			</ul>
+			</ul> --%>
+	
+	<div class="flex margin-top-60 margin-left-20">
+		<div class="side-menu-wrapper">
+			<div data-v-17364d77="" id="side_menu_wrapper" class="MyPageSideMenu isSellerMinHeight">
+				<div data-v-17364d77="" class="side-menu-title-wrapper NGB">
+					<%= postCategory %>
+				</div>
+				
+				<div data-v-17364d77="" class="guide-line"></div>
+					
+				<div data-v-17364d77="" class="menu-list-wrapper">
+					<ul data-v-17364d77="" id="side_menu_main_group" class="main-menu-wrapper">
+						<li data-v-17364d77="" class="panel">
+							<a data-v-17364d77="" href="EditInfo.jsp" target="_self" class="flex-left-center flex-align-baseline">
+								<div data-v-17364d77="" class="new-label-wrapper">
+									<b>웹</b>
+								</div>
+							</a>
+						</li>
+						<li data-v-17364d77="" class="panel">
+							<a data-v-17364d77="" href="EditInfo.jsp" target="_self" class="flex-left-center flex-align-baseline">
+								<div data-v-17364d77="" class="new-label-wrapper">
+									홈페이지(웹빌더·CMS)<br>홈페이지(카페24)<br>홈페이지(워드프레스)<br>랜딩페이지<br>프론트엔드·퍼블리싱<br>검색최적화·SEO<br>애널리틱스<br>홈페이지 수정·유지보수
+								</div>
+							</a>
+						</li>
+						<br>
+						<li data-v-17364d77="" class="panel">
+							<a data-v-17364d77="" href="EditInfo.jsp" target="_self" class="flex-left-center flex-align-baseline">
+								<div data-v-17364d77="" class="new-label-wrapper">
+									<b>앱</b>
+								</div>
+							</a>
+						</li>
+						<li data-v-17364d77="" class="panel">
+							<a data-v-17364d77="" href="EditInfo.jsp" target="_self" class="flex-left-center flex-align-baseline">
+								<div data-v-17364d77="" class="new-label-wrapper">
+									네이티브<br>하이브리드<br>크로스플랫폼<br>앱 수정·유지보수
+								</div>
+							</a>
+						</li>
+							
+							
+						<li data-v-17364d77="" class="panel">
+							<a data-v-17364d77="" href="LogoutService.do" target="_self" class="flex-left-center flex-align-baseline">
+								<div data-v-17364d77="" class="new-label-wrapper">
+									로그아웃
+
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+					
+			</div>
 		</div>
-	</main>
+	</div>
+
+
+
+<%
+	if(info != null) {
+%>
+
+		<!-- 게시물 출력 부분 -->
+		<div>
+
+
+		</div>
 
 <!------------------------------------------------------------------------  -->
 <!------------------------------------------------------------------------  -->
@@ -356,359 +435,67 @@
 
 	else if(info == null) {
 %>
-	
-	<main>
+		<!-- 게시글 출력 부분 -->
 		<div>
-			<ul>
-				<li><a href="PostMain.jsp?postType=<%=postType%>_web">Web</a></li>
-				<li><a href="PostMain.jsp?postType=<%=postType%>_app">App</a></li>
-			</ul>
-		</div>
-	
 		
-	<!-- ///////////////////////////////////////////////////////////////////////   -->		
-	<!-- ///////////////////////////////////////////////////////////////////////   -->		
-	<!-- 사이드바 -->
-	<div class="flex margin-top-60 margin-left-20">
-			<div class="side-menu-wrapper">
-				<div data-v-17364d77="" id="side_menu_wrapper"
-					class="MyPageSideMenu isSellerMinHeight">
-					<div data-v-17364d77="" class="side-menu-title-wrapper NGB">
-						마이페이지</div>
-					<div data-v-17364d77="" class="guide-line"></div>
-					<div data-v-17364d77="" class="menu-list-wrapper">
-						<ul data-v-17364d77="" id="side_menu_main_group"
-							class="main-menu-wrapper">
-							<li data-v-17364d77="" class="panel"><a
-								data-v-17364d77="" href="EditInfo.jsp" target="_self"
-								class="flex-left-center flex-align-baseline">
-									<div data-v-17364d77="" class="new-label-wrapper">
-										내 정보 수정
-										<!---->
-										<!---->
-									</div>
-							</a></li>
-							<li data-v-17364d77="" class="panel">
-								<div data-v-17364d77=""
-									class="collapse-title flex-between-center new-label-wrapper">
-									<a data-v-17364d77="" href="MyPage.jsp" class="active">
-										거래내역 </a> <a data-v-17364d77="" href="#sellerSellingHistory"
-										aria-controls="sellerSellingHistory" aria-expanded="true"
-										data-toggle="collapse" data-parent="#side_menu_main_group"
-										class="active">
-										<div data-v-17364d77="" role="tab">
-											<div data-v-17364d77="" class="flex">
-												<i data-v-17364d77="" class="kf kf-arrow"> </i>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div data-v-17364d77="" id="sellerSellingHistory"
-									class="collapse in">
-									<div data-v-17364d77="" class="panel-body">
-										<div data-v-17364d77=""
-											class="new-label-wrapper active">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													전체 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													요청사항 미작성 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													진행중 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													수정요청 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													발송중 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													늦은 발송 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													완료 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													취소 
-											</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li data-v-17364d77="" class="panel">
-								<div data-v-17364d77=""
-									class="collapse-title flex-between-center new-label-wrapper">
-									<a data-v-17364d77="" href="EditPost.jsp" class=""> 게시물 관리 </a> <a
-										data-v-17364d77="" href="#sellerProposals"
-										aria-controls="sellerProposals" data-toggle="collapse"
-										data-parent="#side_menu_main_group" class="">
-										<div data-v-17364d77="" role="tab">
-											<div data-v-17364d77="" class="flex">
-												<i data-v-17364d77="" class="kf kf-arrow"> </i>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div data-v-17364d77="" id="sellerProposals" class="collapse">
-									<div data-v-17364d77="" class="panel-body">
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 전체 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 대기중 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 채택 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 마감 
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#">
-												<span data-v-17364d77=""> 철회 
-											</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li data-v-17364d77="" class="panel"><a
-								data-v-17364d77="" href="PortfolioWrite.jsp" target="_self"
-								class="flex-left-center flex-align-baseline">
-									<div data-v-17364d77="" class="new-label-wrapper">
-										포트폴리오 관리
-										<!---->
-										<!---->
-									</div>
-							</a></li>
-							<li data-v-17364d77="" class="panel"><a
-								data-v-17364d77="" href="ChatMain.jsp" target="_self"
-								class="flex-left-center flex-align-baseline">
-									<div data-v-17364d77="" class="new-label-wrapper">
-										채팅
-										<!---->
-										<!---->
-									</div>
-							</a></li>
-							<li data-v-17364d77="" class="panel">
-								<div data-v-17364d77=""
-									class="collapse-title flex-between-center new-label-wrapper">
-									<a data-v-17364d77="" href="WishList.jsp" class=""> 찜 목록 </a> <a
-										data-v-17364d77="" href="#myGigs" aria-controls="myGigs"
-										data-toggle="collapse" data-parent="#side_menu_main_group"
-										class="">
-										<div data-v-17364d77="" role="tab">
-											<div data-v-17364d77="" class="flex">
-												<i data-v-17364d77="" class="kf kf-arrow"> </i>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div data-v-17364d77="" id="myGigs" class="collapse">
-									<div data-v-17364d77="" class="panel-body">
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													전체 </span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													외주 </span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													소스코드 </span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li data-v-17364d77="" class="panel">
-								<div data-v-17364d77=""
-									class="collapse-title flex-between-center new-label-wrapper">
-									<a data-v-17364d77="" href="ReviewList.jsp" class=""> 리뷰목록
-									</a> <a data-v-17364d77="" href="#advertisement"
-										aria-controls="advertisement" data-toggle="collapse"
-										data-parent="#side_menu_main_group" class="">
-										<div data-v-17364d77="" role="tab">
-											<div data-v-17364d77="" class="flex">
-												<i data-v-17364d77="" class="kf kf-arrow"> </i>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div data-v-17364d77="" id="advertisement" class="collapse">
-									<div data-v-17364d77="" class="panel-body">
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													전체 </span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													작성 가능한 리뷰 <!----> <!---->
-											</span>
-											</a>
-										</div>
-										<div data-v-17364d77="" class="new-label-wrapper">
-											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
-													내가 작성한 리뷰 <!----> <!---->
-											</span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li data-v-17364d77="" class="panel"><a
-								data-v-17364d77="" href="LogoutService.do" target="_self"
-								class="flex-left-center flex-align-baseline">
-									<div data-v-17364d77="" class="new-label-wrapper">
-										로그아웃
-										<!---->
-										<!---->
-									</div>
-							</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
 		</div>
-	
-	
-	
-	
-	<!-- ///////////////////////////////////////////////////////////////////////   -->		
-		
-	<!-- 게시물 출력 부분 -->
-		<div>
-			<h3><%= postType %></h3>
-			
-			<ul>
-			<%
-			for(PostDTO dto : postList) { 
-				pf = new PortfolioDAO().showImage(dto.getMem_email());
-				if(dto.getPost_category().equals(postType)){
-			%>
-				<a href="PostDetail.jsp?post_num=<%=dto.getPost_num()%>">
-					<li>게시물1</li>
-					<ol>
-						<li>
-							<%
-							if(pf != null){
-							%>
-								<img src="./file/<%= pf.getPf_file()%>">
-							<%
-							}else if(pf == null){
-							%>
-								<img alt="" src="./assets/essImg/간단한웹사이트.jpg">
-							<%
-							}
-							%>
-						</li>
-						<li><%= dto.getPost_title() %></li> <!-- 제목 -->
-						<li><%= dto.getMem_email() %></li> <!-- 글쓴이 -->
-					</ol>
-				</a>
-			<%
-				}
-			}
-			%>
-			</ul>
-		</div>
-	</main>
-
-
 
 <%
 
-}
-
+}	//esle if 끝
 %>	
+
+
+</main>
 	
 	
 	
 
 	
-	<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
-	<!-- footer -->
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- footer -->
 
- 	<footer class="footer">
-		<div class="footer-inner">
-			<ol style="width:40%">
-				<b>DDock</b> | 광주광역시 동구 예술길 31-15, 7층 |
-    		</ol>
-    		<ol><a href=#>공지사항</a></ol>
-    		<ol><a href=#>FAQ</a></ol>
-    		<ol><a href=#>이용약관</a></ol>
-    		<ol><a href=#><b>개인정보처리방침</b></a></ol>
-		</div>
-	</footer>
+	<footer class="footer">
+	<div class="footer-inner">
+		<ol style="width:40%">
+			<b>DDock</b> | 광주광역시 동구 예술길 31-15, 7층 |
+   		</ol>
+   		<ol><a href=#>공지사항</a></ol>
+   		<ol><a href=#>FAQ</a></ol>
+   		<ol><a href=#>이용약관</a></ol>
+   		<ol><a href=#><b>개인정보처리방침</b></a></ol>
+	</div>
+</footer>
 
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- script -->
 	
-	<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
-	<!-- script -->
-		
-	<!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
-	<script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-	
-	<!-- 추천어 검색 기능 시간되면 하기-디자인 적용이.... -->
-	<!-- <script src="./assets/js/SuggestWord.js"></script> -->
-	
-	<!-- 찜 버튼 -->
-	<script src="assets/js/sweetalert.min.js"></script>
-	<script>
-		$('.js-addwish-b2').on('click', function(e){
-			e.preventDefault();
+<!-- 2022-11-02 / 김지수 / 검색 제안어 기능 추가 -->
+<script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+<!-- 추천어 검색 기능 시간되면 하기-디자인 적용이.... -->
+<!-- <script src="./assets/js/SuggestWord.js"></script> -->
+
+<!-- 찜 버튼 -->
+<script src="assets/js/sweetalert.min.js"></script>
+<script>
+	$('.js-addwish-b2').on('click', function(e){
+		e.preventDefault();
+	});
+
+	$('.js-addwish-b2').each(function(){
+		var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+		$(this).on('click', function(){
+			// swal(nameProduct, "is added to wishlist !", "success");
+
+			$(this).addClass('js-addedwish-b2');
+			// $(this).off('click');
 		});
+	});
+</script>
 
-		$('.js-addwish-b2').each(function(){
-			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-			$(this).on('click', function(){
-				// swal(nameProduct, "is added to wishlist !", "success");
-
-				$(this).addClass('js-addedwish-b2');
-				// $(this).off('click');
-			});
-		});
-	</script>
-	
-	<script src="assets/js/WishBtn.js"></script>
+<script src="assets/js/WishBtn.js"></script>
 	
 </body>
 </html>

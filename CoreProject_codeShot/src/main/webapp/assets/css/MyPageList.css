@@ -26,7 +26,7 @@ div {
 
 #side_menu_wrapper .guide-line {
   height: 2px;
-  background-color: #333;
+  background-color: rgb(189, 244, 236) !important;
   margin-left: 25px;
   margin-right: 15px
 }
