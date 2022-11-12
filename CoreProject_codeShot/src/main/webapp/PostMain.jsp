@@ -150,13 +150,14 @@
 	ArrayList<BigDecimal> whishPostNumList = new ArrayList<>();
 	
 %>
-<!-- Header -->
-	<%-- <header class="container-menu-desktop">
+<!-- ----------------------------------------------------------------------------------------------------------------------- -->
+	<!-- Header -->
+	<header class="container-menu-desktop">
 		<section class="top-bar">
 			<div class="content-topbar flex-sb-m h-full container codeShot-topbar">
 				<div class="left-top-bar">
 					<!-- 로고 이미지 -->
-					<a href="index.html" class="logo">
+					<a href="Main.jsp" class="logo">
 						<img src="./assets/cssImg/logo.png" alt="IMG-LOGO" width="290px" height="100%">
 					</a>
 				</div>
@@ -272,17 +273,39 @@
 		</section>
 	</header>
 	
-	
-	 --%>
-	
-	
+<!-- ----------------------------------------------------------------------------------------------------------------------- -->	
+<!-- ----------------------------------------------------------------------------------------------------------------------- -->
 	
 	
-<!-- Main -->	
+	
+	
+<!-- Main -->
+
+<%
+	if(postType.contains("outsourcingPost"))
+		postType = "ots";
+	else if(postType.contains("codePost"))
+		postType = "code";
+%>
+
+
+
+<main>
+	<div>
+		<ul>
+			<li><a href="PostMain.jsp?postType=<%=postType%>_web">Web</a></li>
+			<li><a href="PostMain.jsp?postType=<%=postType%>_app">App</a></li>
+		</ul>
+	</div>
+		
 	
 <!-- 게시물 출력 부분 -->
 	<div>
 		<h3><%= postType %></h3>
+
+<%
+if(info != null) {
+%>
 		<ul>
 		<%
 		for(PostDTO dto : postList) { 
@@ -315,19 +338,23 @@
 		%>
 		</ul>
 	</div>
+</main>
 <%
-	if(postType.contains("outsourcingPost"))
-		postType = "ots";
-	else if(postType.contains("codePost"))
-		postType = "code";
+}
+else if(info == null) {
 %>
-	<div>
-		<ul>
-			<li><a href="PostMain.jsp?postType=<%=postType%>_web">Web</a></li>
-			<li><a href="PostMain.jsp?postType=<%=postType%>_app">App</a></li>
-		</ul>
-	</div>
+
+	<h1>비회원이 볼 화면</h1>
+
+
+
+<%
+}
+%>	
 	
+	
+	
+
 	
 	<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
 	<!-- footer -->

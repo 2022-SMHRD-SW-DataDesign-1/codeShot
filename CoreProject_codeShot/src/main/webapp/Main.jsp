@@ -161,7 +161,7 @@
 			<div class="content-topbar flex-sb-m h-full container codeShot-topbar">
 				<div class="left-top-bar">
 					<!-- 로고 이미지 -->
-					<a href="index.html" class="logo">
+					<a href="Main.jsp" class="logo">
 						<img src="./assets/cssImg/logo.png" alt="IMG-LOGO" width="290px" height="100%">
 					</a>
 				</div>
