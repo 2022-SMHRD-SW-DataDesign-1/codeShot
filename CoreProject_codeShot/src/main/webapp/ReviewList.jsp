@@ -745,10 +745,45 @@
 							}
 					 	} 
 						%>
+				</div>		
+			</div>
+						
+			<div class="myTitle next">작성한 리뷰</div>
+			<div class="myBox">
+				<div class="myContent">
+				  	<%
+					for (int i = 0; i < prchList.size(); i++) {
+				 		if (r_dao.checkReview(new ReviewDTO(prchList.get(i).getPost_num(), prchList.get(i).getMem_email())) == 0) { 
+							for(int j = 0; j < postList.size(); j++){
+							 	if(postList.get(j).getPost_num().equals(prchList.get(i).getPost_num())){
+					%>
+								<div class="rows">
+								    <div class="col-md-auto">
+										<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg" <%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
+								    </div>
+									<div class="col-md-auto">
+										<div class="middle">
+											<div class="post_title"><%=postList.get(j).getPost_title() %></div>
+											<div class="post_price"><%=postList.get(j).getPost_price()%></div>
+											<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
+										</div>
+									</div>
+									<%
+									showReview = r_dao.showReview(new ReviewDTO(prchList.get(i).getPost_num(),info.getEmail()));
+									%>
+								    <div class="col-md-auto end">
+								    	<a class="my_btn flex-c-m " href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>"><span>수정</span></a>
+								    </div>
+	  							</div>
+					<%
+								}
+							}
+						}
+				 	} 
+					%>
 						
 							
 						
-					</div>
 				</div>
 			</div>
 		</div>
