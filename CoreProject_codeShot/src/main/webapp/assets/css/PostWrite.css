@@ -20,7 +20,7 @@ input[type="text"], select, textarea {
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
-	background: rgba(212, 212, 255, 0.035);
+	background: rgba(189, 244, 236, 0.2);
 	border: none;
 	border-radius: 0;
 	color: inherit;
@@ -29,6 +29,7 @@ input[type="text"], select, textarea {
 	padding: 0;
 	text-decoration: none;
 	width: 100%;
+	border-radius: 10px;
 }
 
 input[type="text"]:invalid, select:invalid, textarea:invalid {
@@ -49,18 +50,57 @@ body, input, select, textarea {
 }
 
 textarea {
-	padding: 0.75em 1em;
+    width: 600px;
+    height: 600px;
+    border: none;
+    resize: auto;
+    overflow:scroll;
 }
 
 .post-write-table {
 	background-color: white;
-	height: 100vh;
+	height: 260vh;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	width: 1170px;
 	margin-left: 200px;
 	border-radius: 30px;
 }
 
-input[type="submit"] {
-	justify-content: flex-end;
+table {
+  border-collapse: separate;
+  border-spacing: 30px 30px;
+}
+
+table th{
+	text-align: center;
+}
+
+
+select {
+	text-align: center;
+}
+
+.sub-category{
+	text-align: center;
+	width: 80px;
+	font-size: 15px;
+}
+
+.submit-btn{
+	text-align: right;
+}
+
+.price-input{
+	text-align: right;
+}
+
+input[type=file]::file-selector-button, .btn-info{
+	width: 100px;
+  	height: 40px;
+  	background: rgb(189, 244, 236);
+  	border: 1px solid rgb(189, 244, 236);
+  	border-radius: 10px;
+  	cursor: pointer;
+  	color: #6666;
+  	font-weight: bold;
 }
