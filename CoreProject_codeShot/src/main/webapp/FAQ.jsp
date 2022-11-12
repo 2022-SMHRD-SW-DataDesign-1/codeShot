@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-  <title>FAQ &ndash; DDock 고객센터</title>
+<link rel="shortcut icon" type="image/x-icon" href="./assets/cssImg/title-icon.png">
+<title>DDock</title>
 
   <meta name="csrf-param" content="authenticity_token" />
 <meta name="csrf-token" content="" />
