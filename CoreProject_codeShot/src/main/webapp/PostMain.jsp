@@ -59,6 +59,8 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/body.css">
+<link rel="stylesheet" type="text/css"
+	href="./assets/css/MyPageList.css">
 
 
 <style type="text/css">
@@ -282,74 +284,381 @@
 <!-- Main -->
 
 <%
-	if(postType.contains("outsourcingPost"))
+	if(postType.contains("outsourcingPost")){
 		postType = "ots";
-	else if(postType.contains("codePost"))
+	}
+	else if(postType.contains("codePost")){
 		postType = "code";
+	}
 %>
 
 
 
-<main>
-	<div>
-		<ul>
-			<li><a href="PostMain.jsp?postType=<%=postType%>_web">Web</a></li>
-			<li><a href="PostMain.jsp?postType=<%=postType%>_app">App</a></li>
-		</ul>
-	</div>
+<%
+	if(info != null) {
+%>
+
+	<main>
+		<div>
+			<ul>
+
+				<li><a href="PostMain.jsp?postType=<%=postType%>_web">Web</a></li>
+				<li><a href="PostMain.jsp?postType=<%=postType%>_app">App</a></li>
+			</ul>
+		</div>
+			
 		
-	
-<!-- 게시물 출력 부분 -->
-	<div>
-		<h3><%= postType %></h3>
+	<!-- 게시물 출력 부분 -->
+		<div>
+			<h3><%= postType %></h3>
 
-<%
-if(info != null) {
-%>
-		<ul>
-		<%
-		for(PostDTO dto : postList) { 
-			pf = new PortfolioDAO().showImage(dto.getMem_email());
-			if(dto.getPost_category().equals(postType)){
-		%>
-			<a href="PostDetail.jsp?post_num=<%=dto.getPost_num()%>">
-				<li>게시물1</li>
-				<ol>
-					<li>
-						<%
-						if(pf != null){
-						%>
-							<img src="./file/<%= pf.getPf_file()%>">
-						<%
-						}else if(pf == null){
-						%>
-							<img alt="" src="./assets/essImg/간단한웹사이트.jpg">
-						<%
-						}
-						%>
-					</li>
-					<li><%= dto.getPost_title() %></li> <!-- 제목 -->
-					<li><%= dto.getMem_email() %></li> <!-- 글쓴이 -->
-				</ol>
-			</a>
-		<%
+
+			<ul>
+			<%
+			for(PostDTO dto : postList) { 
+				pf = new PortfolioDAO().showImage(dto.getMem_email());
+				if(dto.getPost_category().equals(postType)){
+			%>
+				<a href="PostDetail.jsp?post_num=<%=dto.getPost_num()%>">
+					<li>게시물1</li>
+					<ol>
+						<li>
+							<%
+							if(pf != null){
+							%>
+								<img src="./file/<%= pf.getPf_file()%>">
+							<%
+							}else if(pf == null){
+							%>
+								<img alt="" src="./assets/essImg/간단한웹사이트.jpg">
+							<%
+							}
+							%>
+						</li>
+						<li><%= dto.getPost_title() %></li> <!-- 제목 -->
+						<li><%= dto.getMem_email() %></li> <!-- 글쓴이 -->
+					</ol>
+				</a>
+			<%
+				}
 			}
-		}
-		%>
-		</ul>
-	</div>
-</main>
+			%>
+			</ul>
+		</div>
+	</main>
+
+<!------------------------------------------------------------------------  -->
+<!------------------------------------------------------------------------  -->
+<!-- 비회원------------------------------------------------------------------ -->
 <%
+
 }
-else if(info == null) {
+
+	else if(info == null) {
 %>
-
-	<h1>비회원이 볼 화면</h1>
+	
+	<main>
+		<div>
+			<ul>
+				<li><a href="PostMain.jsp?postType=<%=postType%>_web">Web</a></li>
+				<li><a href="PostMain.jsp?postType=<%=postType%>_app">App</a></li>
+			</ul>
+		</div>
+	
+		
+	<!-- ///////////////////////////////////////////////////////////////////////   -->		
+	<!-- ///////////////////////////////////////////////////////////////////////   -->		
+	<!-- 사이드바 -->
+	<div class="flex margin-top-60 margin-left-20">
+			<div class="side-menu-wrapper">
+				<div data-v-17364d77="" id="side_menu_wrapper"
+					class="MyPageSideMenu isSellerMinHeight">
+					<div data-v-17364d77="" class="side-menu-title-wrapper NGB">
+						마이페이지</div>
+					<div data-v-17364d77="" class="guide-line"></div>
+					<div data-v-17364d77="" class="menu-list-wrapper">
+						<ul data-v-17364d77="" id="side_menu_main_group"
+							class="main-menu-wrapper">
+							<li data-v-17364d77="" class="panel"><a
+								data-v-17364d77="" href="EditInfo.jsp" target="_self"
+								class="flex-left-center flex-align-baseline">
+									<div data-v-17364d77="" class="new-label-wrapper">
+										내 정보 수정
+										<!---->
+										<!---->
+									</div>
+							</a></li>
+							<li data-v-17364d77="" class="panel">
+								<div data-v-17364d77=""
+									class="collapse-title flex-between-center new-label-wrapper">
+									<a data-v-17364d77="" href="MyPage.jsp" class="active">
+										거래내역 </a> <a data-v-17364d77="" href="#sellerSellingHistory"
+										aria-controls="sellerSellingHistory" aria-expanded="true"
+										data-toggle="collapse" data-parent="#side_menu_main_group"
+										class="active">
+										<div data-v-17364d77="" role="tab">
+											<div data-v-17364d77="" class="flex">
+												<i data-v-17364d77="" class="kf kf-arrow"> </i>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div data-v-17364d77="" id="sellerSellingHistory"
+									class="collapse in">
+									<div data-v-17364d77="" class="panel-body">
+										<div data-v-17364d77=""
+											class="new-label-wrapper active">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													전체 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													요청사항 미작성 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													진행중 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													수정요청 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													발송중 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													늦은 발송 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													완료 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													취소 
+											</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-v-17364d77="" class="panel">
+								<div data-v-17364d77=""
+									class="collapse-title flex-between-center new-label-wrapper">
+									<a data-v-17364d77="" href="EditPost.jsp" class=""> 게시물 관리 </a> <a
+										data-v-17364d77="" href="#sellerProposals"
+										aria-controls="sellerProposals" data-toggle="collapse"
+										data-parent="#side_menu_main_group" class="">
+										<div data-v-17364d77="" role="tab">
+											<div data-v-17364d77="" class="flex">
+												<i data-v-17364d77="" class="kf kf-arrow"> </i>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div data-v-17364d77="" id="sellerProposals" class="collapse">
+									<div data-v-17364d77="" class="panel-body">
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#">
+												<span data-v-17364d77=""> 전체 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#">
+												<span data-v-17364d77=""> 대기중 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#">
+												<span data-v-17364d77=""> 채택 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#">
+												<span data-v-17364d77=""> 마감 
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#">
+												<span data-v-17364d77=""> 철회 
+											</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-v-17364d77="" class="panel"><a
+								data-v-17364d77="" href="PortfolioWrite.jsp" target="_self"
+								class="flex-left-center flex-align-baseline">
+									<div data-v-17364d77="" class="new-label-wrapper">
+										포트폴리오 관리
+										<!---->
+										<!---->
+									</div>
+							</a></li>
+							<li data-v-17364d77="" class="panel"><a
+								data-v-17364d77="" href="ChatMain.jsp" target="_self"
+								class="flex-left-center flex-align-baseline">
+									<div data-v-17364d77="" class="new-label-wrapper">
+										채팅
+										<!---->
+										<!---->
+									</div>
+							</a></li>
+							<li data-v-17364d77="" class="panel">
+								<div data-v-17364d77=""
+									class="collapse-title flex-between-center new-label-wrapper">
+									<a data-v-17364d77="" href="WishList.jsp" class=""> 찜 목록 </a> <a
+										data-v-17364d77="" href="#myGigs" aria-controls="myGigs"
+										data-toggle="collapse" data-parent="#side_menu_main_group"
+										class="">
+										<div data-v-17364d77="" role="tab">
+											<div data-v-17364d77="" class="flex">
+												<i data-v-17364d77="" class="kf kf-arrow"> </i>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div data-v-17364d77="" id="myGigs" class="collapse">
+									<div data-v-17364d77="" class="panel-body">
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													전체 </span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													외주 </span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													소스코드 </span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-v-17364d77="" class="panel">
+								<div data-v-17364d77=""
+									class="collapse-title flex-between-center new-label-wrapper">
+									<a data-v-17364d77="" href="ReviewList.jsp" class=""> 리뷰목록
+									</a> <a data-v-17364d77="" href="#advertisement"
+										aria-controls="advertisement" data-toggle="collapse"
+										data-parent="#side_menu_main_group" class="">
+										<div data-v-17364d77="" role="tab">
+											<div data-v-17364d77="" class="flex">
+												<i data-v-17364d77="" class="kf kf-arrow"> </i>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div data-v-17364d77="" id="advertisement" class="collapse">
+									<div data-v-17364d77="" class="panel-body">
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													전체 </span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													작성 가능한 리뷰 <!----> <!---->
+											</span>
+											</a>
+										</div>
+										<div data-v-17364d77="" class="new-label-wrapper">
+											<a data-v-17364d77="" href="#"> <span data-v-17364d77="">
+													내가 작성한 리뷰 <!----> <!---->
+											</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li data-v-17364d77="" class="panel"><a
+								data-v-17364d77="" href="LogoutService.do" target="_self"
+								class="flex-left-center flex-align-baseline">
+									<div data-v-17364d77="" class="new-label-wrapper">
+										로그아웃
+										<!---->
+										<!---->
+									</div>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	
+	
+	
+	<!-- ///////////////////////////////////////////////////////////////////////   -->		
+		
+	<!-- 게시물 출력 부분 -->
+		<div>
+			<h3><%= postType %></h3>
+			
+			<ul>
+			<%
+			for(PostDTO dto : postList) { 
+				pf = new PortfolioDAO().showImage(dto.getMem_email());
+				if(dto.getPost_category().equals(postType)){
+			%>
+				<a href="PostDetail.jsp?post_num=<%=dto.getPost_num()%>">
+					<li>게시물1</li>
+					<ol>
+						<li>
+							<%
+							if(pf != null){
+							%>
+								<img src="./file/<%= pf.getPf_file()%>">
+							<%
+							}else if(pf == null){
+							%>
+								<img alt="" src="./assets/essImg/간단한웹사이트.jpg">
+							<%
+							}
+							%>
+						</li>
+						<li><%= dto.getPost_title() %></li> <!-- 제목 -->
+						<li><%= dto.getMem_email() %></li> <!-- 글쓴이 -->
+					</ol>
+				</a>
+			<%
+				}
+			}
+			%>
+			</ul>
+		</div>
+	</main>
 
 
 
 <%
+
 }
+
 %>	
 	
 	
@@ -359,7 +668,7 @@ else if(info == null) {
 	<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
 	<!-- footer -->
 
-<!-- 	<footer class="footer">
+ 	<footer class="footer">
 		<div class="footer-inner">
 			<ol style="width:40%">
 				<b>DDock</b> | 광주광역시 동구 예술길 31-15, 7층 |
@@ -370,9 +679,7 @@ else if(info == null) {
     		<ol><a href=#><b>개인정보처리방침</b></a></ol>
 		</div>
 	</footer>
-	 -->
-	
-	
+
 	
 	<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
 	<!-- script -->
