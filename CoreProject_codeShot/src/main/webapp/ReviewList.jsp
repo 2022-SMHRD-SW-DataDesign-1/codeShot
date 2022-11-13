@@ -108,7 +108,28 @@
 	  background-color: rgb(189, 244, 236) !important;
 	}
 	
+	.review-row{
+    border-bottom: 1px solid #e6e6e6;
+	padding: 15px;
+}
+
+.review_starraiting{
 	
+}
+
+.review-star{
+	padding: 25%;
+}
+
+.star-num{
+	font-weight: bold;
+	display: inline-block;
+	margin-left: 7px;
+}
+
+.review-content{
+	margin-top: 15px;
+}
 </style>
 
 </head>
@@ -522,12 +543,93 @@
 				</div>
 			</div>
 			<div class="content-wrapper">
-				<div class="MyTitle">작성가능한 리뷰</div>
-				<div class="MyContent">
+				<div class="myTitle">작성가능한 리뷰</div>
+				<div class="myBox">
+					<div class="myContent">
+					  	<%
+						for (int i = 0; i < prchList.size(); i++) {
+					 		if (r_dao.checkReview(new ReviewDTO(prchList.get(i).getPost_num(), prchList.get(i).getMem_email())) == 0) { 
+								for(int j = 0; j < postList.size(); j++){
+								 	if(postList.get(j).getPost_num().equals(prchList.get(i).getPost_num())){
+						%>
+									<div class="rows">
+									    <div class="col-md-auto">
+											<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg" <%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
+									    </div>
+										<div class="col-md-auto">
+											<div class="middle">
+												<div class="post_title"><%=postList.get(j).getPost_title() %></div>
+												<div class="post_price"><%=postList.get(j).getPost_price()%></div>
+												<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
+											</div>
+										</div>
+									    <div class="col-md-auto end">
+									    	<a class="my_btn flex-c-m " href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>"><span>리뷰작성</span></a>
+									    </div>
+		  							</div>
+						<%
+									}
+								}
+							}
+					 	} 
+						%>
+				</div>		
+			</div>
+						
+			<div class="myTitle next">작성한 리뷰</div>
+			<div class="myBox">
+				<div class="myContent">
+				  	<%
+					for (int i = 0; i < prchList.size(); i++) {
+				 		if (r_dao.checkReview(new ReviewDTO(prchList.get(i).getPost_num(), prchList.get(i).getMem_email())) > 0) { 
+						 	
+				 			showReview = r_dao.showReview(new ReviewDTO(prchList.get(i).getPost_num(),info.getEmail()));
+				 			
+				 			for(int j = 0; j < postList.size(); j++){
+							 	if(postList.get(j).getPost_num().equals(showReview.getPost_num())){ 
+					%>
+								<div class="rows">
+								    <div class="col-md-auto">
+										<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg" <%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
+								    </div>
+									<div class="col-md-auto">
+										<div class="middle">
+											<div class="post_title"><%=postList.get(j).getPost_title() %></div>
+											<div class="post_price"><%=postList.get(j).getPost_price()%></div>
+											<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
+										</div>
+									</div>
+								    <div class="col-md-auto end">
+								    	<a class="my_btn flex-c-m " href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>"><span>수정</span></a>
+								    </div>
+	  							</div>
+	  							<div class="review-row">
+									<div class="review_starraiting">
+									<% for(int k = 0; k < showReview.getReview_starrating().intValue(); k++){ %>
+										<span class="review-icon">
+											<img class="reivew-star" alt="별" src="./assets/cssImg/star-fill.svg">
+										</span>
+									<%} %>
+										<div class="star-num">
+										<%=showReview.getReview_starrating()%>
+										</div>
+									</div>
+	  								<div class="review-content"><%=showReview.getReview_content()%></div>
+	  							</div>
+					<%
+							 	}
+							} 
+						}
+				 	} 
+					%>
+						
+							
+						
 				</div>
 			</div>
 		</div>
 	</main>
+
 	<!-- 고객 -->
 	<%
 	} else if ((isExpert = info.getIsExpert()).equals("N")) {
@@ -753,9 +855,12 @@
 				<div class="myContent">
 				  	<%
 					for (int i = 0; i < prchList.size(); i++) {
-				 		if (r_dao.checkReview(new ReviewDTO(prchList.get(i).getPost_num(), prchList.get(i).getMem_email())) == 0) { 
-							for(int j = 0; j < postList.size(); j++){
-							 	if(postList.get(j).getPost_num().equals(prchList.get(i).getPost_num())){
+				 		if (r_dao.checkReview(new ReviewDTO(prchList.get(i).getPost_num(), prchList.get(i).getMem_email())) > 0) { 
+						 	
+				 			showReview = r_dao.showReview(new ReviewDTO(prchList.get(i).getPost_num(),info.getEmail()));
+				 			
+				 			for(int j = 0; j < postList.size(); j++){
+							 	if(postList.get(j).getPost_num().equals(showReview.getPost_num())){ 
 					%>
 								<div class="rows">
 								    <div class="col-md-auto">
@@ -768,16 +873,26 @@
 											<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
 										</div>
 									</div>
-									<%
-									showReview = r_dao.showReview(new ReviewDTO(prchList.get(i).getPost_num(),info.getEmail()));
-									%>
 								    <div class="col-md-auto end">
 								    	<a class="my_btn flex-c-m " href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>"><span>수정</span></a>
 								    </div>
 	  							</div>
+	  							<div class="review-row">
+									<div class="review_starraiting">
+									<% for(int k = 0; k < showReview.getReview_starrating().intValue(); k++){ %>
+										<span class="review-icon">
+											<img class="reivew-star" alt="별" src="./assets/cssImg/star-fill.svg">
+										</span>
+									<%} %>
+										<div class="star-num">
+										<%=showReview.getReview_starrating()%>
+										</div>
+									</div>
+	  								<div class="review-content"><%=showReview.getReview_content()%></div>
+	  							</div>
 					<%
-								}
-							}
+							 	}
+							} 
 						}
 				 	} 
 					%>

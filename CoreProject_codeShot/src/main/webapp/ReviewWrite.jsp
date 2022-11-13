@@ -7,7 +7,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="./assets/css/ReviewWrite.css" />
+<script type="text/javascript" src="./js/ReviewWrite.js"> </script>
+
+<style type="text/css">
+.rating .rate_radio + label {
+    position: relative;
+    display: inline-block;
+    margin-left: -4px;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    background-image: url('./assets/cssImg/starrating.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+</style>
+
 </head>
 <body>
 <%
@@ -23,7 +41,7 @@
 %>
 
 <!-- 리뷰작성 -->
- 
+ <div class="wrap">
 	<h1>후기</h1>	 
 	
 	<!-- frontcontroller 작성하기 -->
@@ -52,11 +70,11 @@
 	        <div class="warning_msg">5자 이상으로 작성해 주세요.</div>
 	        <textarea rows="10" class="review_textarea" name="review_content"></textarea>
 	    </div>   
-	    <div class="cmd">
-	        <input type="submit" name="save" id="save" value="등록">
+	    <div class="">
+	        <input class="" type="submit" name="save" id="save" value="등록">
 	    </div>
 	</form>
-
+</div>
   
 </body>
 </html>
