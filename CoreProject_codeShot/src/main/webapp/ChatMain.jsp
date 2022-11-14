@@ -11,12 +11,24 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="./assets/css/chatmain.css">
 <style type="text/css">
+
+	@font-face {
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+	
 	.logoimage{
 		width: 125px;
 		margin: 30px;
 	}
 	.logo-area{
 		margin-bottom: 30px;
+	}
+	body{
+	font-family: 'BMJUA';
+	font-size: 13px;
 	}
 </style>
 </head>
@@ -194,9 +206,9 @@
 							 						 'chat':chat});
 							console.log('소켓 보내기 성공');
 							
-							inputVal.value = "";
+						/* 	inputVal.value = "";
 					        inputVal.focus();
-							inputFileVal.value = "";
+							inputFileVal.value = ""; */
 						}
 					},
 					error : function(){

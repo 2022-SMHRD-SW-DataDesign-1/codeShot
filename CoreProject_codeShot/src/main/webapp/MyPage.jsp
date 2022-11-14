@@ -24,6 +24,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="./assets/cssImg/title-icon.png">
 <title>DDock</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css">
 <link rel="stylesheet" type="text/css"
 	href="./assets/css/MyPageList.css">
@@ -477,7 +479,7 @@
 				</div>
 			</div>
 			<div class="prchs-area">
-		        <div class="prchs-area-head">
+		        <div class="prchs-area-head" style="font-size:19px;">
 		            거래내역
 		        </div>
 		        <hr>

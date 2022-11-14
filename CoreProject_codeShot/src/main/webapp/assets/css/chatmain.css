@@ -2,6 +2,8 @@
 /*
 체팅창 크기 조절 스타일
 */
+
+
 ul{
     padding: 0;
     margin: 0;
@@ -13,6 +15,7 @@ body{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	font-family: 'GangwonEdu_OTFBoldA';
 }
 
 .chatmain{
@@ -26,6 +29,7 @@ body{
     background-color: #F5F6FA;
     border: 0.1px solid #EBECF1;
     border-right: 0;
+    font-size: 16px;
 }
 .chat-area{
     width: 80%;
@@ -55,6 +59,8 @@ body{
     border: 0.1px solid #EBECF1;
     text-align: center;
     border-bottom: 0;
+   
+   
 }
 .postinfo-area{
     width: 100%;
@@ -169,13 +175,16 @@ body{
 }
 .sellerinfo{
     vertical-align: middle;
+    font-size: 22px;
+    margin-top: 20px;
+    display: inline-block;
 }
 .chat-form{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
+    
 }
 .seller-name{
     font-size: 20px;
