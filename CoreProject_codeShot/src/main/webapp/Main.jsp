@@ -370,8 +370,9 @@
 								<!-- 평점 -->
 								<div class="review">
 									<span class="review-icon">
-										<img class="icon-star" alt="별" src="./assets/cssImg/star-fill.svg">
-									</span>
+										<img class="icon-star" alt="별"
+									src="./assets/cssImg/star-fill.svg">
+								</span>
 									<%
 										double avg_strt = 0;
 										for(int j = 0; j < starratingList.size(); j++) {
