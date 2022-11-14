@@ -1,3 +1,5 @@
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.codeshot.model.ReviewDAO"%>
 <%@page import="com.codeshot.model.ReviewDTO"%>
@@ -133,24 +135,25 @@
 </head>
 <body>
 	<%
-		//로그인 정보
-		UserDTO info = (UserDTO)session.getAttribute("info");
-		String isExpert="";	
+	//로그인 정보
+	UserDTO info = (UserDTO)session.getAttribute("info");
+	String isExpert="";	
+
+	//게시물 번호 가져오기
+	BigDecimal postNum = new BigDecimal(request.getParameter("post_num"));
+	System.out.print(postNum);
+	PostDTO post = new PostDAO().showPostDetail(postNum);
 	
-		//게시물 번호 가져오기
-		BigDecimal postNum = new BigDecimal(request.getParameter("post_num"));
-		System.out.print(postNum);
-		PostDTO post = new PostDAO().showPostDetail(postNum);
+	//글쓴이 이메일, 포트폴리오 가져오기
+	List<PortfolioDTO> portfolioList = new PortfolioDAO().showWriterPortfolio(post.getMem_email());
 		
-		//글쓴이 이메일, 포트폴리오 가져오기
-		List<PortfolioDTO> portfolioList = new PortfolioDAO().showWriterPortfolio(post.getMem_email());
-		
-/* //리뷰 가져오기
-ReviewDAO dao = new ReviewDAO();
-System.out.print("Test : "+dao);
-	List<ReviewDTO> reviewList = dao.showPostReview(postNum); */
+	//리뷰 가져오기
+	ReviewDAO dao = new ReviewDAO();
+	System.out.print("Test : "+dao);
+	List<ReviewDTO> reviewList = dao.showPostReview(postNum);
 	
-		
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+	DecimalFormat starrating_df = new DecimalFormat("#.0");
 	%>
 	<!-- 페이지 상단 -->
 	<!-- Header -->
@@ -324,15 +327,39 @@ System.out.print("Test : "+dao);
 			<h3> 사용툴(버전) </h3>
 			<%= post.getPost_standard() %>
 			<h3> 리뷰 </h3>
-<%-- 			<%if(reviewList !=null){
-				for(int i = 0; i<reviewList.size(); i++ ){ %>
-					<%= reviewList.get(i).getMem_email() %>
-					<%= reviewList.get(i).getReview_date() %>
-					<%= reviewList.get(i).getReview_starrating() %>
-					<%= reviewList.get(i).getReview_content() %>
-			<% }
+			<%
+			if(reviewList !=null){
+			%>
+			<div class="post-detail-review-list">
+				<%
+				for(int i = 0; i<reviewList.size(); i++ )
+				{
+				%>
+		        <div class="post-detail-review">
+		            <div class="post-detail-review-email"><%=reviewList.get(i).getMem_email()%></div>
+		            <div class="post-detail-review-sdbox">
+		                <div class="post-detail-review-starrating">
+		                    <img src="./assets/cssImg/star-fill.svg" class="post-detail-review-starrating-starfill">
+		                    <%=starrating_df.format(reviewList.get(i).getReview_starrating()) %>
+		                </div>
+		                <div class="post-detail-review-date">
+		                	<%=sdf.format(reviewList.get(i).getReview_date())%>
+		                </div>
+		            </div>
+		            <hr class="post-detail-review-devide">
+		            <div class="post-detail-review-content">
+		            	<p>
+		            		<%=reviewList.get(i).getReview_content()%>
+		            	</p>
+		            </div>
+		        </div>
+		        <%
+				}
+		        %>
+		    </div>
+		    <%
 			}
-			%> --%>
+		    %>
 		</div>
 	
 		<div class="price-pay-chat">

@@ -205,3 +205,47 @@ fieldset{
   -ms-transition: all 0.3s cubic-bezier(1,.01,.32,1);
   transition: all 0.3s cubic-bezier(1,.01,.32,1); 
 }
+.post-detail-review{
+	width: 100%;
+	margin-bottom: 10px;
+}
+.post-detail-review-list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.post-detail-review-sdbox{
+    display: flex;
+    font-size: 13px;
+    margin-left: 10px;
+    padding-right: 5px;
+    align-items: center;
+}
+.post-detail-review-starrating-starfill{
+	width: 13px;
+    height: 13px;
+    fill: #FFD400;
+}
+.post-detail-review-starrating{
+    border-right: 2px solid #ADADAD;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+.post-detail-review-email{
+    font-size: 13px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.post-detail-review-devide{
+    width: 96.5%;
+    height: 2px;
+    border: 0;
+    background-color: #ADADAD;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.post-detail-review-content{
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
