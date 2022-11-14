@@ -1,9 +1,6 @@
 @charset "UTF-8";
 
-.content-wrapper{
-	margin-left: 35px;
-	  width: 100%
-}
+	
 
 .myTitle{
 	font-size: 19px;
@@ -20,7 +17,6 @@
 
 .myContent{
 	height: auto;
-	width: 100%;
     justify-content: inherit;
     align-items: center;
 }
@@ -32,7 +28,7 @@
 
 /* col */
 .middle{
-	width: 500px;
+	width: 450px;
 	line-height: 30px;
 	padding: 40px;
 }

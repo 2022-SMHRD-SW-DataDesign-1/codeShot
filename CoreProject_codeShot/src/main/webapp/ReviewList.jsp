@@ -22,8 +22,6 @@
 <title>DDock</title>
 
 <!-- header css -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -83,7 +81,7 @@
 		border-radius: 5px 5px 5px 5px;
 	}
 	
-	#mypage-btn{
+	#mypage-btn{s
 		display: inline;
 		height: 45px;
 		margin: 8px 0px 0px 180px;
@@ -112,24 +110,35 @@
     border-bottom: 1px solid #e6e6e6;
 	padding: 15px;
 }
-
-.review_starraiting{
+		}
+	.block-img-radius{
+		 border-radius: 5px;
+	}
 	
-}
+	.review_starraiting{
+	
+	}
+	
+	.review-star{
+		padding: 25%;
+	}
+	
+	.star-num{
+		font-weight: bold;
+		display: inline-block;
+		margin-left: 7px;
+	}
+	
+	.review-content{
+		margin-top: 15px;
+	}
+	
+		
+	.content-wrapper{
+	margin-left: 0px;
+	}
 
-.review-star{
-	padding: 25%;
-}
-
-.star-num{
-	font-weight: bold;
-	display: inline-block;
-	margin-left: 7px;
-}
-
-.review-content{
-	margin-top: 15px;
-}
+		
 </style>
 
 </head>

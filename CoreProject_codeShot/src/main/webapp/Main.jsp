@@ -123,11 +123,7 @@
 		  border-radius: 5px;
 		  border: 1px ;
 		  object-fit: cover;
-	}
-	.block-img-radius{
-		 border-radius: 5px;
-	}
-			
+
 
 </style>
 
