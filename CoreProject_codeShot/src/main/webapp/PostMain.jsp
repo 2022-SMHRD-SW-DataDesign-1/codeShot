@@ -460,7 +460,6 @@ a {
 				%>
 
 				<section class="section-view">
-					<h1 class="codeShot-main-post-title">다른 회원들이 본 서비스</h1>
 					<div class="blocks">
 						<%
 						for (int i = 0; i < postList.size(); i++) {

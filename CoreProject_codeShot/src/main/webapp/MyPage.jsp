@@ -27,12 +27,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css">
-<link rel="stylesheet" type="text/css"
-	href="./assets/css/MyPageList.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/MyPageList.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/header.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/transaction-history.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/ReviewList.css">
+
 
 <style type="text/css">
 	* {
@@ -77,6 +78,12 @@
 	#side_menu_wrapper .guide-line {
 	  background-color: rgb(189, 244, 236) !important;
 	}
+	
+	.content-wrapper {
+	margin-left: 15px;
+}
+
+	
 </style>
 </head>
 <body>
@@ -478,11 +485,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="prchs-area">
-		        <div class="prchs-area-head" style="font-size:19px;">
-		            거래내역
-		        </div>
-		        <hr>
+			<div class="content-wrapper">
+				<div class="myTitle">거래내역</div>
+		        <div class="myBox">
+					<div class="myContent">
 		        <%
 		        System.out.println("여기 실행되요!!!!!");
 		        String category = "";
@@ -503,41 +509,42 @@
 		        	else if(category.contains("app"))
 		        		category = category.replace("app", "App");
 		        %>
-		        <div class="prchs-area-content">
-		            <div class="prchs-area-content-img">
-		            	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
-		                	<%
-		            		if(pf != null){
-		            		%>
-		                	<img src="./file/<%=pf.getPf_file()%>" class="prchs-post-img">
-		                	<%
-		            		}
-		            		else{
-		                	%>
-		                	<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" class="prchs-post-img">
-		                	<%
-		            		}
-		                	%>
-		             	</a>
+						<div class="rows">
+			            <div class="col-md-auto">
+			            	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
+			                	<%
+			            		if(pf != null){
+			            		%>
+			                	<img src="./file/<%=pf.getPf_file()%>" class="post_img" style="height: 160px;">
+			                	<%
+			            		}
+			            		else{
+			                	%>
+			                	<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" class="post_img">
+			                	<%
+			            		}
+			                	%>
+			             	</a>
 		            </div>
-		            <div class="prchs-area-content-detail">
-		                <div class="prchs-area-content-detail-title">
+		            <div class="col-md-auto">
+		                <div class="middle">
 		                	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
 		                		<%=postInfo.getPost_title()%>
 		                	</a>
+		                <div class="post_title"><%=category%></div>
+		                <div class="post_price"><%=postInfo.getMem_email()%></div>
+		                <div class="prch_date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
 		                </div>
-		                <div class="prchs-area-content-detail-category"><%=category%></div>
-		                <div class="prchs-area-content-detail-seller"><%=postInfo.getMem_email()%></div>
-		                <div class="prchs-area-content-detail-date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
 		            </div>
-		            <div class="prchs-area-content-price">
+		            <div class="col-md-auto end" style="padding: 80px;">
 		                <%=prchsList.get(i).getPrch_price()%>원
 		            </div>
 		        </div>
-		        <hr>
 		        <%
 				}
 		        %>
+		        	 </div>
+		        </div>
 		    </div>
 		</div>
 	</main>
@@ -727,15 +734,16 @@
 					</div>
 				</div>
 			</div>
-			<div class="prchs-area">
-		        <div class="prchs-area-head">
-		            거래내역
-		        </div>
-		        <hr>
+			<div class="content-wrapper">
+				<div class="myTitle">거래내역</div>
+		        <div class="myBox">
+					<div class="myContent">
 		        <%
+		        System.out.println("여기 실행되요!!!!!");
 		        String category = "";
 		        for(int i = 0; i < prchsList.size(); i++)
 		        {
+		        	System.out.println("여기 실행되요!");
 		        	PostDTO postInfo = dao.showPostDetail(prchsList.get(i).getPost_num());
 		        	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		        	PortfolioDTO pf = new PortfolioDAO().showImage(postInfo.getMem_email());
@@ -750,41 +758,42 @@
 		        	else if(category.contains("app"))
 		        		category = category.replace("app", "App");
 		        %>
-		        <div class="prchs-area-content">
-		            <div class="prchs-area-content-img">
-		            	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
-		            		<%
-		            		if(pf != null){
-		            		%>
-		                	<img src="./file/<%=pf.getPf_file()%>" class="prchs-post-img">
-		                	<%
-		            		}
-		            		else{
-		                	%>
-		                	<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" class="prchs-post-img">
-		                	<%
-		            		}
-		                	%>
-		                </a>
+						<div class="rows">
+			            <div class="col-md-auto">
+			            	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
+			                	<%
+			            		if(pf != null){
+			            		%>
+			                	<img src="./file/<%=pf.getPf_file()%>" class="post_img" style="height: 160px;">
+			                	<%
+			            		}
+			            		else{
+			                	%>
+			                	<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" class="post_img">
+			                	<%
+			            		}
+			                	%>
+			             	</a>
 		            </div>
-		            <div class="prchs-area-content-detail">
-		                <div class="prchs-area-content-detail-title">
+		            <div class="col-md-auto">
+		                <div class="middle">
 		                	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
 		                		<%=postInfo.getPost_title()%>
 		                	</a>
+		                <div class="post_title"><%=category%></div>
+		                <div class="post_price"><%=postInfo.getMem_email()%></div>
+		                <div class="prch_date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
 		                </div>
-		                <div class="prchs-area-content-detail-category"><%=category%></div>
-		                <div class="prchs-area-content-detail-seller"><%=postInfo.getMem_email()%></div>
-		                <div class="prchs-area-content-detail-date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
 		            </div>
-		            <div class="prchs-area-content-price">
+		            <div class="col-md-auto end" style="padding: 80px;">
 		                <%=prchsList.get(i).getPrch_price()%>원
 		            </div>
 		        </div>
-		        <hr>
 		        <%
 				}
 		        %>
+		        	 </div>
+		        </div>
 		    </div>
 		</div>
 	</main>

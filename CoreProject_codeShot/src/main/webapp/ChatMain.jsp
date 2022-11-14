@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DDock</title>
 <link rel="stylesheet" type="text/css" href="./assets/css/chatmain.css">
 <style type="text/css">
 

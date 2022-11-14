@@ -70,10 +70,8 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css">
-<link rel="stylesheet" type="text/css"
-	href="./assets/css/MyPageList.css">
-<link rel="stylesheet" type="text/css"
-	href="./assets/css/ReviewList.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/MyPageList.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/ReviewList.css">
 
 <!-- a태그 밑줄 없애기 위한 style 적용 -->
 <style type="text/css">
