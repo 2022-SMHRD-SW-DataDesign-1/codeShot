@@ -36,6 +36,10 @@
 	.carrer-box{
 		height: 220px;
 	}
+	
+	.expertHome{
+		height: 910px;
+	}	
 </style>
 
 </head>
@@ -47,7 +51,7 @@
     	<!-- 로고 -->
 	    <a class="link" href="Main.jsp" target="_blank"><img class="logo" src="./assets/cssImg/logo.png" alt=""></a>
     	
-    	<section class="home">
+    	<section class="home expertHome">
       		<form action="JoinService.do">
       		
       			<!-- 이메일 -->
