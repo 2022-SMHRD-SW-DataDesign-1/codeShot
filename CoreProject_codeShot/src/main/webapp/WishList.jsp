@@ -542,7 +542,7 @@
 								</div>
 								<h3 class="block-txt-title"><%=post.getPost_title() %></h3>
 								<div class="block-txt-price">
-									<span class="block-txt-pricetxt"><%=post.getPost_price() %></span>
+									<span class="block-txt-pricetxt"><%=post.getPost_price()%>원</span>
 								</div>
 								
 								<!-- 평점 -->
@@ -644,7 +644,7 @@
 								</div>
 								<h3 class="block-txt-title"><%=post.getPost_title() %></h3>
 								<div class="block-txt-price">
-									<span class="block-txt-pricetxt"><%=post.getPost_price() %></span>
+									<span class="block-txt-pricetxt"><%=post.getPost_price() %>원</span>
 								</div>
 								
 								<!-- 평점 -->
