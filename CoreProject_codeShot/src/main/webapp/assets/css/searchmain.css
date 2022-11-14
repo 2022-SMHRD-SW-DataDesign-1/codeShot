@@ -57,7 +57,8 @@ main{
 .search-result-content-row{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 9%;
 }
 .click-category{
 	width: 100%;
