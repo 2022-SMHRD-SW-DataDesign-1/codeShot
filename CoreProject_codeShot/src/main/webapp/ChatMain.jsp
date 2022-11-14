@@ -12,8 +12,8 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/chatmain.css">
 <style type="text/css">
 	.logoimage{
-		width: 200px;
-		height: 100%;
+		width: 125px;
+		margin: 30px;
 	}
 	.logo-area{
 		margin-bottom: 30px;
@@ -28,7 +28,7 @@
 	List<ChatRoomDTO> chatRoomList = dao.showChatRoom(info.getEmail());
 	int count = 0;
 	%>
-	<div class="logo">
+	<div class="logo" >
 		<a href="Main.jsp"><img src="./assets/cssImg/logo.png" class="logoimage"></a>
 	</div>
 	<div class="chatmain">
@@ -111,6 +111,8 @@
 				}
 			});
 			
+		   
+			
 			$.ajax({
 				url : 'ShowChattingService.do',
 				data : {'roomNum':selectRoomNum},
@@ -191,6 +193,10 @@
 							socket.emit('sendChat', {'user_name':'<%=info.getName()%>',
 							 						 'chat':chat});
 							console.log('소켓 보내기 성공');
+							
+							inputVal.value = "";
+					        inputVal.focus();
+							inputFileVal.value = "";
 						}
 					},
 					error : function(){
@@ -200,7 +206,7 @@
 				
 			}
 			
-		}
+		}//sendMassage end
 		
 		$(function(){
 			socket.on('connect', function(){
@@ -234,6 +240,8 @@
         allChatroom.forEach((e) => {
             e.addEventListener("click", selectChatroom);
         });
+        
+    
 	</script>
 </body>
 </html>
