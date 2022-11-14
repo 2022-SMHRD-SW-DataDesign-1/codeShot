@@ -63,9 +63,13 @@
 }
 
 
-
 span:hover {
 	background-color: rgb(204, 232, 226);
 	color: rgb(116, 197, 192);
 	}
-
+	
+.btn-box:hover {
+    background-color: rgb(189, 244, 236);
+    font-weight: 900;
+    color: black;
+}

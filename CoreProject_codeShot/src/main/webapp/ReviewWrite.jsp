@@ -68,10 +68,10 @@
 	    </div>
 	    <div class="review_contents">
 	        <div class="warning_msg">5자 이상으로 작성해 주세요.</div>
-	        <textarea rows="10" class="review_textarea" name="review_content"></textarea>
+	        <textarea rows="10" class="review_textarea" name="review_content" style="margin: 10px 10px 10px 0px; height:300px;"></textarea>
 	    </div>   
-	    <button class="btn-box" type="submit">
-        	<span class="btn">등록</span>
+	    <button class="btn-box" type="submit" style=" border-radius: 6px; width: 90px; height: 40px; background-color : rgb(204, 232, 226); border-style: none; margin-left: 40%;">
+        	<span class="btn" style=" font-weight: bold; font-size: 16px; color: #353539;">등록</span>
 	    </button>  
 								
 	</form>
