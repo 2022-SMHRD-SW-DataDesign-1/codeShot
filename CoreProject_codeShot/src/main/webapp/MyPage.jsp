@@ -1,3 +1,4 @@
+<%@page import="com.codeshot.model.PortfolioDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.codeshot.model.PrchsDTO"%>
 <%@page import="com.codeshot.model.PrchsDAO"%>
@@ -84,7 +85,6 @@
 
 	PostDAO dao = new PostDAO();
 	List<PostDTO> postList = dao.showPost();
-	PortfolioDTO pf;
 
 	ReviewDAO r_dao = new ReviewDAO();
 	List<ReviewDTO> starratingList = r_dao.starratingList();
@@ -502,10 +502,16 @@
 		        %>
 		        <div class="prchs-area-content">
 		            <div class="prchs-area-content-img">
-		                <img src="./images/logo.png" class="prchs-post-img">
+		            	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
+		                	<img src="./images/logo.png" class="prchs-post-img">
+		             	</a>
 		            </div>
 		            <div class="prchs-area-content-detail">
-		                <div class="prchs-area-content-detail-title"><%=postInfo.getPost_title()%></div>
+		                <div class="prchs-area-content-detail-title">
+		                	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
+		                		<%=postInfo.getPost_title()%>
+		                	</a>
+		                </div>
 		                <div class="prchs-area-content-detail-category"><%=category%></div>
 		                <div class="prchs-area-content-detail-seller"><%=postInfo.getMem_email()%></div>
 		                <div class="prchs-area-content-detail-date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
@@ -713,13 +719,12 @@
 		        </div>
 		        <hr>
 		        <%
-		        System.out.println("여기 실행되요!!!!!");
 		        String category = "";
 		        for(int i = 0; i < prchsList.size(); i++)
 		        {
-		        	System.out.println("여기 실행되요!");
 		        	PostDTO postInfo = dao.showPostDetail(prchsList.get(i).getPost_num());
 		        	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		        	PortfolioDTO pf = new PortfolioDAO().showImage(postInfo.getMem_email());
 		        	category = postInfo.getPost_category();
 		        	
 		        	if(category.contains("ots"))
@@ -733,10 +738,27 @@
 		        %>
 		        <div class="prchs-area-content">
 		            <div class="prchs-area-content-img">
-		                <img src="./images/logo.png" class="prchs-post-img">
+		            	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
+		            		<%
+		            		if(pf != null){
+		            		%>
+		                	<img src="./file/<%=pf.getPf_file()%>" class="prchs-post-img">
+		                	<%
+		            		}
+		            		else{
+		                	%>
+		                	<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" class="prchs-post-img">
+		                	<%
+		            		}
+		                	%>
+		                </a>
 		            </div>
 		            <div class="prchs-area-content-detail">
-		                <div class="prchs-area-content-detail-title"><%=postInfo.getPost_title()%></div>
+		                <div class="prchs-area-content-detail-title">
+		                	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
+		                		<%=postInfo.getPost_title()%>
+		                	</a>
+		                </div>
 		                <div class="prchs-area-content-detail-category"><%=category%></div>
 		                <div class="prchs-area-content-detail-seller"><%=postInfo.getMem_email()%></div>
 		                <div class="prchs-area-content-detail-date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
