@@ -196,6 +196,16 @@
 						%>
 						<%
 						}
+						else{
+						%>
+							<a href="Login.jsp" class="flex-c-m trans-04 p-lr-25">
+								<b>로그인</b>
+							</a>
+							<a href="JoinSelect.jsp" class="flex-c-m trans-04 p-lr-25">
+								<b>회원가입</b>
+							</a>
+						<%
+						}
 						%>
 					</div>
 				</div>
