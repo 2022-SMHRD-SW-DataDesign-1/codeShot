@@ -82,10 +82,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		let roomNum = 0;
-		if(<%= chatRoomList.size() %> != 0)
-		{
-			roomNum = <%=chatRoomList.get(chatRoomList.size() - 1).getRoom_num()%>;	
-		}
 		let chatBox = document.getElementById('chatBox');
 		let socket = io.connect('http://172.30.1.30:5000');
 		

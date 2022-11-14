@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.codeshot.model.PrchsDTO"%>
 <%@page import="com.codeshot.model.PortfolioDAO"%>
 <%@page import="com.codeshot.model.PortfolioDTO"%>
 <%@page import="com.codeshot.model.ReviewDTO"%>
@@ -465,16 +467,32 @@
             <hr>
             <div class="wishlist-content">
             	<%
-            	for(int i = 0; i < wishList.size(); i++){
-            		if(i % 3 == 0){
+            	List<PostDTO> wishOtsPostList = new ArrayList<PostDTO>();
+            	List<PostDTO> wishCodePostList = new ArrayList<PostDTO>();
+            	PostDAO p_dao = new PostDAO();
+            	for(WishListDTO dto : wishList){
+            		PostDTO p_dto = p_dao.showPostDetail(dto.getPost_num());
+            		if(p_dto.getPost_category().contains("ots"))
+            			wishOtsPostList.add(p_dto);
+            		else if(p_dto.getPost_category().contains("code"))
+            			wishCodePostList.add(p_dto);
+            	}
+            	System.out.println("외주 갯수 : "+wishOtsPostList.size());
+            	System.out.println("소스코드 갯수 : "+wishCodePostList.size());
+            	for(int i = 0; i < wishOtsPostList.size()/3+1; i++){
+            		if(i*3 != wishOtsPostList.size()){
             	%>
                 <div class="wishlist-content-rows">
-                <%
+                	<%
             		}
-            		PostDTO post = new PostDAO().showPostDetail(wishList.get(i).getPost_num());
-            		PortfolioDTO pf = new PortfolioDAO().showImage(wishList.get(i).getMem_email());
-                %>
-                    <article id="article-tag<%=post.getPost_num()%>">
+            		for(int j = 0; j < 3; j++){
+            			if(3*i+j == wishOtsPostList.size()){
+            				break;
+            			}
+	            		PostDTO post = new PostDAO().showPostDetail(wishOtsPostList.get(3*i+j).getPost_num());
+	            		PortfolioDTO pf = new PortfolioDAO().showImage(wishOtsPostList.get(3*i+j).getMem_email());
+                	%>
+                    <article id="article-tag<%=post.getPost_num()%>" class="wishlist-content-detail">
 						<a href="PostDetail.jsp?post_num=<%=post.getPost_num()%>" class="block hov-img0">
 							
 							<!-- 게시물 사진 -->
@@ -494,7 +512,7 @@
 							
 							<!-- 찜 버튼 -->
 							<div>
-								<button id="wish-btn<%=post.getPost_num()%>" class="block-heart flex-r p-t-3" onclick="wishPostClick('<%=post.getPost_num() %>', this.id)">
+								<button id="wish-btn<%=post.getPost_num()%>" class="block-heart flex-r p-t-3" onclick="wishClick('<%=post.getPost_num() %>', this.id, <%=post.getPost_category()%>)">
 									<span class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
 										
 										<%int compareResult=0; %>
@@ -534,9 +552,9 @@
 									</span>
 									<%
 										double avg_strt = 0;
-										for(int j = 0; j < starratingList.size(); j++) {
-											if(post.getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
-												avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
+										for(int k = 0; k < starratingList.size(); k++) {
+											if(post.getPost_num().intValue() == starratingList.get(k).getPost_num().intValue()){
+												avg_strt = starratingList.get(k).getReview_starrating().doubleValue();
 											}
 										}
 									%>
@@ -546,7 +564,8 @@
 						</a>
 					</article>
 				<%
-					if(i % 3 == 0 || i == wishList.size() - 1){
+            		}
+					if(i * 3 != wishOtsPostList.size()){
 				%>
                 </div>
                 <%
@@ -561,17 +580,21 @@
             </div>
             <hr>
             <div class="wishlist-content">
-                <%
-            	for(int i = 0; i < wishList.size(); i++){
-            		if(i % 3 == 0){
+            	<%
+            	for(int i = 0; i < wishCodePostList.size()/3+1; i++){
+            		if(i*3 != wishCodePostList.size()){
             	%>
                 <div class="wishlist-content-rows">
-                <%
+                	<%
             		}
-            		PostDTO post = new PostDAO().showPostDetail(wishList.get(i).getPost_num());
-            		PortfolioDTO pf = new PortfolioDAO().showImage(wishList.get(i).getMem_email());
-                %>
-                    <article id="article-tag<%=post.getPost_num()%>">
+            		for(int j = 0; j < 3; j++){
+            			if(3*i+j == wishCodePostList.size()){
+            				break;
+            			}
+	            		PostDTO post = new PostDAO().showPostDetail(wishCodePostList.get(3*i+j).getPost_num());
+	            		PortfolioDTO pf = new PortfolioDAO().showImage(wishCodePostList.get(3*i+j).getMem_email());
+                	%>
+                    <article id="article-tag<%=post.getPost_num()%>" class="wishlist-content-detail">
 						<a href="PostDetail.jsp?post_num=<%=post.getPost_num()%>" class="block hov-img0">
 							
 							<!-- 게시물 사진 -->
@@ -591,7 +614,7 @@
 							
 							<!-- 찜 버튼 -->
 							<div>
-								<button id="wish-btn<%=post.getPost_num()%>" class="block-heart flex-r p-t-3" onclick="wishPostClick('<%=post.getPost_num() %>', this.id)">
+								<button id="wish-btn<%=post.getPost_num()%>" class="block-heart flex-r p-t-3" onclick="wishClick('<%=post.getPost_num() %>', this.id, <%=post.getPost_category()%>)">
 									<span class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
 										
 										<%int compareResult=0; %>
@@ -631,9 +654,9 @@
 									</span>
 									<%
 										double avg_strt = 0;
-										for(int j = 0; j < starratingList.size(); j++) {
-											if(post.getPost_num().intValue() == starratingList.get(j).getPost_num().intValue()){
-												avg_strt = starratingList.get(j).getReview_starrating().doubleValue();
+										for(int k = 0; k < starratingList.size(); k++) {
+											if(post.getPost_num().intValue() == starratingList.get(k).getPost_num().intValue()){
+												avg_strt = starratingList.get(k).getReview_starrating().doubleValue();
 											}
 										}
 									%>
@@ -643,7 +666,8 @@
 						</a>
 					</article>
 				<%
-					if(i % 3 == 0 || i == wishList.size() - 1){
+            		}
+					if(i * 3 != wishCodePostList.size()){
 				%>
                 </div>
                 <%
