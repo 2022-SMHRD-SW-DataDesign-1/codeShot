@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.codeshot.model.PortfolioDAO"%>
 <%@page import="com.codeshot.model.PrchsDTO"%>
 <%@page import="com.codeshot.model.PrchsDAO"%>
 <%@page import="java.math.BigDecimal"%>
@@ -576,13 +578,25 @@ a {
 						<div class="rows">
 								<div class="col-md-auto">
 								<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
-									<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg"<%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
+						<%
+						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
+
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						%>
+								<%
+								if(pf != null){
+	
+								%>
+									<img class="post_img" src="./file/<%= pf.getPf_file()%>" >
+								<%}else if(pf == null){%>
+									<img class="post_img" alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height="200px">	
+								<%}%>
 								</div>
 								<div class="col-md-auto">
 									<div class="middle">
 										<div class="post_title"><a href="PostDetail.jsp?post_num=<%=postList.get(j).getPost_num()%>"><%=postList.get(j).getPost_title()%></a></div>
-										<div class="post_price"><%=postList.get(j).getPost_price()%></div>
-										<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
+										<div class="post_price"><%=postList.get(j).getPost_price()%>원</div>
+										<div class="prch_date"><%=sdf.format(prchList.get(i).getPrch_date())%></div>
 									</div>
 								</a>	
 								</div>
@@ -615,15 +629,27 @@ a {
 						<div class="rows">
 							<div class="col-md-auto">
 								<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
-								<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg"<%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
-							</div>
+						<%
+						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
+						
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						%>
+								<%
+								if(pf != null){
+	
+								%>
+									<img class="post_img" src="./file/<%= pf.getPf_file()%>" >
+								<%}else if(pf == null){%>
+									<img class="post_img" alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height="200px">	
+								<%}%>
+								</div>
 							<div class="col-md-auto">
 								<div class="middle">
 									<div class="post_title"><%=postList.get(j).getPost_title()%></div>
-									<div class="post_price"><%=postList.get(j).getPost_price()%></div>
-									<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
+									<div class="post_price"><%=postList.get(j).getPost_price()%>원</div>
+									<div class="prch_date"><%=sdf.format(prchList.get(i).getPrch_date())%></div>
 								</div>
-								</a>
+							</a>
 							</div>
 							<div class="col-md-auto end">
 								<a class="my_btn flex-c-m "
@@ -635,14 +661,14 @@ a {
 								<%
 								for (int k = 0; k < showReview.getReview_starrating().intValue(); k++) {
 								%>
-								<span class="review-icon"> <img class="reivew-star"
-									alt="별" src="./assets/cssImg/star-fill.svg">
+								<span class="review-icon"> 
+								<img class="reivew-star" alt="별" src="./assets/cssImg/star-fill.svg" height = 22px>
 								</span>
 								<%
 								}
 								%>
 								<div class="star-num">
-									<%=showReview.getReview_starrating()%>
+									<span><%=showReview.getReview_starrating()%></span>
 								</div>
 							</div>
 							<div class="review-content"><%=showReview.getReview_content()%></div>
@@ -851,13 +877,26 @@ a {
 						<div class="rows">
 							<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 							<div class="col-md-auto">
-								<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg"<%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
-							</div>
+								<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
+						<%
+						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
+						
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						%>
+								<%
+								if(pf != null){
+	
+								%>
+									<img class="post_img" src="./file/<%= pf.getPf_file()%>" >
+								<%}else if(pf == null){%>
+									<img class="post_img" alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height="200px">	
+								<%}%>
+								</div>
 							<div class="col-md-auto">
 								<div class="middle">
 									<div class="post_title"><%=postList.get(j).getPost_title()%></div>
-									<div class="post_price"><%=postList.get(j).getPost_price()%></div>
-									<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
+									<div class="post_price"><%=postList.get(j).getPost_price()%>원</div>
+									<div class="prch_date"><%=sdf.format(prchList.get(i).getPrch_date())%></div>
 								</div>
 							</a>
 							</div>
@@ -889,14 +928,26 @@ a {
 						%>
 						<div class="rows">
 							<div class="col-md-auto">
-							<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
-								<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg"<%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
-							</div>
+								<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
+						<%
+						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
+						
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						%>
+								<%
+								if(pf != null){
+	
+								%>
+									<img class="post_img" src="./file/<%= pf.getPf_file()%>" >
+								<%}else if(pf == null){%>
+									<img class="post_img" alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" height="200px">	
+								<%}%>
+								</div>
 							<div class="col-md-auto">
 								<div class="middle">
 									<div class="post_title"><%=postList.get(j).getPost_title()%></div>
-									<div class="post_price"><%=postList.get(j).getPost_price()%></div>
-									<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
+									<div class="post_price"><%=postList.get(j).getPost_price()%>원</div>
+									<div class="prch_date"><%=sdf.format(prchList.get(i).getPrch_date())%></div>
 								</div>
 							</a>
 							</div>
@@ -911,7 +962,7 @@ a {
 								for (int k = 0; k < showReview.getReview_starrating().intValue(); k++) {
 								%>
 								<span class="review-icon"> 
-								<img class="reivew-star" alt="별" src="./assets/cssImg/star-fill.svg"  height = 22px;>
+								<img class="reivew-star" alt="별" src="./assets/cssImg/star-fill.svg" height = 22px>
 								</span>
 								<%
 								}

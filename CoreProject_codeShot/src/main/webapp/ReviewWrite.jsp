@@ -70,9 +70,10 @@
 	        <div class="warning_msg">5자 이상으로 작성해 주세요.</div>
 	        <textarea rows="10" class="review_textarea" name="review_content"></textarea>
 	    </div>   
-	    <div class="">
-	        <input class="" type="submit" name="save" id="save" value="등록">
-	    </div>
+	    <button class="btn-box" type="submit">
+        	<span class="btn">등록</span>
+	    </button>  
+								
 	</form>
 </div>
   
