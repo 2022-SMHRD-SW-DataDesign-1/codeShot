@@ -28,7 +28,7 @@
 	List<ChatRoomDTO> chatRoomList = dao.showChatRoom(info.getEmail());
 	int count = 0;
 	%>
-	<div class="logo-area">
+	<div class="logo">
 		<a href="Main.jsp"><img src="./assets/cssImg/logo.png" class="logoimage"></a>
 	</div>
 	<div class="chatmain">

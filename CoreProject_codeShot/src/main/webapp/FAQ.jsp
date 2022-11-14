@@ -34,11 +34,11 @@ ga('send', 'pageview');
   <script type="text/javascript" src="//p25.zdassets.com/hc/theming_assets/9204604/360002309011/script.js?digest=12256508972825"></script>
 </head>
 <body>
- <div style="background-color:#bdf4ec">
-<header class="header" style="background-color:#bdf4ec">
+ <div style="background-color:rgb(212 250 244);">
+<header class="header" style="background-color:rgb(212 250 244); height: 100px; max-width: 1200px;">
   <div class="logo">
     <a href="Main.jsp">
-		<img src="./assets/cssImg/logo.png" alt="IMG-LOGO" width="100px" height="40px">
+		<img src="./assets/cssImg/logo.png" alt="IMG-LOGO" height="30px">
     </a>
     <a title="홈" href="#">
     	<img src="//theme.zdassets.com/theme_assets/9204604/db54bfa5d2ad14572afe57b4b5582b04a38aa9e1.png" class="cs" >   
@@ -46,9 +46,9 @@ ga('send', 'pageview');
   </div>
  
 
-  <div class="nav-wrapper">
-    <a href="#" target="_parent">문의하기</a> 
-    <a class="login" data-auth-action="signin" role="button" rel="nofollow" title="대화 상자를 엽니다." href="#">로그인</a>
+  <div class="nav-wrapper" >
+    <a href="#" target="_parent" style="color:rgb(102, 102, 102, 1);">문의하기</a> 
+    <a class="login" data-auth-action="signin" role="button" rel="nofollow" title="대화 상자를 엽니다." href="#" style="color:rgb(102, 102, 102, 1);">로그인</a>
  
   </div>
 </header> 

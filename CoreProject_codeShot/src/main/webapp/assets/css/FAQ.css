@@ -110,13 +110,12 @@ ul {
 /***** Header *****/
 
 .header {
-  max-width: 1160px;
+ 
   margin: 0 auto;
   padding: 0 5%;
   position: relative;
   align-items: center;
   display: flex;
-  height: 44px;
   justify-content: space-between;
   
 }
@@ -129,8 +128,6 @@ ul {
 @media (min-width: 1160px) {
   .header {
     padding: 0;
-    width: 90%;
-    height: 80px;
   }
   .logo-kmong {
   	height:25px;
@@ -147,7 +144,6 @@ ul {
 
 .nav-wrapper a {
   border: 0;
-  color: rgb(116, 197, 192);
   display: none;
   text-decoration:none;
   font-size: 14px;
