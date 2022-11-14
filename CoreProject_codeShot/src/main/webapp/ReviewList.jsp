@@ -192,7 +192,7 @@ a {
 				class="content-topbar flex-sb-m h-full container codeShot-topbar">
 				<div class="left-top-bar">
 					<!-- 로고 이미지 -->
-					<a href="index.html" class="logo"> <img
+					<a href="Main.jsp" class="logo"> <img
 						src="./assets/cssImg/logo.png" alt="IMG-LOGO" width="290px"
 						height="100%">
 					</a>
@@ -574,16 +574,18 @@ a {
 							if (postList.get(j).getPost_num().equals(prchList.get(i).getPost_num())) {
 						%>
 						<div class="rows">
-							<div class="col-md-auto">
-								<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg"<%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
-							</div>
-							<div class="col-md-auto">
-								<div class="middle">
-									<div class="post_title"><%=postList.get(j).getPost_title()%></div>
-									<div class="post_price"><%=postList.get(j).getPost_price()%></div>
-									<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
+								<div class="col-md-auto">
+								<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
+									<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg"<%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
 								</div>
-							</div>
+								<div class="col-md-auto">
+									<div class="middle">
+										<div class="post_title"><a href="PostDetail.jsp?post_num=<%=postList.get(j).getPost_num()%>"><%=postList.get(j).getPost_title()%></a></div>
+										<div class="post_price"><%=postList.get(j).getPost_price()%></div>
+										<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
+									</div>
+								</a>	
+								</div>
 							<div class="col-md-auto end">
 								<a class="my_btn flex-c-m "
 									href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>"><span>리뷰작성</span></a>
@@ -612,6 +614,7 @@ a {
 						%>
 						<div class="rows">
 							<div class="col-md-auto">
+								<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 								<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg"<%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
 							</div>
 							<div class="col-md-auto">
@@ -620,6 +623,7 @@ a {
 									<div class="post_price"><%=postList.get(j).getPost_price()%></div>
 									<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
 								</div>
+								</a>
 							</div>
 							<div class="col-md-auto end">
 								<a class="my_btn flex-c-m "
@@ -845,6 +849,7 @@ a {
 							if (postList.get(j).getPost_num().equals(prchList.get(i).getPost_num())) {
 						%>
 						<div class="rows">
+							<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 							<div class="col-md-auto">
 								<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg"<%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
 							</div>
@@ -854,6 +859,7 @@ a {
 									<div class="post_price"><%=postList.get(j).getPost_price()%></div>
 									<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
 								</div>
+							</a>
 							</div>
 							<div class="col-md-auto end">
 								<a class="my_btn flex-c-m "
@@ -883,6 +889,7 @@ a {
 						%>
 						<div class="rows">
 							<div class="col-md-auto">
+							<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 								<img class="post_img" src="./assets/cssImg/간단한웹사이트.jpg"<%-- alt="<%=postList.get(j).getPost_file()%>" --%>>
 							</div>
 							<div class="col-md-auto">
@@ -891,6 +898,7 @@ a {
 									<div class="post_price"><%=postList.get(j).getPost_price()%></div>
 									<div class="prch_date"><%=prchList.get(i).getPrch_date()%></div>
 								</div>
+							</a>
 							</div>
 							<div class="col-md-auto end">
 								<a class="my_btn flex-c-m "
