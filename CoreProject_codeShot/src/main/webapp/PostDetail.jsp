@@ -1,3 +1,6 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.codeshot.model.ReviewDAO"%>
+<%@page import="com.codeshot.model.ReviewDTO"%>
 <%@page import="com.codeshot.model.UserDTO"%>
 <%@page import="com.codeshot.model.PortfolioDAO"%>
 <%@page import="java.util.List"%>
@@ -54,6 +57,7 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/body.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/PostDetail.css">
 
 
 <!-- a태그 밑줄 없애기 위한 style 적용 -->
@@ -140,6 +144,13 @@
 		
 		//글쓴이 이메일, 포트폴리오 가져오기
 		List<PortfolioDTO> portfolioList = new PortfolioDAO().showWriterPortfolio(post.getMem_email());
+		
+/* //리뷰 가져오기
+ReviewDAO dao = new ReviewDAO();
+System.out.print("Test : "+dao);
+	List<ReviewDTO> reviewList = dao.showPostReview(postNum); */
+	
+		
 	%>
 	<!-- 페이지 상단 -->
 	<!-- Header -->
@@ -268,43 +279,81 @@
 	<!-- Main -->
 	<!-- 게시물 상세페이지  -->
 	<main>
-	<div>
-		<h1><%= post.getPost_title() %></h1>
-		<fieldset>
-			<%= post.getPost_price() %>원
-			<br>
-			<a href="Payment.jsp?postNum=<%=postNum%>"><button>구매하기</button></a>
-		</fieldset>
-		<fieldset>
-			<a href="CreateChatRoomService.do?sellerEmail=<%=post.getMem_email()%>&postTitle=<%=post.getPost_title()%>"><button>문의하기</button></a>
-		</fieldset>
-	</div>
+	<div class="flex">
+		<div>
+			<% if(portfolioList.size()!=0){ %>
+					<img class="post-img" src="file/<%= portfolioList.get(0).getPf_file() %>">
+			<% 	} %>
+				<ul class="tab-list">
+					<li > 포트폴리오 </li>
+					<li> 서비스 설명 </li>
+					<li> 의뢰인 주의사항 </li>
+					<li> 사용툴(버전) </li>
+					<li> 리뷰 </li>
+				</ul>
+			<h3> 포트폴리오</h3>
+			
+			<% if(portfolioList.size()!=0){ %>
+				<div id="wrapper">
+			      <div id="slider-wrap">
+			          <ul id="slider">
+				<%for(PortfolioDTO dto : portfolioList){ %>
+						<li><img src="file/<%= dto.getPf_file()%>"></li>
+					<% } %>
+					 </ul>
+          
+           <!--controls-->
+          <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+          <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+          <div id="counter"></div>
+          
+          <div id="pagination-wrap">
+            <ul>
+            </ul>
+          </div>
+          <!--controls-->  
+                 
+      </div>
+      </div>
+					
+			<%	}%>
+			<h3> 서비스 설명 </h3>
+			<%= post.getPost_explain() %>
+			<h3> 의뢰인 주의사항 </h3>
+			<%= post.getPost_precautions() %>
+			<h3> 사용툴(버전) </h3>
+			<%= post.getPost_standard() %>
+			<h3> 리뷰 </h3>
+<%-- 			<%if(reviewList !=null){
+				for(int i = 0; i<reviewList.size(); i++ ){ %>
+					<%= reviewList.get(i).getMem_email() %>
+					<%= reviewList.get(i).getReview_date() %>
+					<%= reviewList.get(i).getReview_starrating() %>
+					<%= reviewList.get(i).getReview_content() %>
+			<% }
+			}
+			%> --%>
+		</div>
 	
-	<div>
-		<% if(portfolioList.size()!=0){ %>
-				<img src="file/<%= portfolioList.get(0).getPf_file() %>">
-		<% 	} %>
-		<ul>
-			<li> 포트폴리오 </li>
-			<li> 서비스 설명 </li>
-			<li> 의뢰인 주의사항 </li>
-			<li> 사용툴(버전) </li>
-			<li> 리뷰 </li>
-		</ul>
-		<h3> 포트폴리오</h3>
-		
-		<% if(portfolioList.size()!=0){
-				for(PortfolioDTO dto : portfolioList){ %>
-					<img src="file/<%= dto.getPf_file()%>">
-				<% } 
-			}%>
-		<h3> 서비스 설명 </h3>
-		<%= post.getPost_explain() %>
-		<h3> 의뢰인 주의사항 </h3>
-		<%= post.getPost_precautions() %>
-		<h3> 사용툴(버전) </h3>
-		<%= post.getPost_standard() %>
-		<h3> 리뷰 </h3>
+		<div class="price-pay-chat">
+			<h1><%= post.getPost_title() %></h1>
+			<fieldset>
+				<br>
+				<div class="price"> <%= post.getPost_price() %>원 </div>
+				<br>
+				<a href="Payment.jsp?postNum=<%=postNum%>"><button class="btn-info">구매하기</button></a>
+			</fieldset>
+			<fieldset>
+				<br>
+				<div>
+				연락 가능 시간 : 10시 ~ 19시
+				<br>
+				평균 응답 시간 : 2시간 이내
+				</div>
+				<br>
+				<a href="CreateChatRoomService.do?sellerEmail=<%=post.getMem_email()%>&postTitle=<%=post.getPost_title()%>"><button class="btn-info">문의하기</button></a>
+			</fieldset>
+		</div>
 	</div>
 </main>	
 	<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -321,5 +370,9 @@
     		<ol><a href=#><b>개인정보처리방침</b></a></ol>
 		</div>
 	</footer>
+	
+	<!-- script  -->
+	<script src="./assets/jquery/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	<script src="assets/js/PortfolioSlider.js"></script>
 </body>
 </html>

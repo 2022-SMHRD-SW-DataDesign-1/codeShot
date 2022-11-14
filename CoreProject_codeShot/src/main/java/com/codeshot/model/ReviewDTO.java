@@ -41,12 +41,5 @@ public class ReviewDTO {
 		this.mem_email = mem_email;
 	}
 
-	
-	
-
-
-
-
-
 }
 

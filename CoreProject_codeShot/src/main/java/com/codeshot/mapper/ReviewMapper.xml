@@ -43,4 +43,8 @@
 		where post_num=#{post_num} and mem_email=#{mem_email}
 	</select>
 	
+	<!-- 11-14/ 고정연 / 게시물별 리뷰 출력 -->
+	<select id="showPostReview" resultType="ReviewDTO">
+		select * from tbl_review where post_num = #{post_num}
+	</select>
 </mapper>

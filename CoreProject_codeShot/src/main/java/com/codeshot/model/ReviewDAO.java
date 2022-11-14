@@ -11,6 +11,14 @@ import com.codeshot.db.SqlSessionManager;
 public class ReviewDAO {
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
+	public ReviewDAO() {
+		test();
+	}
+	
+
+	public void test() {
+		System.out.println("Test");
+	}
 	// 2022-11-07/김지수/게시물 별점 출력
 	public List<ReviewDTO> starratingList() {
 		SqlSession session = sqlSessionFactory.openSession(true);
@@ -45,7 +53,15 @@ public class ReviewDAO {
 		return count;
 	}
 
-	
+	// 2022-11-14/ 고정연/ 게시물별 리뷰목록 출력
+	public List<ReviewDTO> showPostReview(BigDecimal post_num){
+		
+		System.out.println("TEst");
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<ReviewDTO> reviewList = session.selectList("showPostReview", post_num);
+		session.close();
+		return reviewList;
+	}
 	
 	
 }

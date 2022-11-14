@@ -624,7 +624,7 @@ a {
 									</div>
 									<h3 class="block-txt-title"><%=postList.get(i).getPost_title()%></h3>
 									<div class="block-txt-price">
-										<span class="block-txt-pricetxt"><%=postList.get(i).getPost_price()%></span>
+										<span class="block-txt-pricetxt"><%=postList.get(i).getPost_price()%>원</span>
 									</div>
 
 									<!-- 평점 -->
