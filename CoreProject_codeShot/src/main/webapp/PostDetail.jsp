@@ -346,13 +346,13 @@
 		                	<%=sdf.format(reviewList.get(i).getReview_date())%>
 		                </div>
 		            </div>
-		            <hr class="post-detail-review-devide">
 		            <div class="post-detail-review-content">
 		            	<p>
 		            		<%=reviewList.get(i).getReview_content()%>
 		            	</p>
 		            </div>
 		        </div>
+		        <hr class="post-detail-review-devide">
 		        <%
 				}
 		        %>
