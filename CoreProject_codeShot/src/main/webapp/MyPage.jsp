@@ -489,6 +489,7 @@
 		        	System.out.println("여기 실행되요!");
 		        	PostDTO postInfo = dao.showPostDetail(prchsList.get(i).getPost_num());
 		        	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		        	PortfolioDTO pf = new PortfolioDAO().showImage(postInfo.getMem_email());
 		        	category = postInfo.getPost_category();
 		        	
 		        	if(category.contains("ots"))
@@ -503,7 +504,18 @@
 		        <div class="prchs-area-content">
 		            <div class="prchs-area-content-img">
 		            	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
-		                	<img src="./images/logo.png" class="prchs-post-img">
+		                	<%
+		            		if(pf != null){
+		            		%>
+		                	<img src="./file/<%=pf.getPf_file()%>" class="prchs-post-img">
+		                	<%
+		            		}
+		            		else{
+		                	%>
+		                	<img alt="사진이 없을 때" src="./assets/cssImg/간단한웹사이트.jpg" class="prchs-post-img">
+		                	<%
+		            		}
+		                	%>
 		             	</a>
 		            </div>
 		            <div class="prchs-area-content-detail">
