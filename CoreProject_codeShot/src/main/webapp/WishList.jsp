@@ -189,7 +189,7 @@
 			</div>
 		</section>
 		<section class="wrap-menu-desktop">
-			<nav class="limiter-menu-desktop container codeShot-nav">
+			<nav class="limiter-menu-desktop container">
 				<!-- Menu -->
 				<div class="menu-desktop">
 					<ul class="main-menu">
