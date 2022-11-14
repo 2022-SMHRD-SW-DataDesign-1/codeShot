@@ -742,7 +742,7 @@
 		            		<%
 		            		if(pf != null){
 		            		%>
-		                	<img src="./file/<%=pf.getPf_file()%>" class="prchs-post-img">
+		                	<img src="./file/<%=pf.getPf_file()%>" class="prchs-post-img">  
 		                	<%
 		            		}
 		            		else{
