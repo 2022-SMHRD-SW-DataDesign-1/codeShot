@@ -22,6 +22,7 @@ public class getSellerInfoService implements Command {
 		UserDTO sellerInfo = new ChatDAO().getSellerInfo(sellerEmail);
 		
 		try {
+			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();
 			Gson gson = new Gson();
 			String jsonSellerInfo = gson.toJson(sellerInfo);
