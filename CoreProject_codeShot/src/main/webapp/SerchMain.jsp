@@ -33,7 +33,7 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/searchmain.css">
 <style type="text/css">
 	* {
-		color: #666666;
+		color:  rgb(48, 52, 65);
 	}
 	a:hover{
 		text-decoration: none;
@@ -64,17 +64,53 @@
 	}
 	
 	#p-lr-25abc123{
-		margin: 5px 0px 0px 0px;
+		margin: 10px 0px 0px 0px;
 	}
 
 	.search-box{
-		margin-left: 0px;
+		margin-left: 125px;
 	}
 	
-	#side_menu_wrapper .guide-line {
-	  background-color: rgb(189, 244, 236) !important;
+	.block-txt-title {
+		word-break: break-all;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		font-weight: bold;
+		margin: 8px 0px 3px 0px;
+		font-size: 15px;
+		height: 40px;
+		text-align: start;
 	}
+	
+	.block-img{
+		  display: block;
+		  width: 100%;
+		  height: 100%;
+		  border-radius: 5px;
+		  border: 1px ;
+		  object-fit: cover;
+
+	}
+ .search-txt {
+    float: left;
+    font-size: 15px;
+    padding-left: 20px;
+    margin-bottom: 3px;
+    margin-left: 2px;
+    margin-right: 0px;
+    color: rgb(154, 155, 167);
+  }
+
+	  .codeShot-logAndJonin {
+    width: 300px;
+    height: 43px;
+    margin-right: -80px;
+  }
 </style>
+
 </head>
 <body>
 <%
@@ -121,21 +157,18 @@
 
 				<!-- 검색창 -->
 				<div class="search-box">
-					<form action="SerchMain.jsp" method="get" class="codeShot-serchBox">
-						<input id="search-input-box" onkeyup="addList(this)" type="text"
-							name="userInput" class="search-txt" type="text"
-							placeholder="검색어를 입력해주세요" maxlength="15">
-						<!-- <input type="submit" value="검색" class="search-btn"> -->
-						<button class="search-btn" type="submit">
-							<i class="fas fa-search"></i>
-						</button>
-						<br>
-						<div id="codeShot-recommend" class="codeShot-invisible">
-							<ul id="suggest-list" class="codeShot-suggestList">
-								<!-- 추천 검색어 자리 -->
-							</ul>
-						</div>
-					</form>
+				    <form action="SerchMain.jsp" method="get"  class="codeShot-serchBox">
+				        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput" class="search-txt" type="text" placeholder="검색어를 입력해주세요" maxlength="15">
+				        <!-- <input type="submit" value="검색" class="search-btn"> -->
+				        <button class="search-btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button><br>
+		<!-- 			    <div id="codeShot-recommend" class="codeShot-invisible">
+					    	<ul id="suggest-list" class="codeShot-suggestList">
+					    		추천 검색어 자리
+					    	</ul>
+					    </div>-->
+				    </form> 
 				</div>
 
 				<!-- 로그인, 회원가입, 판매하기, 마이페이지 -->

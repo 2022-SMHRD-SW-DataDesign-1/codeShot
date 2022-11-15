@@ -55,7 +55,6 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/header.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
-<link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/body.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/PostDetail.css">
 
@@ -63,7 +62,7 @@
 <!-- a태그 밑줄 없애기 위한 style 적용 -->
 <style type="text/css">
 	* {
-		color: #666666;
+		color:  rgb(48, 52, 65);
 	}
 	a:hover{
 		text-decoration: none;
@@ -94,11 +93,11 @@
 	}
 	
 	#p-lr-25abc123{
-		margin: 5px 0px 0px 0px;
+		margin: 10px 0px 0px 0px;
 	}
 
 	.search-box{
-		margin-left: 0px;
+		margin-left: 125px;
 	}
 	
 	.block-txt-title {
@@ -123,8 +122,22 @@
 		  border: 1px ;
 		  object-fit: cover;
 
-	
+	}
+ .search-txt {
+    float: left;
+    font-size: 15px;
+    padding-left: 20px;
+    margin-bottom: 3px;
+    margin-left: 2px;
+    margin-right: 0px;
+    color: rgb(154, 155, 167);
+  }
 
+	  .codeShot-logAndJonin {
+    width: 300px;
+    height: 43px;
+    margin-right: -80px;
+  }
 </style>
 
 
@@ -167,13 +180,15 @@
 				    <form action="SerchMain.jsp" method="get"  class="codeShot-serchBox">
 				        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput" class="search-txt" type="text" placeholder="검색어를 입력해주세요" maxlength="15">
 				        <!-- <input type="submit" value="검색" class="search-btn"> -->
-				        <button class="search-btn" type="submit"><i class="fas fa-search"></i></button><br>
+				        <button class="search-btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button><br>
 		<!-- 			    <div id="codeShot-recommend" class="codeShot-invisible">
 					    	<ul id="suggest-list" class="codeShot-suggestList">
 					    		추천 검색어 자리
 					    	</ul>
-					    </div>
-				    </form> -->
+					    </div>-->
+				    </form> 
 				</div>
 				
 				<!-- 로그인, 회원가입, 판매하기, 마이페이지 -->
@@ -210,7 +225,7 @@
 								
 								<ul id="mypage-btn" class="main-menu">
 									<li class="codeShot-ots-menu">
-										<a href="MyPage.jsp" id="p-lr-25abc123" class="flex-c-m trans-04">		
+										<a href="MyPage.jsp" id="p-lr-25abc123" class="flex-c-m trans-04" >		
 											<b>마이페이지</b>
 										</a>
 										<ul class="sub-menu codeShot-subMenu">
@@ -226,7 +241,7 @@
 
 						<!-- 비회원 -->
 						<%} else if(info == null) {%>
-							<a href="Login.jsp" class="flex-c-m trans-04 p-lr-25">
+							<a href="Login.jsp" class="flex-c-m trans-04 p-lr-25" style="margin-right: 45px; ">
 								<b>로그인</b>
 							</a>
 							<a href="JoinSelect.jsp" class="flex-c-m trans-04 p-lr-25">
@@ -308,11 +323,14 @@
 					<h1 style="display: inline-block; color: white; font-size: 35px; font-weight: 500;">똑에서 원하는 전문가를 <br> 찾아보세요!</h1>
 
 <!-- 검색창 -->
-				<div class="search-box" style="border-radius: 5px; margin-top: 20px; border-width:2px; width: 475px; height: 59px; left: 0%;">
+				<div class="search-box" style="border-radius: 5px; margin-top: 20px; border-width:2px; width: 475px; height: 59px; left: 0%;margin-left: 0px; color: white;">
 				    <form action="SerchMain.jsp" method="get"  class="codeShot-serchBox">
 				        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput" class="search-txt" type="text"maxlength="15" style="background: round;">
 				        <!-- <input type="submit" value="검색" class="search-btn"> -->
-				        <button class="search-btn" type="submit"><i class="fas fa-search"></i></button><br>
+				        <button class="search-btn" type="submit" style="margin-left: 220px;
+    margin-top: 10px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button><br>
 					    <div id="codeShot-recommend" class="codeShot-invisible">
 					    	<ul id="suggest-list" class="codeShot-suggestList">
 					    		<!-- 추천 검색어 자리 -->
@@ -335,7 +353,7 @@
 </svg></div></div>
 		          <div class="btns" id="previous" style="background-color:rgba(255, 255, 255, 0.629); border-radius: 50px; width: 40px; height: 40px; margin-left: 560px;
 ">
-<div style="position: absolute; top: -8px; left:2px; "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+<div style="position: absolute; top: -8px; left:2px; "><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
 </svg> </div> </div>
 		          <div id="pagination-wrap">
@@ -442,11 +460,14 @@
 					<h1 style="display: inline-block; color: white; font-size: 35px; font-weight: 500;">똑에서 원하는 전문가를 <br> 찾아보세요!</h1>
 
 <!-- 검색창 -->
-				<div class="search-box" style="border-radius: 5px; margin-top: 20px; border-width:2px; width: 475px; height: 59px; left: 0%;">
+				<div class="search-box" style="border-radius: 5px; margin-top: 20px; border-width:2px; width: 475px; height: 59px; left: 0%; margin-left: 0px; ">
 				    <form action="SerchMain.jsp" method="get"  class="codeShot-serchBox">
 				        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput" class="search-txt" type="text"maxlength="15" style="background: round;">
 				        <!-- <input type="submit" value="검색" class="search-btn"> -->
-				        <button class="search-btn" type="submit"><i class="fas fa-search"></i></button><br>
+				        <button class="search-btn" type="submit" style="margin-left: 220px;
+    margin-top: 10px"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button><br>
 					    <div id="codeShot-recommend" class="codeShot-invisible">
 					    	<ul id="suggest-list" class="codeShot-suggestList">
 					    		<!-- 추천 검색어 자리 -->

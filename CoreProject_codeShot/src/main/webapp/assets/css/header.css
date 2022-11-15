@@ -23,7 +23,7 @@
     width: 1200px;
     margin-bottom: 40px;
     margin-left: 351.5px;
-    margin-right: 351.5px;
+    margin-right: 375px;
     align-items: center;
     flex-direction: row;
   }
@@ -68,7 +68,7 @@
     left: 10%;
     top: 15%;
     border-radius: 30px;
-    border-color: rgb(228, 229, 237);
+    border-color: rgb(154, 155, 167);
     border-width: 1px;
     border-style: solid;
     margin-left: 0px;
@@ -90,13 +90,11 @@
   .search-txt {
     float: left;
     color: black;
-    font-size: 15px;
+    font-size: 11px;
     padding-left: 20px;
-    margin-top: 2px;
     margin-bottom: 3px;
     margin-left: 3px;
     margin-right: 0px;
-    font-size: 10pt;
   }
   .search-btn{
     color: rgb(102, 102, 102);
@@ -108,6 +106,7 @@
   .codeShot-logAndJonin {
     width: 300px;
     height: 43px;
+    margin-right: -80px;
   }
   .right-top-bar a {
     font-family: Poppins-Regular;
@@ -135,7 +134,7 @@
   }
   
   .codeShot-nav {
-    margin-left: 300px;
+    margin-left: 305px;
     height: 48px;
   }
   
@@ -179,11 +178,10 @@
     margin: 0px 4px 20px 14px;
   }
   
-  .main-menu > li > a {
+  .main-menu > li {
     font-family: Poppins-Medium;
     font-size: 15px;
-    color:rgb(76 71 71);
-    padding: 5px 0px;
+    color: rgb(48, 52, 65);
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
