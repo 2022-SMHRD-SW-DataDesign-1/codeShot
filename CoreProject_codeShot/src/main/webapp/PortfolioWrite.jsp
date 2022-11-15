@@ -482,7 +482,7 @@ input[type=file]::file-selector-button, .btn-info{
 						<br>
 						<input type="file" name="pf_file" multiple> 
 						<br>
-						<input type="submit" class="btn-info" value="파일 제출">
+						<input type="submit" class="btn-info" value="파일 제출" style="margin-bottom: 20px;">
 					</form>
 					</div>
 					<!-- 포트폴리오 출력 -->
@@ -490,7 +490,7 @@ input[type=file]::file-selector-button, .btn-info{
 	if (portfolioList.size() != 0) {
 		for (PortfolioDTO dto : portfolioList) {
 	%>
-				<div class="blocks">
+				<div class="blocks" style="margin-top: 0px;">
 					<ul class="portfolio-list">
 						<li><img class="portfolio-img" src="file/<%=dto.getPf_file()%>"></li>
 						<li><button >
