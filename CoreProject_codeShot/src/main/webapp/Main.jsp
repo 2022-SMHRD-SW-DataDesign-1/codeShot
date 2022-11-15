@@ -304,11 +304,26 @@
 				</div>
 			</section> -->
 			
-			<section style="background-color: #e7fffb; height: 500px;">
-				<div style="">
-					<h1>환영합니다</h1>
+			<section style="background-color: #00D3C7; height: 480px;">
+				<div style="position: absolute; top: 283px; left: 390px;">
+					<h1 style="display: inline-block; color: white; font-size: 35px; font-weight: 500;">똑에서 원하는 전문가를 <br> 찾아보세요!</h1>
+
+<!-- 검색창 -->
+				<div class="search-box" style="border-radius: 5px; margin-top: 20px; border-width:2px; width: 475px; height: 59px; left: 0%;">
+				    <form action="SerchMain.jsp" method="get"  class="codeShot-serchBox">
+				        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput" class="search-txt" type="text"maxlength="15" style="background: round;">
+				        <!-- <input type="submit" value="검색" class="search-btn"> -->
+				        <button class="search-btn" type="submit"><i class="fas fa-search"></i></button><br>
+					    <div id="codeShot-recommend" class="codeShot-invisible">
+					    	<ul id="suggest-list" class="codeShot-suggestList">
+					    		<!-- 추천 검색어 자리 -->
+					    	</ul>
+					    </div>
+				    </form>
 				</div>
-			      <div id="slider-wrap" style="height: 500px; margin-left: 900px;">
+
+				</div>
+			      <div id="slider-wrap" style="height: 480px; margin-left: 965px; margin-top: -20px;">
 			          <ul id="slider" class="">
 						<li><img src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fimages%2Fcurated_contents%2FjyLtx_curated_content_item_main_desktop_989.png&w=1200&q=75" style="width: 100%;  margin-top: 50px; border-radius: 7px;"></li>
 						<li><img src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fimages%2Fcurated_contents%2FqQqlc_curated_content_item_main_desktop_955.png&w=1200&q=75" style="width: 100%;  margin-top: 50px; border-radius: 7px;"></li>
@@ -423,14 +438,49 @@
 	<%} else if(info == null) {%>
 
 		<main>
-			<!-- banner -->
-			<section class="banner">
-				<div class="wrap-slick1">
-					<div class="slick1">
-						<img alt="banner" src="./assets/cssImg/banner.jpg">
-					</div>
+			<section style="background-color: #00D3C7; height: 480px;">
+				<div style="position: absolute; top: 283px; left: 390px;">
+					<h1 style="display: inline-block; color: white; font-size: 35px; font-weight: 500;">똑에서 원하는 전문가를 <br> 찾아보세요!</h1>
+
+<!-- 검색창 -->
+				<div class="search-box" style="border-radius: 5px; margin-top: 20px; border-width:2px; width: 475px; height: 59px; left: 0%;">
+				    <form action="SerchMain.jsp" method="get"  class="codeShot-serchBox">
+				        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput" class="search-txt" type="text"maxlength="15" style="background: round;">
+				        <!-- <input type="submit" value="검색" class="search-btn"> -->
+				        <button class="search-btn" type="submit"><i class="fas fa-search"></i></button><br>
+					    <div id="codeShot-recommend" class="codeShot-invisible">
+					    	<ul id="suggest-list" class="codeShot-suggestList">
+					    		<!-- 추천 검색어 자리 -->
+					    	</ul>
+					    </div>
+				    </form>
 				</div>
-			</section>
+
+				</div>
+			      <div id="slider-wrap" style="height: 480px; margin-left: 965px; margin-top: -20px;">
+			          <ul id="slider" class="">
+						<li><img src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fimages%2Fcurated_contents%2FjyLtx_curated_content_item_main_desktop_989.png&w=1200&q=75" style="width: 100%;  margin-top: 50px; border-radius: 7px;"></li>
+						<li><img src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fimages%2Fcurated_contents%2FqQqlc_curated_content_item_main_desktop_955.png&w=1200&q=75" style="width: 100%;  margin-top: 50px; border-radius: 7px;"></li>
+						<li><img src="https://kmong.com/_next/image?url=https%3A%2F%2Fd2v80xjmx68n4w.cloudfront.net%2Fassets%2Fimages%2Fcurated_contents%2FGQ3KS_curated_content_item_main_desktop_1005.png&w=1200&q=75" style="width: 100%;  margin-top: 50px; border-radius: 7px;"></li>
+					 </ul>
+			      <!--controls-->
+		          <div class="btns" id="next" style="background-color:rgba(255, 255, 255, 0.629); border-radius: 50px; width: 40px; height: 40px;">
+		          <div style="position: absolute; top: -8px; right:2px; "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+</svg></div></div>
+		          <div class="btns" id="previous" style="background-color:rgba(255, 255, 255, 0.629); border-radius: 50px; width: 40px; height: 40px; margin-left: 560px;
+">
+<div style="position: absolute; top: -8px; left:2px; "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+</svg> </div> </div>
+		          <div id="pagination-wrap">
+		            <ul>
+		            </ul>
+		          </div>
+		          <!--controls-->  
+                 
+	      </div>
+	      </section>
 
 			<section class="section-view">
 				<h1 class="codeShot-main-post-title">다른 회원들이 본 서비스</h1>
