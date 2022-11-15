@@ -150,6 +150,51 @@
     height: 43px;
     margin-right: -80px;
   }
+  
+  
+.review-row {
+	border-bottom: 1px solid #e6e6e6;
+	padding: 15px;
+}
+}
+.block-img-radius {
+	border-radius: 5px;
+}
+.star-num {
+	font-weight: bold;
+	display: inline-block;
+	margin-left: 7px;
+    top: -4px;
+    position: relative;
+}
+.review-content {
+	margin-top: 15px;
+}
+.content-wrapper {
+	margin-left: 15px;
+}
+.middle{
+	width: 440px;
+    line-height: 25px;
+    padding: 33px;
+}
+
+.post_writer,  prch_date{
+	font-size: 13px;
+}
+
+.end{
+	width: 30%;
+	padding: 72px;
+}
+
+.post_img{
+	width: 200px;
+	height: 160px;
+	border-radius: 4px;
+	margin: 17px;
+	margin-right: 0px;
+}
 </style>
 
 
@@ -560,7 +605,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="content-wrapper">
+			<div class="content-wrapper" style="width: 900px;">
 				<div class="myTitle">작성가능한 리뷰</div>
 				<div class="myBox">
 					<div class="myContent">
@@ -888,7 +933,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="content-wrapper">
+			<div class="content-wrapper" style="width: 900px;">
 				<div class="myTitle">작성가능한 리뷰</div>
 				<div class="myBox">
 					<div class="myContent">
@@ -899,8 +944,8 @@
 							if (postList.get(j).getPost_num().equals(prchList.get(i).getPost_num())) {
 						%>
 						<div class="rows">
-							<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 							<div class="col-md-auto">
+							<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 						<%
 						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
 						
@@ -1010,13 +1055,13 @@
 							</div>
 						</div>
 						<div class="review-row">
-							<div class="review_starraiting">
+							<div class="review_starraiting" >
 								<%
 								for (int k = 0; k < showReview.getReview_starrating().intValue(); k++) {
 								%>
-								<span class="review-icon"> 
+								<div class="review-icon"> 
 								<img class="reivew-star" alt="별" src="./assets/cssImg/star-fill.svg" height = 22px>
-								</span>
+								</div>
 								<%
 								}
 								%>

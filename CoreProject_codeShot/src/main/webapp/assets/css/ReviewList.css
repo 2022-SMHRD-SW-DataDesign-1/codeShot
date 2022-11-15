@@ -28,7 +28,7 @@
 
 /* col */
 .middle{
-	width: 400px;
+	width: 440px;
     line-height: 25px;
     padding: 33px;
 }
@@ -39,12 +39,12 @@
 
 .end{
 	width: 30%;
-	padding: 60px;
+	padding: 72px;
 }
 
 .post_img{
 	width: 200px;
-	height: 140px;
+	height: 160px;
 	border-radius: 4px;
 	margin: 17px;
 	margin-right: 0px;
