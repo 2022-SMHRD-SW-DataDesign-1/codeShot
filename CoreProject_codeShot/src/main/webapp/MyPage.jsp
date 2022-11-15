@@ -786,7 +786,8 @@
 		                </div>
 		            </div>
 		            <div class="col-md-auto end" style="padding: 80px;">
-		                <%=prchsList.get(i).getPrch_price()%>원
+		                <%=prchsList.get(i).getPrch_price()%>원<br>
+		            	<a href="./file/<%=postInfo.getPost_file()%>" download>다운로드</a>
 		            </div>
 		        </div>
 		        <%
