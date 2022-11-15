@@ -28,9 +28,13 @@
 
 /* col */
 .middle{
-	width: 450px;
-	line-height: 30px;
-	padding: 40px;
+	width: 400px;
+    line-height: 25px;
+    padding: 33px;
+}
+
+.post_writer,  prch_date{
+	font-size: 13px;
 }
 
 .end{

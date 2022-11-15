@@ -31,7 +31,7 @@
 <link rel="stylesheet" type="text/css" href="./assets/css/header.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
-<link rel="stylesheet" type="text/css" href="./assets/css/transaction-history.css">
+<!-- <link rel="stylesheet" type="text/css" href="./assets/css/transaction-history.css"> -->
 <link rel="stylesheet" type="text/css" href="./assets/css/ReviewList.css">
 
 
@@ -81,7 +81,25 @@
 	
 	.content-wrapper {
 	margin-left: 15px;
+	}
+	
+.middle{
+	width: 400px;
+    line-height: 22px;
+    padding: 30px;
 }
+
+.post_writer, .prch_date{
+	font-size: 12px;
+	color: #8b8282;
+}
+
+.post_category{
+	font-size: 9px;
+	color: #8b8282;
+}
+
+
 
 	
 </style>
@@ -509,7 +527,7 @@
 		        	else if(category.contains("app"))
 		        		category = category.replace("app", "App");
 		        %>
-						<div class="rows">
+						<div class="rows" style="height: 180px;">
 			            <div class="col-md-auto">
 			            	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
 			                	<%
@@ -524,20 +542,20 @@
 			                	<%
 			            		}
 			                	%>
-			             	</a>
 		            </div>
 		            <div class="col-md-auto">
 		                <div class="middle">
-		                	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
-		                		<%=postInfo.getPost_title()%>
-		                	</a>
-		                <div class="post_title"><%=category%></div>
-		                <div class="post_price"><%=postInfo.getMem_email()%></div>
-		                <div class="prch_date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
+		               	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
+			                <div class="post_category"><%=category%></div>
+			                <div class="post_title"><%=postInfo.getPost_title()%></div>
+			                <div class="post_price"><%=prchsList.get(i).getPrch_price()%>원</div>
+			                <div class="post_writer"><%=postInfo.getMem_email()%></div>
+			                <div class="prch_date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
 		                </div>
+	                	</a>
 		            </div>
-		            <div class="col-md-auto end" style="padding: 80px;">
-		                <%=prchsList.get(i).getPrch_price()%>원
+		            <div class="col-md-auto end" style="padding: 65px;">
+		            	<a class="my_btn flex-c-m " href="./file/<%=postInfo.getPost_file()%>"download><span>다운로드</span></a>
 		            </div>
 		        </div>
 		        <%
@@ -758,7 +776,7 @@
 		        	else if(category.contains("app"))
 		        		category = category.replace("app", "App");
 		        %>
-						<div class="rows">
+						<div class="rows" style="height: 180px;">
 			            <div class="col-md-auto">
 			            	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
 			                	<%
@@ -773,21 +791,20 @@
 			                	<%
 			            		}
 			                	%>
-			             	</a>
 		            </div>
 		            <div class="col-md-auto">
 		                <div class="middle">
-		                	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
-		                		<%=postInfo.getPost_title()%>
-		                	</a>
-		                <div class="post_title"><%=category%></div>
-		                <div class="post_price"><%=postInfo.getMem_email()%></div>
-		                <div class="prch_date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
+		               	<a href="PostDetail.jsp?post_num=<%=prchsList.get(i).getPost_num()%>">
+			                <div class="post_category"><%=category%></div>
+			                <div class="post_title"><%=postInfo.getPost_title()%></div>
+			                <div class="post_price"><%=prchsList.get(i).getPrch_price()%>원</div>
+			                <div class="post_writer"><%=postInfo.getMem_email()%></div>
+			                <div class="prch_date"><%=sdf.format(prchsList.get(i).getPrch_date())%></div>
 		                </div>
+	                	</a>
 		            </div>
-		            <div class="col-md-auto end" style="padding: 80px;">
-		                <%=prchsList.get(i).getPrch_price()%>원<br>
-		            	<a href="./file/<%=postInfo.getPost_file()%>" download>다운로드</a>
+		            <div class="col-md-auto end" style="padding: 65px;">
+		            	<a class="my_btn flex-c-m " href="./file/<%=postInfo.getPost_file()%>"download><span>다운로드</span></a>
 		            </div>
 		        </div>
 		        <%

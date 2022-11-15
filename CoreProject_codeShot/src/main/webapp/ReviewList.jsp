@@ -20,8 +20,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/x-icon"
-	href="./assets/cssImg/title-icon.png">
+<link rel="shortcut icon" type="image/x-icon" href="./assets/cssImg/title-icon.png">
 <title>DDock</title>
 
 <!-- header css -->
@@ -151,6 +150,23 @@ a {
 .content-wrapper {
 	margin-left: 15px;
 }
+
+.middle{
+	width: 400px;
+    line-height: 22px;
+    padding: 30px;
+}
+
+.post_writer, .prch_date{
+	font-size: 12px;
+	color: #8b8282;
+}
+
+.post_category{
+	font-size: 9px;
+	color: #8b8282;
+}
+
 </style>
 
 </head>
@@ -578,9 +594,21 @@ a {
 								<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 						<%
 						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
-
+						
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-						%>
+						
+						String category = "";
+						PostDTO postInfo = dao.showPostDetail(prchList.get(i).getPost_num());
+						category = postInfo.getPost_category();
+						
+						if(category.contains("ots"))
+			        		category = category.replace("ots_", "외주/");
+			        	else if(category.contains("code"))
+			        		category = category.replace("code_", "소스코드/");
+			        	if(category.contains("web"))
+			        		category = category.replace("web", "Web");
+			        	else if(category.contains("app"))
+			        		category = category.replace("app", "App");						%>
 								<%
 								if(pf != null){
 	
@@ -592,8 +620,10 @@ a {
 								</div>
 								<div class="col-md-auto">
 									<div class="middle">
-										<div class="post_title"><a href="PostDetail.jsp?post_num=<%=postList.get(j).getPost_num()%>"><%=postList.get(j).getPost_title()%></a></div>
+										<div class="post_category"><%=category%></div>
+										<div class="post_title"><%=postList.get(j).getPost_title()%></div>
 										<div class="post_price"><%=postList.get(j).getPost_price()%>원</div>
+										<div class="post_writer"><%=postList.get(j).getMem_email()%></div>
 										<div class="prch_date"><%=sdf.format(prchList.get(i).getPrch_date())%></div>
 									</div>
 								</a>	
@@ -631,6 +661,19 @@ a {
 						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
 						
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						
+						String category = "";
+						PostDTO postInfo = dao.showPostDetail(prchList.get(i).getPost_num());
+						category = postInfo.getPost_category();
+						
+						if(category.contains("ots"))
+			        		category = category.replace("ots_", "외주/");
+			        	else if(category.contains("code"))
+			        		category = category.replace("code_", "소스코드/");
+			        	if(category.contains("web"))
+			        		category = category.replace("web", "Web");
+			        	else if(category.contains("app"))
+			        		category = category.replace("app", "App");
 						%>
 								<%
 								if(pf != null){
@@ -643,8 +686,10 @@ a {
 								</div>
 							<div class="col-md-auto">
 								<div class="middle">
+									<div class="post_category"><%=category%></div>
 									<div class="post_title"><%=postList.get(j).getPost_title()%></div>
 									<div class="post_price"><%=postList.get(j).getPost_price()%>원</div>
+									<div class="post_writer"><%=postList.get(j).getMem_email()%></div>
 									<div class="prch_date"><%=sdf.format(prchList.get(i).getPrch_date())%></div>
 								</div>
 							</a>
@@ -875,11 +920,23 @@ a {
 						<div class="rows">
 							<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 							<div class="col-md-auto">
-								<a href="PostDetail.jsp?post_num=<%=postList.get(i).getPost_num()%>">
 						<%
 						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
 						
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						
+						String category = "";
+						PostDTO postInfo = dao.showPostDetail(prchList.get(i).getPost_num());
+						category = postInfo.getPost_category();
+						
+						if(category.contains("ots"))
+			        		category = category.replace("ots_", "외주/");
+			        	else if(category.contains("code"))
+			        		category = category.replace("code_", "소스코드/");
+			        	if(category.contains("web"))
+			        		category = category.replace("web", "Web");
+			        	else if(category.contains("app"))
+			        		category = category.replace("app", "App");
 						%>
 								<%
 								if(pf != null){
@@ -892,12 +949,14 @@ a {
 								</div>
 							<div class="col-md-auto">
 								<div class="middle">
+									<div class="post_category"><%=category%></div>
 									<div class="post_title"><%=postList.get(j).getPost_title()%></div>
 									<div class="post_price"><%=postList.get(j).getPost_price()%>원</div>
+									<div class="post_writer"><%=postList.get(j).getMem_email()%></div>
 									<div class="prch_date"><%=sdf.format(prchList.get(i).getPrch_date())%></div>
 								</div>
-							</a>
 							</div>
+							</a>
 							<div class="col-md-auto end">
 								<a class="my_btn flex-c-m "
 									href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>"><span>리뷰작성</span></a>
@@ -931,6 +990,19 @@ a {
 						pf = new PortfolioDAO().showImage(postList.get(i).getMem_email());
 						
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						
+						String category = "";
+						PostDTO postInfo = dao.showPostDetail(prchList.get(i).getPost_num());
+						category = postInfo.getPost_category();
+						
+						if(category.contains("ots"))
+			        		category = category.replace("ots_", "외주/");
+			        	else if(category.contains("code"))
+			        		category = category.replace("code_", "소스코드/");
+			        	if(category.contains("web"))
+			        		category = category.replace("web", "Web");
+			        	else if(category.contains("app"))
+			        		category = category.replace("app", "App");
 						%>
 								<%
 								if(pf != null){
@@ -943,12 +1015,14 @@ a {
 								</div>
 							<div class="col-md-auto">
 								<div class="middle">
+									<div class="post_category"><%=category%></div>
 									<div class="post_title"><%=postList.get(j).getPost_title()%></div>
 									<div class="post_price"><%=postList.get(j).getPost_price()%>원</div>
+									<div class="post_writer"><%=postList.get(j).getMem_email()%></div>
 									<div class="prch_date"><%=sdf.format(prchList.get(i).getPrch_date())%></div>
 								</div>
-							</a>
 							</div>
+							</a>
 							<div class="col-md-auto end">
 								<a class="my_btn flex-c-m "
 									href="./ReviewWrite.jsp?post_num=<%=prchList.get(i).getPost_num()%>"><span>수정</span></a>
