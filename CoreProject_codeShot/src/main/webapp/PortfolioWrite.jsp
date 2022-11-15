@@ -16,12 +16,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-<link rel="stylesheet" type="text/css"
-	href="./assets/css/MyPageList.css">
+<!-- <link rel="stylesheet" type="text/css" href="./assets/css/FAQ.css"> -->
+<link rel="stylesheet" type="text/css" href="./assets/css/MyPageList.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/header.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/util.css">
 <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/transaction-history.css">
 
 <!-- a태그 밑줄 없애기 위한 style 적용 -->
 <style type="text/css">
@@ -102,6 +102,18 @@
     height: 43px;
     margin-right: -80px;
   }
+  
+  
+input[type=file]::file-selector-button, .btn-info{
+	width: 100px;
+  	height: 40px;
+  	background: rgb(189, 244, 236);
+  	border: 1px solid rgb(189, 244, 236);
+  	border-radius: 10px;
+  	cursor: pointer;
+  	color: #6666;
+  	font-weight: bold;
+}
 </style>
 
 
@@ -466,7 +478,7 @@
 						enctype="multipart/form-data">
 						<h2>포트폴리오 관리</h2>
 						<br>
-						<input type="file" name="pf_file" multiple> 
+						<input type="file"  name="pf_file" multiple> 
 						<br>
 						<input type="submit" class="btn-info" value="파일 제출" style="margin-bottom: 20px;">
 					</form>
@@ -478,7 +490,7 @@
 	%>
 				<div class="blocks" style="margin-top: 0px;">
 					<ul class="portfolio-list">
-						<li><img class="portfolio-img" src="file/<%=dto.getPf_file()%>"></li>
+						<li><img class="portfolio-img" style="width: 270px;" src="file/<%=dto.getPf_file()%>"></li>
 						<li><button >
 							<a href="PortfolioDeleteService.do?pf_num=<%=dto.getPf_num()%>">
 								삭제 </a>
