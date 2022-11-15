@@ -22,8 +22,6 @@
 
 
 <!-- header css -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css?ver=1" rel="stylesheet"
-		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css?ver=1"
 		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -125,6 +123,7 @@
 		  border: 1px ;
 		  object-fit: cover;
 
+	
 
 </style>
 
@@ -169,12 +168,12 @@
 				        <input id="search-input-box" onkeyup="addList(this)" type="text" name="userInput" class="search-txt" type="text" placeholder="검색어를 입력해주세요" maxlength="15">
 				        <!-- <input type="submit" value="검색" class="search-btn"> -->
 				        <button class="search-btn" type="submit"><i class="fas fa-search"></i></button><br>
-					    <div id="codeShot-recommend" class="codeShot-invisible">
+		<!-- 			    <div id="codeShot-recommend" class="codeShot-invisible">
 					    	<ul id="suggest-list" class="codeShot-suggestList">
-					    		<!-- 추천 검색어 자리 -->
+					    		추천 검색어 자리
 					    	</ul>
 					    </div>
-				    </form>
+				    </form> -->
 				</div>
 				
 				<!-- 로그인, 회원가입, 판매하기, 마이페이지 -->
