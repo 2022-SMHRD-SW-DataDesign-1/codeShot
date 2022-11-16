@@ -202,7 +202,9 @@
 							
 							chat = chat.replaceAll("my","opponent")
 							
-							socket.emit('sendChat', {'user_name':'<%=info.getName()%>',
+							socket.emit('sendChat', {'user_email':'<%=info.getEmail()%>',
+													 'user_name':'<%=info.getName()%>',
+													 'room_num':roomNum,
 							 						 'chat':chat});
 							console.log('소켓 보내기 성공');
 							
@@ -232,7 +234,7 @@
 			})
 			socket.on('receiveChat', function(msg) {
 				console.log(msg);
-				if('<%=info.getName()%>' != msg.user_name)
+				if((roomNum == msg.room_num) && ('<%=info.getEmail()%>' != msg.user_email))
 				{
 					chatBox.innerHTML += msg.chat;
 				}
