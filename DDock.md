@@ -1,6 +1,6 @@
 # 🍀 DDock(팀명-codeShot)
 <img src="https://user-images.githubusercontent.com/112090905/202849180-ff553a1a-3b74-49fa-b14a-361c30beaf4f.jpg" width="500" height="300"/>
-          <br><br>
+<br><br>
 ## 🧾 서비스 소개
 * 서비스명: IT 프리랜서 외주 및 프로그램 마켓
 * 서비스설명: 
@@ -23,39 +23,39 @@
     <tr>
         <td>Back-end</td>
         <td>
-            <img src="https://img.shields.io/badge/Java-FF4C00?style=for-the-badge"/>
-            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black"/>
-            <img src="https://img.shields.io/badge/MyBatis-D10D0D?style=for-the-badge"/>
-            <img src="https://img.shields.io/badge/JSP-FF7D44?style=for-the-badge"/>
-            <img src="https://img.shields.io/badge/Servlet-FFAC89?style=for-the-badge"/>
+            <img src="https://img.shields.io/badge/Java-FF4C00?style=for-the-badge" />
+            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black" />
+            <img src="https://img.shields.io/badge/MyBatis-D10D0D?style=for-the-badge" />
+            <img src="https://img.shields.io/badge/JSP-FF7D44?style=for-the-badge" />
+            <img src="https://img.shields.io/badge/Servlet-FFAC89?style=for-the-badge" />
         </td>
     </tr>
     <tr>
         <td>Front-end</td>
         <td>
-            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"/>
-            <img src="https://img.shields.io/badge/CSS3-00B2FF?style=for-the-badge&logo=CSS3&logoColor=white"/>
-            <img src="https://img.shields.io/badge/JSP-FF7D44?style=for-the-badge"/>
-            <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
+            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white" />
+            <img src="https://img.shields.io/badge/CSS3-00B2FF?style=for-the-badge&logo=CSS3&logoColor=white" />
+            <img src="https://img.shields.io/badge/JSP-FF7D44?style=for-the-badge" />
+            <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white" />
         </td>
     </tr>
     <tr>
         <td>Data & Server</td>
         <td>
-            <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Apache Tomcat 9.0-FFD425?style=for-the-badge&logo=Apache Tomcat&logoColor=black"/>
-            <img src="https://img.shields.io/badge/Flask-929292?style=for-the-badge&logo=Flask&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white" />
+            <img src="https://img.shields.io/badge/Apache Tomcat 9.0-FFD425?style=for-the-badge&logo=Apache Tomcat&logoColor=black" />
+            <img src="https://img.shields.io/badge/Flask-929292?style=for-the-badge&logo=Flask&logoColor=white" />
         </td>
     </tr>
     <tr>
         <td>Library & API</td>
         <td>
-            <img src="https://img.shields.io/badge/Lombock-A40000?style=for-the-badge"/>
-            <img src="https://img.shields.io/badge/socket.io-010101?style=for-the-badge&logo=Socket.io&logoColor=white"/>
-            <img src="https://img.shields.io/badge/jQuery-2E7594?style=for-the-badge&logo=jQuery&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Gson-166513?style=for-the-badge"/>
-            <img src="https://img.shields.io/badge/cos.jar-FFFF79?style=for-the-badge"/>
-            <img src="https://img.shields.io/badge/I'mport;-3C3C3C?style=for-the-badge"/>
+            <img src="https://img.shields.io/badge/Lombock-A40000?style=for-the-badge" />
+            <img src="https://img.shields.io/badge/socket.io-010101?style=for-the-badge&logo=Socket.io&logoColor=white" />
+            <img src="https://img.shields.io/badge/jQuery-2E7594?style=for-the-badge&logo=jQuery&logoColor=white" />
+            <img src="https://img.shields.io/badge/Gson-166513?style=for-the-badge" />
+            <img src="https://img.shields.io/badge/cos.jar-FFFF79?style=for-the-badge" />
+            <img src="https://img.shields.io/badge/I'mport;-3C3C3C?style=for-the-badge" />
         </td>
     </tr>
     <tr>
@@ -69,29 +69,30 @@
     <tr>
         <td>Etc.</td>
         <td>
-            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white"/>
+            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white" />
+            <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white" />
         </td>
     </tr>
 </table>
 <br><br>
 ## ⚙ 시스템 아키텍처
-<img src="https://user-images.githubusercontent.com/112090905/202853505-66494f8b-31d4-41bf-b3ce-69a7b84cbaf9.png" height="600"/>
+<img src="https://user-images.githubusercontent.com/112090905/202853505-66494f8b-31d4-41bf-b3ce-69a7b84cbaf9.png" width="500" height="300" />
 <br><br>
 ## ✏ 유스케이스
+<img src="https://user-images.githubusercontent.com/112090905/202853936-4292aec8-178d-4b62-b88b-73dd944bad19.png" width="500" height="300" />
 <br><br>
 ## ✏ 서비스 흐름도
-<img src="https://user-images.githubusercontent.com/112090905/202853273-c18f6497-2f43-4554-b825-c342c6728c5f.png" height="600"/>
+<img src="https://user-images.githubusercontent.com/112090905/202853273-c18f6497-2f43-4554-b825-c342c6728c5f.png" height="600" />
 <br><br>
 ## ✏ ER다이어그램
-<img src="https://user-images.githubusercontent.com/112090905/202853032-083845d5-1987-46d1-826d-e7a3e62131a5.jpg" height="600"/>
+<img src="https://user-images.githubusercontent.com/112090905/202853032-083845d5-1987-46d1-826d-e7a3e62131a5.jpg" height="600" />
 <br><br>
 ## 🖥 화면 구성
 <br><br>
 ## ⭐ 팀원 역할
 <table>
   <tr>
-    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/202852875-3a209dd9-06bd-4a85-a04c-53f127805467.png" width="100" height="100"/>
+    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/202852875-3a209dd9-06bd-4a85-a04c-53f127805467.png" width="100" height="100" />
 </td>
     <td align="center">♓</td>
     <td align="center">♐</td>
