@@ -1,19 +1,23 @@
 # 🍀 DDock(팀명-codeShot)
-<img src="https://user-images.githubusercontent.com/112090905/202849180-ff553a1a-3b74-49fa-b14a-361c30beaf4f.jpg" width="500" height="300"/>
-<br><br>
+![logo](https://user-images.githubusercontent.com/112090905/202854533-6fee269c-c25c-4f33-ac2c-c2b4808a914d.jpg)
+<br>
+
 ## 🧾 서비스 소개
 * 서비스명: IT 프리랜서 외주 및 프로그램 마켓
 * 서비스설명: 
-<br><br>
+<br>
+
 ## 📅 프로젝트 기간
 2022.10.04~2022.11.16 (7주)
-<br><br>
+<br>
+
 ## ✨ 주요 기능
 * 주문, 결제, 평점, 리뷰 기능
 * 상품 등록, 수정, 조회, 삭제, 검색 기능
 * 파일 업로드 및 다운로드 기능
 * 고객-전문가 채팅 기능
-<br><br>
+<br>
+
 ## ⛏ 기술스택
 <table>
     <tr>
@@ -74,21 +78,27 @@
         </td>
     </tr>
 </table>
-<br><br>
+<br>
+
 ## ⚙ 시스템 아키텍처
-<img src="https://user-images.githubusercontent.com/112090905/202853505-66494f8b-31d4-41bf-b3ce-69a7b84cbaf9.png" width="500" height="300" />
-<br><br>
+<img src="https://user-images.githubusercontent.com/112090905/202854576-f19eb771-d604-4a63-a15f-cee52edc4e21.png" width="500" height="300" />
+<br>
+
 ## ✏ 유스케이스
-<img src="https://user-images.githubusercontent.com/112090905/202853936-4292aec8-178d-4b62-b88b-73dd944bad19.png" width="500" height="300" />
-<br><br>
+<img src="https://user-images.githubusercontent.com/112090905/202854580-bd058f33-f7bb-4f0f-a87a-6c93899d3cb4.png" width="500" height="300" />
+<br>
+
 ## ✏ 서비스 흐름도
-<img src="https://user-images.githubusercontent.com/112090905/202853273-c18f6497-2f43-4554-b825-c342c6728c5f.png" height="600" />
-<br><br>
+![시스템흐름도](https://user-images.githubusercontent.com/112090905/202854585-ba91e248-998a-45e0-9f6f-07148307aecf.png)
+<br>
+
 ## ✏ ER다이어그램
-<img src="https://user-images.githubusercontent.com/112090905/202853032-083845d5-1987-46d1-826d-e7a3e62131a5.jpg" height="600" />
-<br><br>
+![erd](https://user-images.githubusercontent.com/112090905/202854595-1bc99783-d7fc-490c-8b59-f4657b8ff233.jpg)
+<br>
+
 ## 🖥 화면 구성
-<br><br>
+<br>
+
 ## ⭐ 팀원 역할
 <table>
   <tr>
@@ -121,13 +131,12 @@
     <td align="center"><a href="https://github.com/rewrite255" target='_blank'>github</a></td>
   </tr>
 </table>
-<br><br>
+<br>
+
 ## 🤾‍♂️ 트러블슈팅
 개념: 문제 해결을 위해 문제의 원인을 논리적이고 체계적으로 찾는 일이며 제품이나 프로세스의 운영을 재개
 프로젝트 진행하는 동안 발생했던 이슈 중 가장 기억에 남았던 문제와 해결 프로세스 나열(2~5가지 정도)
-  
 * 문제1<br>
  문제점 설명 및 해결방안
- 
 * 문제2<br>
  문제점 설명 및 해결방안
