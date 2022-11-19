@@ -1,6 +1,6 @@
 # 🍀 DDock(팀명-codeShot)
-![logo](https://user-images.githubusercontent.com/112090905/202849180-ff553a1a-3b74-49fa-b14a-361c30beaf4f.jpg)
-<br><br>
+<img src="https://user-images.githubusercontent.com/112090905/202849180-ff553a1a-3b74-49fa-b14a-361c30beaf4f.jpg" width="500" height="300"/>
+          <br><br>
 ## 🧾 서비스 소개
 * 서비스명: IT 프리랜서 외주 및 프로그램 마켓
 * 서비스설명: 
@@ -26,7 +26,8 @@
             <img src="https://img.shields.io/badge/Java-FF4C00?style=for-the-badge"/>
             <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black"/>
             <img src="https://img.shields.io/badge/MyBatis-D10D0D?style=for-the-badge"/>
-            <img src="https://img.shields.io/badge/JSP&Servlet-FF7D44?style=for-the-badge"/>
+            <img src="https://img.shields.io/badge/JSP-FF7D44?style=for-the-badge"/>
+            <img src="https://img.shields.io/badge/Servlet-FFAC89?style=for-the-badge"/>
         </td>
     </tr>
     <tr>
@@ -75,19 +76,23 @@
 </table>
 <br><br>
 ## ⚙ 시스템 아키텍처
+<img src="https://user-images.githubusercontent.com/112090905/202853505-66494f8b-31d4-41bf-b3ce-69a7b84cbaf9.png" height="600"/>
 <br><br>
 ## ✏ 유스케이스
 <br><br>
 ## ✏ 서비스 흐름도
+<img src="https://user-images.githubusercontent.com/112090905/202853273-c18f6497-2f43-4554-b825-c342c6728c5f.png" height="600"/>
 <br><br>
 ## ✏ ER다이어그램
+<img src="https://user-images.githubusercontent.com/112090905/202853032-083845d5-1987-46d1-826d-e7a3e62131a5.jpg" height="600"/>
 <br><br>
 ## 🖥 화면 구성
 <br><br>
 ## ⭐ 팀원 역할
 <table>
   <tr>
-    <td align="center">♋</td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/202852875-3a209dd9-06bd-4a85-a04c-53f127805467.png" width="100" height="100"/>
+</td>
     <td align="center">♓</td>
     <td align="center">♐</td>
     <td align="center">♊</td>
@@ -109,10 +114,10 @@
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/KimJi5u" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/74eonk" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/dltmfql456" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/Chan-25" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/rewrite255" target='_blank'>github</a></td>
   </tr>
 </table>
 <br><br>
