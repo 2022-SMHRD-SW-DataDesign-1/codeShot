@@ -99,8 +99,168 @@
 <br>
 
 ## 🖥 화면 구성
-#### 메인
 
+### 🖱 메인
+<table>
+  <tr>
+    <th>비회원</th>
+    <th>고객 회원</th>
+    <th>전문가 회원</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203006374-1895260a-5dd8-45d3-be88-da16a5ade820.png" width="300" height="250" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203012648-0cf7cf4f-2c61-43d5-8be6-c6b482ca8ca8.png" width="300" height="250" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203011772-9f758aef-1ad3-4a69-8975-8356f2e36777.png" width="300" height="250" /></td>
+  </tr>
+</table>
+<br>
+
+### 🖱 회원가입
+<table>
+  <tr>
+    <th>회원가입 유형 선택</th>
+    <th>고객 회원가입</th>
+    <th>전문가 회원가입</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203007120-e9de213d-3427-43cc-a3f5-b4f4e97d5833.png" width="300" height="250" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203007770-bc300277-a371-48cf-87d2-6733b559f176.png" width="300" height="250" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203007894-886e740c-ccbd-4391-888c-b4b2911fa961.png" width="300" height="250" /></td>
+  </tr>
+</table>
+<br>
+
+### 🖱 로그인
+<table>
+  <tr>
+    <th>로그인</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203010683-e8adea39-4a25-42ee-bc5f-f6beaac4f241.png" width="300" height="250" /></td>
+  </tr>
+</table>
+
+---
+<br>
+
+### 🖱 고객 화면
+
+#### ⌨ 게시글 검색
+<table>
+  <tr>
+    <th>모두 검색 결과</th>
+    <th>외주 검색 결과</th>
+    <th>코드 검색 결과</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203010811-c5e5ef71-8322-475b-8453-55888ab22b2f.png" width="300" height="250" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203013453-a88cb315-44d0-4334-b331-d0512cab3aa2.png" width="300" height="250" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203013535-d82dc016-a824-4455-b197-b783623ebc65.png" width="300" height="250" /></td>
+  </tr>
+</table>
+<br>
+
+#### ⌨ 게시글 보기
+![상세글](https://user-images.githubusercontent.com/112090905/203016831-9a26b27e-c7ec-4f1e-a20d-0008c260cb83.png)
+
+
+#### ⌨ 채팅
+![채팅](https://user-images.githubusercontent.com/112090905/203013732-21308d69-6c98-4aff-8633-bdb8a7ca9519.png)
+<br>
+
+#### ⌨ 구매 / 거래내역
+<table>
+  <tr>
+    <th>구매하기</th>
+    <th>결제</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203014059-734cd7a5-c8d1-40b8-9d2b-447f5737f733.png" width="400" height="250" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203014169-00db33c9-9806-42f0-9a53-b30ffdc58426.png" width="300" height="250" /></td>
+  </tr>
+  <tr>
+    <th>거래내역</th>
+    <th>소스코드파일 다운로드</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203014250-6d0e3b0e-e4bd-4fc1-b780-01185a695b6b.png" width="400" height="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203017180-fd420aae-dccd-495b-83ab-fcce09ae7ee4.png" width="300" height="200" /></td>
+  </tr>
+</table>
+<br>
+
+####  ⌨ 리뷰
+<table>
+  <tr>
+    <th>리뷰 목록</th>
+    <th>리뷰 작성</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203014605-e5701707-1a5c-4bf5-9a6e-00e6cd994b2c.png" width="400" height="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203014667-a6d4db8d-ac7c-48ef-9378-54ef742f06a7.png" width="200" height="250" /></td>
+  </tr>
+</table>
+<br>
+
+#### ⌨ 찜
+<table>
+  <tr>
+    <th>찜하기</th>
+    <th>찜 목록</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203014995-4d07a4a5-7d4a-4cac-91d0-d4b20260f8b3.png" width="200" height="250" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203015060-4a794c10-20e4-4f47-b623-dd7ca180f1ad.png" width="400" height="300" /></td>
+  </tr>
+</table>
+
+---
+<br>
+
+### 🖱 전문가
+
+#### ⌨ 포트폴리오 작성
+<table>
+  <tr>
+    <th>포트폴리오 작성</th>
+    <th>포트폴리오 목록</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203016616-dc593c00-80bd-43e0-ad7d-6302f2214d47.png" width="400" height="300" /></td>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203016692-18d447f5-b0fd-4479-b33a-7bd3f43bc84b.png" width="400" height="300" /></td>
+  </tr>
+</table>
+<br>
+
+#### ⌨ 게시글
+<table>
+  <tr>
+    <th>게시글 관리</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/112090905/203018720-df29d46f-0fd8-47a6-8ee1-c8734f704ce7.png" width="400" height="300" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>게시글 등록</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/112090905/203017868-bb80b273-5f35-4695-8b47-db410dafca42.png" width="400" height="300" />
+      <img src="https://user-images.githubusercontent.com/112090905/203017983-e09dec8c-0254-41ba-8392-942bc3ae6b34.png" width="400" height="300" />
+    </td>
+  </tr>
+  <tr>
+    <th>게시글 수정</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/112090905/203018241-529d8b25-def1-489c-b54e-9637a8cb692f.png" width="400" height="300" />
+      <img src="https://user-images.githubusercontent.com/112090905/203018290-17bc4ea2-e326-4c8c-a5ae-f67bc2f8c816.png" width="400" height="300" />
+    </td>
+  </tr>
+</table>
 <br>
 
 ## ⭐ 팀원 역할
