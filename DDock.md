@@ -102,12 +102,14 @@
 ## ⭐ 팀원 역할
 <table>
   <tr>
-    <td align="center">♋<img src="" width="100" height="100" />
+    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969513-493f9f0f-7f31-4f22-9e5e-e79fccc3f56f.png" width="100" height="100" />
 </td>
-    <td align="center">♓</td>
-    <td align="center">♐</td>
-    <td align="center">♊</td>
-    <td align="center">♋</td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969019-427903b2-7033-4129-a975-22c0274b375f.png" width="100" height="100" />
+</td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969664-f80e8841-fcd0-41d3-a2d5-250e2afe3bf7.png" width="100" height="100" />
+</td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969746-889c1aa0-64a9-4ead-97fe-c4a299fb1751.png" width="100" height="100" /></td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202968883-bfcec59c-964d-4657-aa8a-f96396c08f5c.png" width="100" height="100" /></td>
   </tr>
   <tr>
     <td align="center"><strong>김지수</strong></td>
