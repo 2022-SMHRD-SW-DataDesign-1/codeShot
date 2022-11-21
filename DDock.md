@@ -102,7 +102,7 @@
 ## ⭐ 팀원 역할
 <table>
   <tr>
-    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/202852875-3a209dd9-06bd-4a85-a04c-53f127805467.png" width="100" height="100" />
+    <td align="center">♋<img src="" width="100" height="100" />
 </td>
     <td align="center">♓</td>
     <td align="center">♐</td>
