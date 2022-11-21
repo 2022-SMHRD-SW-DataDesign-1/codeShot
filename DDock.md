@@ -109,7 +109,7 @@
     <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969664-f80e8841-fcd0-41d3-a2d5-250e2afe3bf7.png" width="100" height="100" />
 </td>
     <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969746-889c1aa0-64a9-4ead-97fe-c4a299fb1751.png" width="100" height="100" /></td>
-    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202968883-bfcec59c-964d-4657-aa8a-f96396c08f5c.png" width="100" height="100" /></td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969976-e861c94c-e985-4b6a-8333-eb679f4b0aa2.png" width="100" height="100" /></td>
   </tr>
   <tr>
     <td align="center"><strong>김지수</strong></td>
