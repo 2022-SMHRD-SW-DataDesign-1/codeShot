@@ -322,13 +322,20 @@
     <td align="center">
       1. 회원가입, 로그인
     </td>
-  </tr>  
+  </tr>
+    <tr>
+    <td align="center"><b>Sub</b></td>
+    <td align="center"><b>Sub</b></td>
+    <td align="center"><b>Sub</b></td>
+    <td align="center"><b>Sub</b></td>
+    <td align="center"><b>Sub</b></td>
+  </tr>
   <tr>
-    <td align="center"><b>Sub : Backend, Frontend, 공통업무</b></td>
-    <td align="center"><b>Sub : Frontend, 공통업무</b></td>
-    <td align="center"><b>Sub : Backend, 공통업무</b></td>
-    <td align="center"><b>Sub : 공통업무</b></td>
-    <td align="center"><b>Sub : 공통업무</b></td>
+    <td align="center">Backend, Frontend, 공통업무</td>
+    <td align="center">Frontend, 공통업무</td>
+    <td align="center">Backend, 공통업무</td>
+    <td align="center">공통업무</td>
+    <td align="center">공통업무</td>
   </tr>
   <tr>
     <td align="center">
