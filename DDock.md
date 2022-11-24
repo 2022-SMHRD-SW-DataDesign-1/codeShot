@@ -283,12 +283,74 @@
     <td align="center"><strong>안우중</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>PM</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>FullStack</b></td>
-    <td align="center"><b>Backend</b></td>
+    <td align="center"><b>Main</b></td>
+    <td align="center"><b>Main</b></td>
+    <td align="center"><b>Main</b></td>
+    <td align="center"><b>Main</b></td>
+    <td align="center"><b>Main</b></td>
   </tr>
+  <tr>
+    <td align="center">PM</td>
+    <td align="center">Backend</td>
+    <td align="center">Frontend</td>
+    <td align="center">FullStack</td>
+    <td align="center">Backend</td>
+  </tr>
+  <tr>
+    <td align="center">
+      1.프로젝트 일정 파악<br>
+      2.개인별 진행사항 파악<br>
+      3.리스크관리(기술적 문제, 팀웍 문제)<br>
+      4.회의 진행 및 회의록 <br>
+      5.WBS작성
+    </td>
+    <td align="center">
+      1.게시물 작성 및 관리, 포트폴리오 관리, 게시물 상세 페이지, FAQ 기능 구현
+    </td>
+    <td align="center">
+      1. 화면 UX/UI구현<br>
+      2. 화면 설계서 작성<br>
+      3. Main, 로그인, 회원가입, 리뷰, 로고제작<br>
+    </td>
+    <td align="center">
+      1.서버 API 설계 및 구현<br>
+      2.데이터베이스 구축<br>
+      3.데이터베이스 요구사항 분석서, 테이블 명세서 작성<br>
+      4.채팅, 결제, 게시물 목록, 로그인, 회원가입 기능 구현<br>
+      5.거래내역, 결제, 찜 목록, 검색 화면구현<br>
+    </td>
+    <td align="center">
+      1. 회원가입, 로그인
+    </td>
+  </tr>  
+  <tr>
+    <td align="center"><b>Sub : Backend, Frontend, 공통업무</b></td>
+    <td align="center"><b>Sub : Frontend, 공통업무</b></td>
+    <td align="center"><b>Sub : Backend, 공통업무</b></td>
+    <td align="center"><b>Sub : 공통업무</b></td>
+    <td align="center"><b>Sub : 공통업무</b></td>
+  </tr>
+  <tr>
+    <td align="center">
+      1.검색, 찜 기능구현<br>
+      2.Header, 회원가입, 메인 페이지 게시글 출력 화면 구현<br>
+      3.프로젝트 기획서, 요구사항 정의서 작성<br>
+    </td>
+    <td align="center">
+      1.게시물 작성 및 관리, 포트폴리오 관리, 게시물 상세 페이지, FAQ 화면 구현<br>
+      2.프로젝트 기획서, 요구사항 정의서 작성
+    </td>
+    <td align="center">
+      1.리뷰기능 구현<br>
+      2.프로젝트 기획서, 요구사항 정의서 작성
+    </td>
+    <td align="center">
+      1.프로젝트 기획서, 요구사항 정의서 작성
+    </td>
+    <td align="center">
+      1.프로젝트 기획서, 요구사항 정의서 작성
+    </td>
+  </tr> 
   <tr>
     <td align="center"><a href="https://github.com/KimJi5u" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/74eonk" target='_blank'>github</a></td>
